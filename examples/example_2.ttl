@@ -2,7 +2,7 @@
 @prefix bgf: <https://celldl.org/ontologies/bondgraph-framework#> .
 @prefix cdt: <https://w3id.org/cdt/> .
 
-@prefix : <http://example.org#> .
+@prefix : <#> .
 
 #===============================================================================
 #
@@ -20,6 +20,12 @@
 #      u_1 ----- Re_r ----- u_2
 #
 #===============================================================================
+
+:Simple_reaction
+    a bg:BondGraph ;
+    bg:hasBondElement :q_1, :q_2, :Re_r ;
+    bg:hasJunctionStructure :u_1, :v_r_1, :v_r_2, :u_2 ;
+    bg:hasPowerBond ::u_1.q_1, ::u_2.q_2, :u_1.Re_r, :Re_r.u_2 .
 
 :q_1
     a bgf:ChemicalConcentration ;
@@ -57,19 +63,19 @@
 
 #===============================================================================
 
-:u_1:
+:u_1
     a bgf:ZeroNode ;
     bgf:hasDomain bgf:Biochemical .
 
-:v_r_1:
+:v_r_1
     a bgf:OneNode ;
     bgf:hasDomain bgf:Biochemical .
 
-:v_r_2:
+:v_r_2
     a bgf:OneNode ;
     bgf:hasDomain bgf:Biochemical .
 
-:u_2:
+:u_2
     a bgf:ZeroNode ;
     bgf:hasDomain bgf:Biochemical .
 
@@ -79,22 +85,30 @@
     bgf:hasSource :u_1 ;
     bgf:hasTarget :q_1 .
 
-:u_2.q_2
-    bgf:hasSource :u_2 ;
-    bgf:hasTarget :q_2 .
-
-:u_1.Re_r
+:u_1.v_r_1
     bgf:hasSource :u_1 ;
+    bgf:hasTarget :v_r_1 .
+
+:v_r_1.Re_r
+    bgf:hasSource :v_r_1 ;
     bgf:hasTarget [
         bgf:element :Re_r ;
         bgf:port 0
     ] .
 
-:Re_r.u_2
+:Re_r.v_r_2
     bgf:hasSource [
         bgf:element :Re_r ;
         bgf:port 1
     ] ;
-    bgf:hasTarget :u_1 .
+    bgf:hasTarget :v_r_2 .
+
+:v_r_2.u_2
+    bgf:hasSource :v_r_2 ;
+    bgf:hasTarget :u_2 .
+
+:u_2.q_2
+    bgf:hasSource :u_2 ;
+    bgf:hasTarget :q_2 .
 
 #===============================================================================
