@@ -5,10 +5,19 @@
 
 #===============================================================================
 
-
 # Physical System level
 
-# This is in fact part of the BG RDF specification
+#===============================================================================
+
+bgf:Electrical
+    bgf:hasFlow [
+        bgf:hasUnits "coulomb/s"^^cdt:ucumunit
+    ] ;
+    bgf:hasPotential [
+        bgf:hasUnits "J/coulomb"^^cdt:ucumunit
+    ] .
+
+#===============================================================================
 
 bgf:ElectricalResistor
     a bgf:NodeDefinition ;
