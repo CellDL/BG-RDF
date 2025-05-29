@@ -1,0 +1,128 @@
+@prefix bg: <https://celldl.org/ontologies/bondgraph#> .
+@prefix bgf: <https://celldl.org/ontologies/bondgraph-framework#> .
+@prefix bpc: <https://celldl.org/ontologies/block-port-connector#> .
+@prefix cdt: <https://w3id.org/cdt/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@base <https://celldl.org/ontologies/bondgraph-framework> .
+
+<https://celldl.org/ontologies/bondgraph-framework>
+    a owl:Ontology ;
+    rdfs:label "Bond-Graph Framework" ;
+    dcterms:title "A Framework for Bond-Graph Modelling" .
+
+#################################################################
+#    Classes
+#################################################################
+
+bgf:NodeDefinition
+    a owl:Class .
+
+#################################################################
+
+bgf:Constant
+    a owl:Class .
+
+bgf:Value
+    a owl:Class .
+
+bgf:Variable
+    a owl:Class .
+
+#################################################################
+#    Data properties
+#################################################################
+
+bgf:constitutiveRelation
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:NodeDefinition ;
+    rdfs:range xsd:string .  ## bgf:mathml
+
+bgf:numPorts
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:NodeDefinition ;
+    rdfs:range xsd:positiveInteger .
+
+#################################################################
+
+bgf:hasDomain
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:PowerPort ;
+    rdfs:range xsd:string .
+
+#################################################################
+
+bgf:hasSymbol
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:Value, bgf:Variable ;
+    rdfs:range xsd:Name .
+
+bgf:hasUnits
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:Variable ;
+    rdfs:range cdt:ucumunit .
+
+bgf:hasValue
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:Value ;
+    rdfs:range cdt:ucum .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+bgf:hasParameter
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:NodeDefinition ;
+    rdfs:range bgf:Variable .
+
+bgf:hasPort
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:NodeDefinition ;
+    rdfs:range bg:PowerPort .
+
+bgf:hasState
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:NodeDefinition ;
+    rdfs:range bgf:Variable .
+
+#################################################################
+
+bgf:parameterValue
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:BondElement ;
+    rdfs:range bgf:Value .
+
+bgf:stateValue
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:BondElement ;
+    rdfs:range bgf:Value .
+
+#################################################################
+
+bgf:hasSource
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:PowerBond ;
+    rdfs:range bgf:PowerPort .
+
+bgf:hasTarget
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:PowerBond ;
+    rdfs:range bgf:PowerPort .
+
+#################################################################
+
+bgf:hasPotential
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:PowerPort ;
+    rdfs:range bgf:Variable .
+
+bgf:hasFlow
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:PowerPort ;
+    rdfs:range bgf:Variable .
+
+#################################################################

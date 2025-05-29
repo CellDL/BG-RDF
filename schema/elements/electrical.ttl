@@ -1,0 +1,115 @@
+@prefix bg: <https://celldl.org/ontologies/bondgraph#> .
+@prefix bgf: <https://celldl.org/ontologies/bondgraph-framework#> .
+@prefix cdt: <https://w3id.org/cdt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+#===============================================================================
+
+
+# Physical System level
+
+# This is in fact part of the BG RDF specification
+
+bgf:ElectricalResistor
+    a bgf:NodeDefinition ;
+    rdfs:subClassOf bg:BondElement ;
+    rdfs:label "Electrical resistor" ;
+    bgf:hasPort [
+        bgf:hasDomain bgf:Electrical ;
+        bgf:hasFlow [
+            a bgf:Variable ;
+            bgf:hasSymbol "I"
+        ] ;
+        bgf:hasPotential [
+            a bgf:Variable ;
+            bgf:hasSymbol "V"
+        ]
+    ] ;
+    bgf:hasParameter [
+        a bgf:Variable ;
+        bgf:hasSymbol "R" ;
+        bgf:hasUnits "ohm"^^cdt:ucumunit
+    ] ;
+    bgf:constitutiveRelation """
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>I</ci>
+                <apply>
+                    <divide/>
+                    <ci>V</ci>
+                    <ci>R</ci>
+                </apply>
+            </apply>
+        </math>
+    """^^bgf:mathml .
+
+#===============================================================================
+
+bgf:ElectricalCapacitor
+    a bgf:NodeDefinition ;
+    rdfs:subClassOf bg:BondElement ;
+    rdfs:label "Electrical capacitor" ;
+    bgf:hasPort [
+        a bgf:PowerPort ;
+        bgf:hasDomain bgf:Electrical ;
+        bgf:hasFlow [
+            a bgf:Variable ;
+            bgf:hasSymbol "I"
+        ] ;
+        bgf:hasPotential [
+            a bgf:Variable ;
+            bgf:hasSymbol "V"
+        ]
+    ] ;
+    bgf:hasParameter [
+        a bgf:Variable ;
+        bgf:hasSymbol "C" ;
+        bgf:hasUnits "F"^^cdt:ucumunit
+    ] ;
+    bgf:hasState [
+        a bgf:Variable ;
+        bgf:hasSymbol "q" ;
+        bgf:hasUnits "coloumb"^^cdt:ucumunit
+    ] ;
+    bgf:constitutiveRelation """
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>I</ci>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>V</ci>
+                <apply>
+                    <divide/>
+                    <ci>q</ci>
+                    <ci>C</ci>
+                </apply>
+            </apply>
+        </math>
+    """^^bgf:mathml .
+
+#===============================================================================
+
+bgf:ElectricalVoltageSource
+    rdfs:subClassOf bg:BondElement ;
+    rdfs:label "Electrical voltage source" ;
+    bgf:hasDomain bgf:Electrical ;
+    bgf:hasFlow [
+        a bgf:Variable ;
+        bgf:hasSymbol "I" ;
+    ] ;
+    bgf:hasPotential [
+        a bgf:Variable ;
+        bgf:hasSymbol "V" ;
+    ] .
+
+#===============================================================================
