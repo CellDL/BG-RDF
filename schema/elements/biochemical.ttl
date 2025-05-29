@@ -1,0 +1,140 @@
+@prefix bg: <https://celldl.org/ontologies/bondgraph#> .
+@prefix bgf: <https://celldl.org/ontologies/bondgraph-framework#> .
+@prefix cdt: <https://w3id.org/cdt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+#===============================================================================
+
+bgf:ChemicalReaction
+    a bgf:NodeDefinition ;
+    rdfs:subClassOf bg:BondElement ;
+    rdfs:label "Chemical reaction" ;
+    bgf:hasPort [
+        bgf:hasDomain bgf:Biochemical ;
+        bgf:portNumber 0 ;
+        bgf:hasFlow [
+            a bgf:Variable ;
+            bgf:hasSymbol "v_r"
+        ] ;
+        bgf:hasPotential [
+            a bgf:Variable ;
+            bgf:hasSymbol "u_f"
+        ]
+    ], [
+        bgf:hasDomain bgf:Biochemical ;
+        bgf:portNumber 1 ;
+        bgf:hasFlow [
+            a bgf:Variable ;
+            bgf:hasSymbol "v_r"
+        ] ;
+        bgf:hasPotential [
+            a bgf:Variable ;
+            bgf:hasSymbol "u_r"
+        ]
+    ] ;
+    bgf:hasParameter [
+        a bgf:Variable ;
+        bgf:hasSymbol "kappa_r" ;
+        bgf:hasUnits "mol/s"^^cdt:ucumunit
+    ], [
+        a bgf:Constant ;
+        bgf:hasSymbol "RT" ;
+        bgf:hasUnits "2578.73058 J/mol"^^cdt:unit
+    ] ;
+    bgf:constitutiveRelation """
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+           <apply>
+                <eq/>
+                <ci>v_r</ci>
+                <apply>
+                    <times/>
+                    <ci>kappa_r</ci>
+                    <apply>
+                        <minus/>
+                        <apply>
+                            <exp/>
+                            <apply>
+                                <divide/>
+                                <ci>u_f</ci>
+                                <ci>RT</ci>
+                            </apply>
+                        </apply>
+                        <apply>
+                            <exp/>
+                            <apply>
+                                <divide/>
+                                <ci>u_r</ci>
+                                <ci>RT</ci>
+                            </apply>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+        </math>
+    """^^bgf:mathml .
+
+#===============================================================================
+
+bgf:ChemicalConcentration
+    a bgf:NodeDefinition ;
+    rdfs:subClassOf bg:BondElement ;
+    rdfs:label "Chemical concentration" ;
+    bgf:hasPort [
+        bgf:hasDomain bgf:Biochemical ;
+        bgf:hasFlow [
+            a bgf:Variable ;
+            bgf:hasSymbol "v"
+        ] ;
+        bgf:hasPotential [
+            a bgf:Variable ;
+            bgf:hasSymbol "u"
+        ]
+    ] ;
+    bgf:hasParameter [
+        a bgf:Variable ;
+        bgf:hasSymbol "K" ;
+        bgf:hasUnits "mol-1"^^cdt:ucumunit
+    ], [
+        a bgf:Constant ;
+        bgf:hasSymbol "RT" ;
+        bgf:hasUnits "2578.73058 J/mol"^^cdt:unit
+    ] ;
+    bgf:hasState [
+        a bgf:Variable ;
+        bgf:hasSymbol "q" ;
+        bgf:hasUnits "mol"^^cdt:ucumunit
+    ] ;
+    bgf:constitutiveRelation """
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q</ci>
+                </apply>
+                <ci>v</ci>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u</ci>
+                <apply>
+                    <times/>
+                    <ci>RT</ci>
+                    <apply>
+                        <ln/>
+                        <apply>
+                            <times/>
+                            <ci>K</ci>
+                            <ci>q</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+        </math>
+    """^^bgf:mathml .
+
+#===============================================================================
+
