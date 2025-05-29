@@ -5,6 +5,16 @@
 
 #===============================================================================
 
+bgf:Biochemical
+    bgf:hasFlow [
+        bgf:hasUnits "mol/s"^^cdt:ucumunit
+    ] ;
+    bgf:hasPotential [
+        bgf:hasUnits "J/mol"^^cdt:ucumunit
+    ] .
+
+#===============================================================================
+
 bgf:ChemicalReaction
     a bgf:NodeDefinition ;
     rdfs:subClassOf bg:BondElement ;
