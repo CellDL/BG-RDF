@@ -1,0 +1,103 @@
+@prefix bg: <https://celldl.org/ontologies/bondgraph#> .
+@prefix bgf: <https://celldl.org/ontologies/bondgraph-framework#> .
+@prefix cdt: <https://w3id.org/cdt/> .
+
+@prefix : <#> .
+
+#===============================================================================
+#
+#      +------- R_0 -----+----+  V_out
+#      |                 |    |
+#     V_in              R_1  C_1
+#      |                 |    |
+#      +-----------------+----+
+#
+#===============================================================================
+#
+#               R_0       C_1
+#                |         |
+#                |         |
+#     u_0 ----- v_0 ----- u_1
+#                          |
+#                          |
+#                         R_1
+#
+#===============================================================================
+#
+# Simulate for 0.1 sec at 1 ms steps
+#
+#  V_in = 11 V,  V_out: 0 ---> 1V
+#
+#===============================================================================
+
+:R_C_R_circuit
+    a bg:BondGraph ;
+    bg:hasBondElement :R_0, :R_1, :C_1 ;
+    bg:hasJunctionStructure :u_0, :v_0, :u_1 ;
+    bg:hasPowerBond :u_0.v_0, :v_0.R_0, :v_0.u_1, :u_1.C_1, :u_1.R_1 .
+
+#===============================================================================
+
+:R_0
+    a bgf:ElectricalResistor ;
+    bgf:parameterValue [
+        a bgf:Value ;
+        bgf:hasSymbol "R" ;
+        bgf:hasValue "10 ohm"^^cdt:ucum
+    ] .
+
+:R_1
+    a bgf:ElectricalResistor ;
+    bgf:parameterValue [
+        a bgf:Value ;
+        bgf:hasSymbol "R" ;
+        bgf:hasValue "100 ohm"^^cdt:ucum
+    ] .
+
+:C_1
+    a bgf:ElectricalCapacitor ;
+    bgf:parameterValue [
+        a bgf:Value ;
+        bgf:hasSymbol "C" ;
+        bgf:hasValue "0.001 F"^^cdt:ucum
+    ] .
+
+#===============================================================================
+
+:u_0
+    a bgf:ZeroNode ;
+    bgf:hasDomain bgf:Electrical .    # Deduce domains from PowerBonds?
+
+:v_0
+    a bgf:OneNode ;
+    bgf:hasDomain bgf:Electrical .
+
+:u_1
+    a bgf:ZeroNode ;
+    bgf:hasDomain bgf:Electrical .
+
+#===============================================================================
+
+# PowerBonds implicitly connect to PowerPorts...
+
+:u_0.v_0
+    bgf:hasSource :u_0 ;
+    bgf:hasTarget :v_0 .
+
+:v_0.R_0
+    bgf:hasSource :v_0 ;
+    bgf:hasTarget :R_0 .
+
+:v_0.u_1
+    bgf:hasSource :v_0 ;
+    bgf:hasTarget :u_1 .
+
+:u_1.C_1
+    bgf:hasSource :u_1 ;
+    bgf:hasTarget :C_1 .
+
+:u_1.R_1
+    bgf:hasSource :u_1 ;
+    bgf:hasTarget :R_1 .
+
+#===============================================================================
