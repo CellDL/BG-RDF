@@ -21,6 +21,9 @@
 bgf:NodeDefinition
     a owl:Class .
 
+bgf:Domain
+    a owl:Class .
+
 #################################################################
 
 bgf:Constant
@@ -31,6 +34,17 @@ bgf:Value
 
 bgf:Variable
     a owl:Class .
+
+#################################################################
+
+bgf:Biochemical
+    a bgf:Domain .
+
+bgf:Electrical
+    a bgf:Domain .
+
+bgf:Mechanical
+    a bgf:Domain .
 
 #################################################################
 #    Data properties
@@ -51,7 +65,7 @@ bgf:numPorts
 bgf:hasDomain
     a owl:DatatypeProperty, owl:FunctionalProperty ;
     rdfs:domain bgf:PowerPort ;
-    rdfs:range xsd:string .
+    rdfs:range bgf:Domain .
 
 #################################################################
 
