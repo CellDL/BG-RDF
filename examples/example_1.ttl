@@ -41,7 +41,6 @@
 :R_0
     a bgf:ElectricalResistor ;
     bgf:parameterValue [
-        a bgf:Value ;
         bgf:hasSymbol "R" ;
         bgf:hasValue "10 ohm"^^cdt:ucum
     ] .
@@ -49,7 +48,6 @@
 :R_1
     a bgf:ElectricalResistor ;
     bgf:parameterValue [
-        a bgf:Value ;
         bgf:hasSymbol "R" ;
         bgf:hasValue "100 ohm"^^cdt:ucum
     ] .
@@ -57,7 +55,6 @@
 :C_1
     a bgf:ElectricalCapacitor ;
     bgf:parameterValue [
-        a bgf:Value ;
         bgf:hasSymbol "C" ;
         bgf:hasValue "0.001 F"^^cdt:ucum
     ] .
@@ -66,15 +63,15 @@
 
 :u_0
     a bgf:ZeroNode ;
-    bgf:hasDomain bgf:Electrical .    # Deduce domains from PowerBonds?
+    bgf:hasPotential [
+        bgf:hasValue "11 J/coulomb"^^cdt:ucum
+    ] .
 
 :v_0
-    a bgf:OneNode ;
-    bgf:hasDomain bgf:Electrical .
+    a bgf:OneNode .
 
 :u_1
-    a bgf:ZeroNode ;
-    bgf:hasDomain bgf:Electrical .
+    a bgf:ZeroNode .
 
 #===============================================================================
 

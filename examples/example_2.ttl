@@ -11,14 +11,6 @@
 #       |            u_f        u_r            |
 #      u_1 ---- v_r ----- Re_r ----- v_r ---- u_2
 #
-#
-#  Is this the same??
-#
-#      q_1                  q_2
-#       |                    |
-#       |                    |
-#      u_1 ----- Re_r ----- u_2
-#
 #===============================================================================
 
 :Simple_reaction
@@ -30,12 +22,10 @@
 :q_1
     a bgf:ChemicalConcentration ;
     bgf:parameterValue [
-        a bgf:Value ;
         bgf:hasSymbol "K" ;
         bgf:hasValue "1 mol-1"^^cdt:ucum
     ] ;
     bgf:stateValue [
-        a bgf:Value ;
         bgf:hasSymbol "q" ;
         bgf:hasValue "1 mol"^^cdt:ucum
     ] .
@@ -43,12 +33,10 @@
 :q_2
     a bgf:ChemicalConcentration ;
     bgf:parameterValue [
-        a bgf:Value ;
         bgf:hasSymbol "K" ;
         bgf:hasValue "1 mol-1"^^cdt:ucum
     ] ;
     bgf:stateValue [
-        a bgf:Value ;
         bgf:hasSymbol "q" ;
         bgf:hasValue "0 mol"^^cdt:ucum
     ] .
@@ -56,7 +44,6 @@
 :Re_r
     a bgf:ChemicalReaction ;
     bgf:parameterValue [
-        a bgf:Value ;
         bgf:hasSymbol "kappa_r" ;
         bgf:hasValue "0.1 mol/s"^^cdt:ucum
     ] .
@@ -64,20 +51,16 @@
 #===============================================================================
 
 :u_1
-    a bgf:ZeroNode ;
-    bgf:hasDomain bgf:Biochemical .
+    a bgf:ZeroNode .
 
 :v_r_1
-    a bgf:OneNode ;
-    bgf:hasDomain bgf:Biochemical .
+    a bgf:OneNode .
 
 :v_r_2
-    a bgf:OneNode ;
-    bgf:hasDomain bgf:Biochemical .
+    a bgf:OneNode .
 
 :u_2
-    a bgf:ZeroNode ;
-    bgf:hasDomain bgf:Biochemical .
+    a bgf:ZeroNode .
 
 #===============================================================================
 
