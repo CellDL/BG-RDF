@@ -18,7 +18,7 @@
 #    Classes
 #################################################################
 
-bgf:NodeDefinition
+bgf:ElementTemplate
     a owl:Class .
 
 bgf:Domain
@@ -52,12 +52,12 @@ bgf:Mechanical
 
 bgf:constitutiveRelation
     a owl:DatatypeProperty, owl:FunctionalProperty ;
-    rdfs:domain bgf:NodeDefinition ;
+    rdfs:domain bgf:ElementTemplate ;
     rdfs:range xsd:string .  ## bgf:mathml
 
 bgf:numPorts
     a owl:DatatypeProperty, owl:FunctionalProperty ;
-    rdfs:domain bgf:NodeDefinition ;
+    rdfs:domain bgf:ElementTemplate ;
     rdfs:range xsd:positiveInteger .
 
 #################################################################
@@ -90,17 +90,17 @@ bgf:hasValue
 
 bgf:hasParameter
     a owl:ObjectProperty, owl:FunctionalProperty ;
-    rdfs:domain bgf:NodeDefinition ;
+    rdfs:domain bgf:ElementTemplate ;
     rdfs:range bgf:Variable .
 
 bgf:hasPort
     a owl:ObjectProperty, owl:FunctionalProperty ;
-    rdfs:domain bgf:NodeDefinition ;
+    rdfs:domain bgf:ElementTemplate ;
     rdfs:range bg:PowerPort .
 
 bgf:hasState
     a owl:ObjectProperty, owl:FunctionalProperty ;
-    rdfs:domain bgf:NodeDefinition ;
+    rdfs:domain bgf:ElementTemplate ;
     rdfs:range bgf:Variable .
 
 #################################################################

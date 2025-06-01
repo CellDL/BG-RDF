@@ -20,7 +20,7 @@ bgf:Electrical
 #===============================================================================
 
 bgf:ElectricalResistor
-    a bgf:NodeDefinition ;
+    a bgf:ElementTemplate ;
     rdfs:subClassOf bg:BondElement ;
     rdfs:label "Electrical resistor" ;
     bgf:hasPort [
@@ -56,7 +56,7 @@ bgf:ElectricalResistor
 #===============================================================================
 
 bgf:ElectricalCapacitor
-    a bgf:NodeDefinition ;
+    a bgf:ElementTemplate ;
     rdfs:subClassOf bg:BondElement ;
     rdfs:label "Electrical capacitor" ;
     bgf:hasPort [
