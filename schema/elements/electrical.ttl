@@ -11,10 +11,10 @@
 
 bgf:Electrical
     bgf:hasFlow [
-        bgf:hasUnits "coulomb/s"^^cdt:ucumunit
+        bgf:hasUnits "C/s"^^cdt:ucumunit
     ] ;
     bgf:hasPotential [
-        bgf:hasUnits "J/coulomb"^^cdt:ucumunit
+        bgf:hasUnits "J/C"^^cdt:ucumunit
     ] .
 
 #===============================================================================
@@ -37,7 +37,7 @@ bgf:ElectricalResistor
     bgf:hasParameter [
         a bgf:Variable ;
         bgf:hasSymbol "R" ;
-        bgf:hasUnits "ohm"^^cdt:ucumunit
+        bgf:hasUnits "Ohm"^^cdt:ucumunit
     ] ;
     bgf:constitutiveRelation """
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -79,7 +79,7 @@ bgf:ElectricalCapacitor
     bgf:hasState [
         a bgf:Variable ;
         bgf:hasSymbol "q" ;
-        bgf:hasUnits "coloumb"^^cdt:ucumunit
+        bgf:hasUnits "C"^^cdt:ucumunit
     ] ;
     bgf:constitutiveRelation """
         <math xmlns="http://www.w3.org/1998/Math/MathML">
