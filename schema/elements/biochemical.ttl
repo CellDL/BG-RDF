@@ -16,7 +16,7 @@ bgf:Biochemical
 #===============================================================================
 
 bgf:ChemicalReaction
-    a bgf:NodeDefinition ;
+    a bgf:ElementTemplate ;
     rdfs:subClassOf bg:BondElement ;
     rdfs:label "Chemical reaction" ;
     bgf:hasPort [
@@ -86,7 +86,7 @@ bgf:ChemicalReaction
 #===============================================================================
 
 bgf:ChemicalConcentration
-    a bgf:NodeDefinition ;
+    a bgf:ElementTemplate ;
     rdfs:subClassOf bg:BondElement ;
     rdfs:label "Chemical concentration" ;
     bgf:hasPort [
