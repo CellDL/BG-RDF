@@ -49,7 +49,7 @@ bgf:ChemicalReaction
     ], [
         a bgf:Constant ;
         bgf:hasSymbol "RT" ;
-        bgf:hasValue "2578.73058 J/mol"^^cdt:unit
+        bgf:hasValue "2578.73058 J/mol"^^cdt:ucum
     ] ;
     bgf:constitutiveRelation """
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -107,7 +107,7 @@ bgf:ChemicalConcentration
     ], [
         a bgf:Constant ;
         bgf:hasSymbol "RT" ;
-        bgf:hasUnits "2578.73058 J/mol"^^cdt:unit
+        bgf:hasValue "2578.73058 J/mol"^^cdt:ucum
     ] ;
     bgf:hasState [
         a bgf:Variable ;
