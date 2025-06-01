@@ -88,29 +88,19 @@ bgf:hasValue
 #    Object Properties
 #################################################################
 
-bgf:hasParameter
-    a owl:ObjectProperty, owl:FunctionalProperty ;
-    rdfs:domain bgf:ElementTemplate ;
-    rdfs:range bgf:Variable .
-
 bgf:hasPort
     a owl:ObjectProperty, owl:FunctionalProperty ;
     rdfs:domain bgf:ElementTemplate ;
     rdfs:range bg:PowerPort .
 
-bgf:hasState
+bgf:hasVariable
     a owl:ObjectProperty, owl:FunctionalProperty ;
     rdfs:domain bgf:ElementTemplate ;
     rdfs:range bgf:Variable .
 
 #################################################################
 
-bgf:parameterValue
-    a owl:ObjectProperty, owl:FunctionalProperty ;
-    rdfs:domain bgf:BondElement ;
-    rdfs:range bgf:Value .
-
-bgf:stateValue
+bgf:variableValue
     a owl:ObjectProperty, owl:FunctionalProperty ;
     rdfs:domain bgf:BondElement ;
     rdfs:range bgf:Value .
