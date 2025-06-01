@@ -26,16 +26,13 @@ bgf:ElectricalResistor
     bgf:hasPort [
         bgf:hasDomain bgf:Electrical ;
         bgf:hasFlow [
-            a bgf:Variable ;
             bgf:hasSymbol "I"
         ] ;
         bgf:hasPotential [
-            a bgf:Variable ;
             bgf:hasSymbol "V"
         ]
     ] ;
-    bgf:hasParameter [
-        a bgf:Variable ;
+    bgf:hasVariable [
         bgf:hasSymbol "R" ;
         bgf:hasUnits "Ohm"^^cdt:ucumunit
     ] ;
@@ -63,21 +60,16 @@ bgf:ElectricalCapacitor
         a bgf:PowerPort ;
         bgf:hasDomain bgf:Electrical ;
         bgf:hasFlow [
-            a bgf:Variable ;
             bgf:hasSymbol "I"
         ] ;
         bgf:hasPotential [
-            a bgf:Variable ;
             bgf:hasSymbol "V"
         ]
     ] ;
-    bgf:hasParameter [
-        a bgf:Variable ;
+    bgf:hasVariable [
         bgf:hasSymbol "C" ;
         bgf:hasUnits "F"^^cdt:ucumunit
-    ] ;
-    bgf:hasState [
-        a bgf:Variable ;
+    ], [
         bgf:hasSymbol "q" ;
         bgf:hasUnits "C"^^cdt:ucumunit
     ] ;

@@ -21,29 +21,27 @@
 
 :q_1
     a bgf:ChemicalConcentration ;
-    bgf:parameterValue [
+    bgf:variableValue [
         bgf:hasSymbol "K" ;
         bgf:hasValue "1 mol-1"^^cdt:ucum
-    ] ;
-    bgf:stateValue [
+    ], [
         bgf:hasSymbol "q" ;
         bgf:hasValue "1 mol"^^cdt:ucum
     ] .
 
 :q_2
     a bgf:ChemicalConcentration ;
-    bgf:parameterValue [
+    bgf:variableValue [
         bgf:hasSymbol "K" ;
         bgf:hasValue "1 mol-1"^^cdt:ucum
-    ] ;
-    bgf:stateValue [
+    ], [
         bgf:hasSymbol "q" ;
         bgf:hasValue "0 mol"^^cdt:ucum
     ] .
 
 :Re_r
     a bgf:ChemicalReaction ;
-    bgf:parameterValue [
+    bgf:variableValue [
         bgf:hasSymbol "kappa_r" ;
         bgf:hasValue "0.1 mol/s"^^cdt:ucum
     ] .
