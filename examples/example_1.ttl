@@ -42,14 +42,14 @@
     a bgf:ElectricalResistor ;
     bgf:variableValue [
         bgf:hasSymbol "R" ;
-        bgf:hasValue "10 ohm"^^cdt:ucum
+        bgf:hasValue "10 Ohm"^^cdt:ucum
     ] .
 
 :R_1
     a bgf:ElectricalResistor ;
     bgf:variableValue [
         bgf:hasSymbol "R" ;
-        bgf:hasValue "100 ohm"^^cdt:ucum
+        bgf:hasValue "100 Ohm"^^cdt:ucum
     ] .
 
 :C_1
@@ -64,7 +64,7 @@
 :u_0
     a bgf:ZeroNode ;
     bgf:hasPotential [
-        bgf:hasValue "11 J/coulomb"^^cdt:ucum
+        bgf:hasValue "11 J/C"^^cdt:ucum
     ] .
 
 :v_0
