@@ -23,7 +23,7 @@ bgf:ChemicalReaction
         bgf:hasDomain bgf:Biochemical ;
         bgf:portNumber 0 ;
         bgf:hasFlow [
-            bgf:hasSymbol "v_r"
+            bgf:hasSymbol "v_f"
         ] ;
         bgf:hasPotential [
             bgf:hasSymbol "u_f"
@@ -49,7 +49,12 @@ bgf:ChemicalReaction
     ] ;
     bgf:constitutiveRelation """
         <math xmlns="http://www.w3.org/1998/Math/MathML">
-           <apply>
+            <apply>
+                <eq/>
+                <ci>v_f</ci>
+                <ci>v_r</ci>
+            </apply>
+            <apply>
                 <eq/>
                 <ci>v_r</ci>
                 <apply>
