@@ -10,6 +10,7 @@
 #===============================================================================
 
 bgf:Electrical
+    a bgf:Domain ;
     bgf:hasFlow [
         bgf:hasUnits "C/s"^^cdt:ucumunit
     ] ;
@@ -23,8 +24,8 @@ bgf:ElectricalResistor
     a bgf:ElementTemplate ;
     rdfs:subClassOf bg:BondElement ;
     rdfs:label "Electrical resistor" ;
+    bgf:hasDomain bgf:Electrical ;
     bgf:hasPort [
-        bgf:hasDomain bgf:Electrical ;
         bgf:hasFlow [
             bgf:hasSymbol "I"
         ] ;
@@ -56,9 +57,9 @@ bgf:ElectricalCapacitor
     a bgf:ElementTemplate ;
     rdfs:subClassOf bg:BondElement ;
     rdfs:label "Electrical capacitor" ;
+    bgf:hasDomain bgf:Electrical ;
     bgf:hasPort [
         a bgf:PowerPort ;
-        bgf:hasDomain bgf:Electrical ;
         bgf:hasFlow [
             bgf:hasSymbol "I"
         ] ;

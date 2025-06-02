@@ -88,6 +88,11 @@ bgf:hasValue
 #    Object Properties
 #################################################################
 
+bgf:hasConstant
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:Domain ;
+    rdfs:range bgf:Variable .
+
 bgf:hasPort
     a owl:ObjectProperty, owl:FunctionalProperty ;
     rdfs:domain bgf:ElementTemplate ;
@@ -114,7 +119,7 @@ bgf:hasSource
 
 bgf:hasTarget
     a owl:ObjectProperty, owl:FunctionalProperty ;
-    rdfs:domain bgf:PowerBond ;
+    rdfs:domain bgf:Domain, bgf:PowerBond ;
     rdfs:range bgf:PowerPort .
 
 #################################################################
@@ -126,7 +131,7 @@ bgf:hasPotential
 
 bgf:hasFlow
     a owl:ObjectProperty, owl:FunctionalProperty ;
-    rdfs:domain bgf:PowerPort ;
+    rdfs:domain bgf:Domain, bgf:PowerPort ;
     rdfs:range bgf:Variable .
 
 #################################################################
