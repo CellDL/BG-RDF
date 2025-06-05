@@ -85,18 +85,3 @@ bgf:ElectricalCapacitor
     """^^bgf:mathml .
 
 #===============================================================================
-
-bgf:ElectricalVoltageSource
-    rdfs:subClassOf bg:BondElement ;
-    rdfs:label "Electrical voltage source" ;
-    bgf:hasDomain bgf:Electrical ;
-    bgf:hasFlow [
-        a bgf:Variable ;
-        bgf:hasSymbol "I" ;
-    ] ;
-    bgf:hasPotential [
-        a bgf:Variable ;
-        bgf:hasSymbol "V" ;
-    ] .
-
-#===============================================================================
