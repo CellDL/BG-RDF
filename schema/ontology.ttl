@@ -47,13 +47,23 @@ bgf:Mechanical
     a bgf:Domain .
 
 #################################################################
+
+bgf:latex
+    a rdfs:Datatype ;
+    rdfs:subClassOf xsd:string .
+
+bgf:mathml
+    a rdfs:Datatype ;
+    rdfs:subClassOf xsd:string .
+
+#################################################################
 #    Data properties
 #################################################################
 
 bgf:constitutiveRelation
     a owl:DatatypeProperty, owl:FunctionalProperty ;
     rdfs:domain bgf:ElementTemplate ;
-    rdfs:range xsd:string .  ## bgf:mathml
+    rdfs:range bgf:mathml .
 
 bgf:hasPortId
     a owl:DatatypeProperty ;
