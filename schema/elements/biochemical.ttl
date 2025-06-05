@@ -12,9 +12,11 @@ bgf:Biochemical
         bgf:hasValue "2578.73058 J/mol"^^cdt:ucum
     ] ;
     bgf:hasFlow [
+        bgf:hasSymbol "v" ;
         bgf:hasUnits "mol/s"^^cdt:ucumunit
     ] ;
     bgf:hasPotential [
+        bgf:hasSymbol "u" ;
         bgf:hasUnits "J/mol"^^cdt:ucumunit
     ] .
 
@@ -25,23 +27,7 @@ bgf:ChemicalReaction
     rdfs:subClassOf bg:BondElement ;
     rdfs:label "Chemical reaction" ;
     bgf:hasDomain bgf:Biochemical ;
-    bgf:hasPort [
-        bgf:portNumber 0 ;
-        bgf:hasFlow [
-            bgf:hasSymbol "v_f"
-        ] ;
-        bgf:hasPotential [
-            bgf:hasSymbol "u_f"
-        ]
-    ], [
-        bgf:portNumber 1 ;
-        bgf:hasFlow [
-            bgf:hasSymbol "v_r"
-        ] ;
-        bgf:hasPotential [
-            bgf:hasSymbol "u_r"
-        ]
-    ] ;
+    bgf:hasPortId 'f', 'r' ;
     bgf:hasVariable [
         bgf:hasSymbol "kappa_r" ;
         bgf:hasUnits "mol/s"^^cdt:ucumunit
@@ -90,14 +76,6 @@ bgf:ChemicalConcentration
     rdfs:subClassOf bg:BondElement ;
     rdfs:label "Chemical concentration" ;
     bgf:hasDomain bgf:Biochemical ;
-    bgf:hasPort [
-        bgf:hasFlow [
-            bgf:hasSymbol "v"
-        ] ;
-        bgf:hasPotential [
-            bgf:hasSymbol "u"
-        ]
-    ] ;
     bgf:hasVariable [
         bgf:hasSymbol "K" ;
         bgf:hasUnits "mol-1"^^cdt:ucumunit
