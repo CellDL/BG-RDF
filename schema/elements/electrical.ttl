@@ -12,9 +12,11 @@
 bgf:Electrical
     a bgf:Domain ;
     bgf:hasFlow [
+        bgf:hasSymbol "I" ;
         bgf:hasUnits "C/s"^^cdt:ucumunit
     ] ;
     bgf:hasPotential [
+        bgf:hasSymbol "V" ;
         bgf:hasUnits "J/C"^^cdt:ucumunit
     ] .
 
@@ -25,14 +27,6 @@ bgf:ElectricalResistor
     rdfs:subClassOf bg:BondElement ;
     rdfs:label "Electrical resistor" ;
     bgf:hasDomain bgf:Electrical ;
-    bgf:hasPort [
-        bgf:hasFlow [
-            bgf:hasSymbol "I"
-        ] ;
-        bgf:hasPotential [
-            bgf:hasSymbol "V"
-        ]
-    ] ;
     bgf:hasVariable [
         bgf:hasSymbol "R" ;
         bgf:hasUnits "Ohm"^^cdt:ucumunit
@@ -58,15 +52,6 @@ bgf:ElectricalCapacitor
     rdfs:subClassOf bg:BondElement ;
     rdfs:label "Electrical capacitor" ;
     bgf:hasDomain bgf:Electrical ;
-    bgf:hasPort [
-        a bgf:PowerPort ;
-        bgf:hasFlow [
-            bgf:hasSymbol "I"
-        ] ;
-        bgf:hasPotential [
-            bgf:hasSymbol "V"
-        ]
-    ] ;
     bgf:hasVariable [
         bgf:hasSymbol "C" ;
         bgf:hasUnits "F"^^cdt:ucumunit

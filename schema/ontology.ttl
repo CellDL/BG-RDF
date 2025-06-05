@@ -55,6 +55,11 @@ bgf:constitutiveRelation
     rdfs:domain bgf:ElementTemplate ;
     rdfs:range xsd:string .  ## bgf:mathml
 
+bgf:hasPortId
+    a owl:DatatypeProperty ;
+    rdfs:domain bgf:ElementTemplate ;
+    rdfs:range xsd:string .
+
 bgf:numPorts
     a owl:DatatypeProperty, owl:FunctionalProperty ;
     rdfs:domain bgf:ElementTemplate ;
