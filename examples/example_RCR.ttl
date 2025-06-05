@@ -63,9 +63,7 @@
 
 :u_0
     a bgf:ZeroNode ;
-    bgf:hasPotential [
-        bgf:hasValue "11 V"^^cdt:ucum
-    ] .
+    bgf:hasValue "11 V"^^cdt:ucum .
 
 :v_0
     a bgf:OneNode .
