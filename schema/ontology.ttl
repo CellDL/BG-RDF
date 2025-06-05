@@ -11,7 +11,6 @@
 
 <https://celldl.org/ontologies/bondgraph-framework>
     a owl:Ontology ;
-    rdfs:label "Bond-Graph Framework" ;
     dcterms:title "A Framework for Bond-Graph Modelling" .
 
 #################################################################
