@@ -1,0 +1,85 @@
+@prefix bg: <https://celldl.org/ontologies/bondgraph#> .
+@prefix bgf: <https://celldl.org/ontologies/bondgraph-framework#> .
+@prefix cdt: <https://w3id.org/cdt/> .
+
+@prefix : <#> .
+
+#===============================================================================
+#
+#      +------- R_0 -------+  V_out
+#      |                   |
+#     V_in                C_1
+#      |                   |
+#      +-------------------+
+#
+#===============================================================================
+#
+#               R_0       C_1
+#                |         |
+#                |         |
+#     u_0 ------ v ------ u_1
+#
+#===============================================================================
+#
+# Simulate for 0.1 sec at 1 ms steps
+#
+#  V_in = 10 V,  V_out: 0 ---> 10V
+#
+#===============================================================================
+
+:RC_circuit
+    a bg:BondGraph ;
+    bg:hasBondElement :R, :C ;
+    bg:hasJunctionStructure :u_0, :v, :u_1 ;
+    bg:hasPowerBond :u_0.v, :v.R, :v.u_1, :u_1.C .
+
+#===============================================================================
+
+:R
+    a bgf:ElectricalResistor ;
+    bgf:variableValue [
+        bgf:hasSymbol "R" ;
+        bgf:hasValue "10 Ohm"^^cdt:ucum
+    ] .
+
+:C
+    a bgf:ElectricalCapacitor ;
+    bgf:variableValue [
+        bgf:hasSymbol "C" ;
+        bgf:hasValue "0.001 F"^^cdt:ucum
+    ], [
+        bgf:hasSymbol "q" ;
+        bgf:hasValue "0.0 C"^^cdt:ucum
+    ] .
+
+#===============================================================================
+
+:u_0
+    a bgf:ZeroNode ;
+    bgf:hasValue "10 V"^^cdt:ucum .
+
+:v
+    a bgf:OneNode .
+
+:u_1
+    a bgf:ZeroNode .
+
+#===============================================================================
+
+:u_0.v
+    bgf:hasSource :u_0 ;
+    bgf:hasTarget :v .
+
+:v.R
+    bgf:hasSource :v ;
+    bgf:hasTarget :R .
+
+:v.u_1
+    bgf:hasSource :v ;
+    bgf:hasTarget :u_1 .
+
+:u_1.C
+    bgf:hasSource :u_1 ;
+    bgf:hasTarget :C .
+
+#===============================================================================
