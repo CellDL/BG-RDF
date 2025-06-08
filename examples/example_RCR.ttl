@@ -57,6 +57,9 @@
     bgf:variableValue [
         bgf:hasSymbol "C" ;
         bgf:hasValue "0.001 F"^^cdt:ucum
+    ], [
+        bgf:hasSymbol "q" ;
+        bgf:hasValue "0.0 C"^^cdt:ucum
     ] .
 
 #===============================================================================
