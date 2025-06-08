@@ -12,11 +12,11 @@
 bgf:Electrical
     a bgf:Domain ;
     bgf:hasFlow [
-        bgf:hasSymbol "I" ;
+        bgf:hasSymbol "v" ;
         bgf:hasUnits "C/s"^^cdt:ucumunit
     ] ;
     bgf:hasPotential [
-        bgf:hasSymbol "V" ;
+        bgf:hasSymbol "u" ;
         bgf:hasUnits "J/C"^^cdt:ucumunit
     ] .
 
@@ -35,10 +35,10 @@ bgf:ElectricalResistor
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
-                <ci>I</ci>
+                <ci>v</ci>
                 <apply>
                     <divide/>
-                    <ci>V</ci>
+                    <ci>u</ci>
                     <ci>R</ci>
                 </apply>
             </apply>
@@ -63,7 +63,7 @@ bgf:ElectricalCapacitor
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
-                <ci>I</ci>
+                <ci>v</ci>
                 <apply>
                     <diff/>
                     <bvar>
@@ -74,7 +74,7 @@ bgf:ElectricalCapacitor
             </apply>
             <apply>
                 <eq/>
-                <ci>V</ci>
+                <ci>u</ci>
                 <apply>
                     <divide/>
                     <ci>q</ci>
