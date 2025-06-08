@@ -74,13 +74,13 @@
     bgf:hasSource :v_r_1 ;
     bgf:hasTarget [
         bgf:element :Re_r ;
-        bgf:port "r"
+        bgf:port "f"
     ] .
 
 :Re_r.v_r_2
     bgf:hasSource [
         bgf:element :Re_r ;
-        bgf:port "f"
+        bgf:port "r"
     ] ;
     bgf:hasTarget :v_r_2 .
 
