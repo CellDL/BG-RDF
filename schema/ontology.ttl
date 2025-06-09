@@ -83,7 +83,7 @@ bgf:hasDomain
 
 #################################################################
 
-bgf:hasSymbol
+bgf:varName
     a owl:DatatypeProperty, owl:FunctionalProperty ;
     rdfs:domain bgf:Value, bgf:Variable ;
     rdfs:range xsd:Name .

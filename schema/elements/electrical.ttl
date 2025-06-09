@@ -12,11 +12,11 @@
 bgf:Electrical
     a bgf:Domain ;
     bgf:hasFlow [
-        bgf:hasSymbol "v" ;
+        bgf:varName "v" ;
         bgf:hasUnits "C/s"^^cdt:ucumunit
     ] ;
     bgf:hasPotential [
-        bgf:hasSymbol "u" ;
+        bgf:varName "u" ;
         bgf:hasUnits "J/C"^^cdt:ucumunit
     ] .
 
@@ -28,7 +28,7 @@ bgf:ElectricalResistor
     rdfs:label "Electrical resistor" ;
     bgf:hasDomain bgf:Electrical ;
     bgf:hasVariable [
-        bgf:hasSymbol "R" ;
+        bgf:varName "R" ;
         bgf:hasUnits "Ohm"^^cdt:ucumunit
     ] ;
     bgf:constitutiveRelation """
@@ -53,10 +53,10 @@ bgf:ElectricalCapacitor
     rdfs:label "Electrical capacitor" ;
     bgf:hasDomain bgf:Electrical ;
     bgf:hasVariable [
-        bgf:hasSymbol "C" ;
+        bgf:varName "C" ;
         bgf:hasUnits "F"^^cdt:ucumunit
     ], [
-        bgf:hasSymbol "q" ;
+        bgf:varName "q" ;
         bgf:hasUnits "C"^^cdt:ucumunit
     ] ;
     bgf:constitutiveRelation """
