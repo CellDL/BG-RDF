@@ -13,6 +13,9 @@
 #
 #===============================================================================
 #
+# FAIRDO BG example 3.4 on PMR
+# https://models.physiomeproject.org/e/b53/FAIRDO%20BG%20example%203.4.cellml/view
+#
 # Simulate for 40 seconds at 0.01 second steps
 #
 #===============================================================================
@@ -22,6 +25,8 @@
     bg:hasBondElement :q_1, :q_2, :Re_r ;
     bg:hasJunctionStructure :u_1, :v_r_1, :v_r_2, :u_2 ;
     bg:hasPowerBond :u_1.q_1, :u_1.v_r_1, :v_r_1.Re_r, :Re_r.v_r_2, :v_r_2.u_2, :u_2.q_2 .
+
+#===============================================================================
 
 :q_1
     a bgf:ChemicalConcentration ;
