@@ -8,4 +8,5 @@
 
 * **[bg2cellml](/tools)**: a Python utility to generate CellML from BG-RDF models.
   
-
+> [!NOTE]
+> The framework and its tooling are actively being developed and nothing should be considered stable until version `1.0` has been released.
