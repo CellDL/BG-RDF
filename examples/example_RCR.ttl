@@ -41,24 +41,24 @@
 :R_0
     a bgf:ElectricalResistor ;
     bgf:variableValue [
-        bgf:hasSymbol "R" ;
+        bgf:varName "R" ;
         bgf:hasValue "10 Ohm"^^cdt:ucum
     ] .
 
 :R_1
     a bgf:ElectricalResistor ;
     bgf:variableValue [
-        bgf:hasSymbol "R" ;
+        bgf:varName "R" ;
         bgf:hasValue "100 Ohm"^^cdt:ucum
     ] .
 
 :C_1
     a bgf:ElectricalCapacitor ;
     bgf:variableValue [
-        bgf:hasSymbol "C" ;
+        bgf:varName "C" ;
         bgf:hasValue "0.001 F"^^cdt:ucum
     ], [
-        bgf:hasSymbol "q" ;
+        bgf:varName "q" ;
         bgf:hasValue "0.0 C"^^cdt:ucum
     ] .
 

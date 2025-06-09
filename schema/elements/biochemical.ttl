@@ -8,15 +8,15 @@
 bgf:Biochemical
     a bgf:Domain ;
     bgf:hasConstant [
-        bgf:hasSymbol "RT" ;
+        bgf:varName "RT" ;
         bgf:hasValue "2578.73058 J/mol"^^cdt:ucum
     ] ;
     bgf:hasFlow [
-        bgf:hasSymbol "v" ;
+        bgf:varName "v" ;
         bgf:hasUnits "mol/s"^^cdt:ucumunit
     ] ;
     bgf:hasPotential [
-        bgf:hasSymbol "u" ;
+        bgf:varName "u" ;
         bgf:hasUnits "J/mol"^^cdt:ucumunit
     ] .
 
@@ -29,7 +29,7 @@ bgf:ChemicalReaction
     bgf:hasDomain bgf:Biochemical ;
     bgf:hasPortId 'f', 'r' ;
     bgf:hasVariable [
-        bgf:hasSymbol "kappa_r" ;
+        bgf:varName "kappa_r" ;
         bgf:hasUnits "mol/s"^^cdt:ucumunit
     ] ;
     bgf:constitutiveRelation """
@@ -77,10 +77,10 @@ bgf:ChemicalConcentration
     rdfs:label "Chemical concentration" ;
     bgf:hasDomain bgf:Biochemical ;
     bgf:hasVariable [
-        bgf:hasSymbol "K" ;
+        bgf:varName "K" ;
         bgf:hasUnits "mol-1"^^cdt:ucumunit
     ], [
-        bgf:hasSymbol "q" ;
+        bgf:varName "q" ;
         bgf:hasUnits "mol"^^cdt:ucumunit
     ] ;
     bgf:constitutiveRelation """
