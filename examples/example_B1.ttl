@@ -35,6 +35,7 @@
         bgf:hasValue "1 mol-1"^^cdt:ucum
     ], [
         bgf:varName "q" ;
+        bgf:hasSymbol "q_1" ;
         bgf:hasValue "1 mol"^^cdt:ucum
     ] .
 
@@ -45,6 +46,7 @@
         bgf:hasValue "1 mol-1"^^cdt:ucum
     ], [
         bgf:varName "q" ;
+        bgf:hasSymbol "q_2" ;
         bgf:hasValue "0 mol"^^cdt:ucum
     ] .
 
@@ -52,6 +54,7 @@
     a bgf:ChemicalReaction ;
     bgf:variableValue [
         bgf:varName "kappa_r" ;
+        bgf:hasSymbol "kappa_r" ;
         bgf:hasValue "0.1 mol/s"^^cdt:ucum
     ] .
 
