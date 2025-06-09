@@ -1,4 +1,4 @@
-# BG-RDF -- a Framework for Bond-Graph Modelling
+# BG-RDF – a Framework for Bond-Graph Modelling
 
 ## Documentation:
 
