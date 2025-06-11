@@ -5,6 +5,16 @@
 
 #===============================================================================
 
+bgf:ResistanceNode
+    rdfs:subClassOf bg:BondElement ;
+    rdfs:label "Resistance node" .
+
+bgf:StorageNode
+    rdfs:subClassOf bg:BondElement ;
+    rdfs:label "Storage node" .
+
+#===============================================================================
+
 bgf:OneNode
     rdfs:subClassOf bg:JunctionStructure ;
     rdfs:label "One node" .

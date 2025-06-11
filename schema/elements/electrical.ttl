@@ -23,9 +23,9 @@ bgf:Electrical
 
 bgf:ElectricalResistor
     a bgf:ElementTemplate ;
-    rdfs:subClassOf bg:BondElement ;
-    rdfs:label "Electrical resistor" ;
+    rdfs:subClassOf bgf:ResistanceNode ;
     bgf:hasDomain bgf:Electrical ;
+    rdfs:label "Electrical resistor" ;
     bgf:hasVariable [
         bgf:varName "R" ;
         bgf:hasUnits "Ohm"^^cdt:ucumunit
@@ -48,9 +48,9 @@ bgf:ElectricalResistor
 
 bgf:ElectricalCapacitor
     a bgf:ElementTemplate ;
-    rdfs:subClassOf bg:BondElement ;
-    rdfs:label "Electrical capacitor" ;
+    rdfs:subClassOf bgf:StorageNode ;
     bgf:hasDomain bgf:Electrical ;
+    rdfs:label "Electrical capacitor" ;
     bgf:hasVariable [
         bgf:varName "C" ;
         bgf:hasUnits "F"^^cdt:ucumunit
