@@ -84,3 +84,42 @@ bgf:ElectricalCapacitor
     """^^bgf:mathml .
 
 #===============================================================================
+
+bgf:ElectricalInductor
+    a bgf:ElementTemplate ;
+    rdfs:subClassOf bgf:StorageNode ;
+    bgf:hasDomain bgf:Electrical ;
+    rdfs:label "Electrical inductor" ;
+    bgf:hasVariable [
+        bgf:varName "L" ;
+        bgf:hasUnits "H"^^cdt:ucumunit
+    ], [
+        bgf:varName "a" ;
+        bgf:hasUnits "C/s2"^^cdt:ucumunit
+    ] ;
+    bgf:constitutiveRelation """
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>a</ci>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>v</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u</ci>
+                <apply>
+                    <times/>
+                    <ci>L</ci>
+                    <ci>a</ci>
+                </apply>
+            </apply>
+        </math>
+    """^^bgf:mathml .
+
+#===============================================================================
