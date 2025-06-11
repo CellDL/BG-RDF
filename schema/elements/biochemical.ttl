@@ -23,7 +23,7 @@ bgf:Biochemical
 
 bgf:ChemicalReaction
     a bgf:ElementTemplate ;
-    rdfs:subClassOf bg:BondElement ;
+    rdfs:subClassOf bgf:ResistanceNode ;
     rdfs:label "Chemical reaction" ;
     bgf:hasDomain bgf:Biochemical ;
     bgf:hasPortId 'f', 'r' ;
@@ -72,7 +72,7 @@ bgf:ChemicalReaction
 
 bgf:ChemicalConcentration
     a bgf:ElementTemplate ;
-    rdfs:subClassOf bg:BondElement ;
+    rdfs:subClassOf bgf:StorageNode ;
     rdfs:label "Chemical concentration" ;
     bgf:hasDomain bgf:Biochemical ;
     bgf:hasVariable [
