@@ -49,13 +49,17 @@ bgf:Mechanical
 
 #################################################################
 
-bgf:ResistanceNode
+bgf:ChargeStorage
+    rdfs:subClassOf bg:BondElement ;
+    rdfs:label "Charge storage node" .
+
+bgf:FluxStorage
+    rdfs:subClassOf bg:BondElement ;
+    rdfs:label "Flux storage node" .
+
+bgf:Resistance
     rdfs:subClassOf bg:BondElement ;
     rdfs:label "Resistance node" .
-
-bgf:StorageNode
-    rdfs:subClassOf bg:BondElement ;
-    rdfs:label "Storage node" .
 
 #################################################################
 
