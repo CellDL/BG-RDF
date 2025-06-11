@@ -49,6 +49,31 @@ bgf:Mechanical
 
 #################################################################
 
+bgf:ResistanceNode
+    rdfs:subClassOf bg:BondElement ;
+    rdfs:label "Resistance node" .
+
+bgf:StorageNode
+    rdfs:subClassOf bg:BondElement ;
+    rdfs:label "Storage node" .
+
+#################################################################
+
+bgf:OneNode
+    rdfs:subClassOf bg:JunctionStructure ;
+    rdfs:label "One node" .
+
+bgf:TransformNode
+    rdfs:subClassOf bg:JunctionStructure ;
+    rdfs:label "Transform node" ;
+    bgf:numPorts 2 .
+
+bgf:ZeroNode
+    rdfs:subClassOf bg:JunctionStructure ;
+    rdfs:label "Zero node" .
+
+#################################################################
+
 bgf:latex
     a rdfs:Datatype ;
     rdfs:subClassOf xsd:string .
