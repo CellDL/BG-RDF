@@ -22,7 +22,8 @@
 #===============================================================================
 
 :q_C
-    a bgf:ElectricalCapacitor ;
+    a bgf:ChargeStorage ;
+    bgf:hasDomain bgf:Electrical ;
     bgf:variableValue [
         bgf:varName "C" ;
         bgf:hasValue "20 F"^^cdt:ucum
@@ -32,14 +33,16 @@
     ] .
 
 :R
-    a bgf:ElectricalResistor ;
+    a bgf:Resistance ;
+    bgf:hasDomain bgf:Electrical ;
     bgf:variableValue [
         bgf:varName "R" ;
         bgf:hasValue "2 Ohm"^^cdt:ucum
     ] .
 
 :L
-    a bgf:ElectricalInductor ;
+    a bgf:FluxStorage ;
+    bgf:hasDomain bgf:Electrical ;
     bgf:variableValue [
         bgf:varName "L" ;
         bgf:hasValue "10 H"^^cdt:ucum
