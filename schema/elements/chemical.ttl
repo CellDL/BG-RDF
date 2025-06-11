@@ -5,7 +5,7 @@
 
 #===============================================================================
 
-bgf:Biochemical
+bgf:Chemical
     bgf:hasConstant [
         bgf:varName "RT" ;
         bgf:hasValue "2578.73058 J/mol"^^cdt:ucum
@@ -24,8 +24,8 @@ bgf:Biochemical
 bgf:ChemicalReaction
     a bgf:ElementTemplate ;
     rdfs:subClassOf bgf:ResistanceNode ;
+    bgf:hasDomain bgf:Chemical ;
     rdfs:label "Chemical reaction" ;
-    bgf:hasDomain bgf:Biochemical ;
     bgf:hasPortId 'f', 'r' ;
     bgf:hasVariable [
         bgf:varName "kappa_r" ;
@@ -73,8 +73,8 @@ bgf:ChemicalReaction
 bgf:ChemicalConcentration
     a bgf:ElementTemplate ;
     rdfs:subClassOf bgf:StorageNode ;
+    bgf:hasDomain bgf:Chemical ;
     rdfs:label "Chemical concentration" ;
-    bgf:hasDomain bgf:Biochemical ;
     bgf:hasVariable [
         bgf:varName "K" ;
         bgf:hasUnits "mol-1"^^cdt:ucumunit

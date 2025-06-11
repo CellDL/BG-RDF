@@ -30,7 +30,7 @@
 
 :q_1
     a bgf:StorageNode ;
-    bgf:hasDomain bgf:Biochemical ;
+    bgf:hasDomain bgf:Chemical ;
     bgf:variableValue [
         bgf:varName "K" ;
         bgf:hasValue "1 mol-1"^^cdt:ucum
@@ -42,7 +42,7 @@
 
 :q_2
     a bgf:StorageNode ;
-    bgf:hasDomain bgf:Biochemical ;
+    bgf:hasDomain bgf:Chemical ;
     bgf:variableValue [
         bgf:varName "K" ;
         bgf:hasValue "1 mol-1"^^cdt:ucum
@@ -54,7 +54,7 @@
 
 :Re_r
     a bgf:ResistanceNode ;
-    bgf:hasDomain bgf:Biochemical ;
+    bgf:hasDomain bgf:Chemical ;
     bgf:variableValue [
         bgf:varName "kappa_r" ;
         bgf:hasSymbol "kappa_r" ;
