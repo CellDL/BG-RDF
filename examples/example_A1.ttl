@@ -13,7 +13,7 @@
 #
 #===============================================================================
 
-:example_A3
+:example_A1
     a bg:BondGraph ;
     bg:hasBondElement :q_C, :R, :L ;
     bg:hasJunctionStructure :u_C, :v_R, :u_L ;
