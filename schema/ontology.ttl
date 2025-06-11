@@ -38,7 +38,7 @@ bgf:Variable
 
 #################################################################
 
-bgf:Biochemical
+bgf:Chemical
     a bgf:ModellingDomain .
 
 bgf:Electrical
