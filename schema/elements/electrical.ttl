@@ -34,10 +34,10 @@ bgf:ElectricalResistor
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
-                <ci>v</ci>
+                <ci>u</ci>
                 <apply>
-                    <divide/>
-                    <ci>u</ci>
+                    <times/>
+                    <ci>v</ci>
                     <ci>R</ci>
                 </apply>
             </apply>
