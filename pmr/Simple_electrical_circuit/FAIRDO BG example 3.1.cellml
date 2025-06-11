@@ -28,7 +28,7 @@
         <unit exponent="-2" units="coulomb"/>
     </units>
     <component name="main">
-        <variable initial_value="0" name="t" units="second"/>
+        <variable name="t" units="second"/>
         <!-- State variables-->
         <variable initial_value="1" name="q_C" units="coulomb"/>
         <!-- charge on capacitor-->
