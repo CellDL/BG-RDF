@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<omexManifest
+    xmlns="http://identifiers.org/combine.specifications/omex-manifest">
+<content location="!!autogen-disclaimer.txt" format="http://purl.org/NET/mediatypes/text/plain" />
+<content location="." format="http://identifiers.org/combine.specifications/omex" />
+<content location="FAIRDO BG example 3.1.1.cellml" format="http://identifiers.org/combine.specifications/cellml" />
+<content location="FAIRDO BG example 3.1.1.sedml" format="http://identifiers.org/combine.specifications/sedml" />
+<content location="FAIRDO BG example 3.1.cellml" format="http://identifiers.org/combine.specifications/cellml" />
+<content location="FAIRDO BG example 3.1.sedml" format="http://identifiers.org/combine.specifications/sedml" />
+</omexManifest>
