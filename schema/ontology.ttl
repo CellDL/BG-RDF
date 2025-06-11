@@ -22,7 +22,7 @@
 bgf:ElementTemplate
     a owl:Class .
 
-bgf:Domain
+bgf:ModellingDomain
     a owl:Class .
 
 #################################################################
@@ -39,13 +39,13 @@ bgf:Variable
 #################################################################
 
 bgf:Biochemical
-    a bgf:Domain .
+    a bgf:ModellingDomain .
 
 bgf:Electrical
-    a bgf:Domain .
+    a bgf:ModellingDomain .
 
 bgf:Mechanical
-    a bgf:Domain .
+    a bgf:ModellingDomain .
 
 #################################################################
 
@@ -81,7 +81,7 @@ bgf:numPorts
 bgf:hasDomain
     a owl:DatatypeProperty, owl:FunctionalProperty ;
     rdfs:domain bgf:PowerPort ;
-    rdfs:range bgf:Domain .
+    rdfs:range bgf:ModellingDomain .
 
 #################################################################
 
@@ -111,7 +111,7 @@ bgf:varName
 
 bgf:hasConstant
     a owl:ObjectProperty, owl:FunctionalProperty ;
-    rdfs:domain bgf:Domain ;
+    rdfs:domain bgf:ModellingDomain ;
     rdfs:range bgf:Variable .
 
 bgf:hasPort
@@ -140,7 +140,7 @@ bgf:hasSource
 
 bgf:hasTarget
     a owl:ObjectProperty, owl:FunctionalProperty ;
-    rdfs:domain bgf:Domain, bgf:PowerBond ;
+    rdfs:domain bgf:ModellingDomain, bgf:PowerBond ;
     rdfs:range bgf:PowerPort .
 
 #################################################################
@@ -152,7 +152,7 @@ bgf:hasPotential
 
 bgf:hasFlow
     a owl:ObjectProperty, owl:FunctionalProperty ;
-    rdfs:domain bgf:Domain, bgf:PowerPort ;
+    rdfs:domain bgf:ModellingDomain, bgf:PowerPort ;
     rdfs:range bgf:Variable .
 
 #################################################################

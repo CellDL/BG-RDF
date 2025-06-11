@@ -6,7 +6,6 @@
 #===============================================================================
 
 bgf:Biochemical
-    a bgf:Domain ;
     bgf:hasConstant [
         bgf:varName "RT" ;
         bgf:hasValue "2578.73058 J/mol"^^cdt:ucum
