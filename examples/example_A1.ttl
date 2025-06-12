@@ -22,7 +22,7 @@
 #===============================================================================
 
 :q_C
-    a bgf:ChargeStorage ;
+    a bgf:PotentialStore ;
     bgf:hasDomain bgf:Electrical ;
     bgf:variableValue [
         bgf:varName "C" ;
@@ -41,7 +41,7 @@
     ] .
 
 :L
-    a bgf:FluxStorage ;
+    a bgf:KineticStore ;
     bgf:hasDomain bgf:Electrical ;
     bgf:variableValue [
         bgf:varName "L" ;

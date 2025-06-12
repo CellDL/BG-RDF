@@ -29,7 +29,7 @@
 #===============================================================================
 
 :q_1
-    a bgf:ChargeStorage ;
+    a bgf:PotentialStore ;
     bgf:hasDomain bgf:Chemical ;
     bgf:variableValue [
         bgf:varName "K" ;
@@ -41,7 +41,7 @@
     ] .
 
 :q_2
-    a bgf:ChargeStorage ;
+    a bgf:PotentialStore ;
     bgf:hasDomain bgf:Chemical ;
     bgf:variableValue [
         bgf:varName "K" ;

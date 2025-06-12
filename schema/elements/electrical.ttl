@@ -48,7 +48,7 @@ bgf:ElectricalResistor
 
 bgf:ElectricalCapacitor
     a bgf:ElementTemplate ;
-    rdfs:subClassOf bgf:ChargeStorage ;
+    rdfs:subClassOf bgf:PotentialStore ;
     bgf:hasDomain bgf:Electrical ;
     rdfs:label "Electrical capacitor" ;
     bgf:hasVariable [
@@ -87,7 +87,7 @@ bgf:ElectricalCapacitor
 
 bgf:ElectricalInductor
     a bgf:ElementTemplate ;
-    rdfs:subClassOf bgf:FluxStorage ;
+    rdfs:subClassOf bgf:KineticStore ;
     bgf:hasDomain bgf:Electrical ;
     rdfs:label "Electrical inductor" ;
     bgf:hasVariable [

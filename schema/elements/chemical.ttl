@@ -72,7 +72,7 @@ bgf:ChemicalReaction
 
 bgf:ChemicalConcentration
     a bgf:ElementTemplate ;
-    rdfs:subClassOf bgf:ChargeStorage ;
+    rdfs:subClassOf bgf:PotentialStore ;
     bgf:hasDomain bgf:Chemical ;
     rdfs:label "Chemical concentration" ;
     bgf:hasVariable [
