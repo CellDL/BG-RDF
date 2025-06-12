@@ -49,32 +49,38 @@ bgf:Mechanical
 
 #################################################################
 
-bgf:ChargeStorage
+bgf:PotentialStore
     rdfs:subClassOf bg:BondElement ;
-    rdfs:label "Charge storage node" .
+    rdfs:label "Potential storage node" ;
+    dcterms:description "Potential energy store" .
 
-bgf:FluxStorage
+bgf:KineticStore
     rdfs:subClassOf bg:BondElement ;
-    rdfs:label "Flux storage node" .
+    rdfs:label "Dynamic storage node" ;
+    dcterms:description "Kinetic energy store" .
 
 bgf:Resistance
     rdfs:subClassOf bg:BondElement ;
-    rdfs:label "Resistance node" .
+    rdfs:label "Resistance node" ;
+    dcterms:description "Energy dissipation" .
+
+bgf:Transformation
+    rdfs:subClassOf bg:JunctionStructure ;
+    rdfs:label "Transform node" ;
+    dcterms:description "Energy transformation" ;
+    bgf:numPorts 2 .
 
 #################################################################
 
 bgf:OneNode
     rdfs:subClassOf bg:JunctionStructure ;
-    rdfs:label "One node" .
-
-bgf:TransformNode
-    rdfs:subClassOf bg:JunctionStructure ;
-    rdfs:label "Transform node" ;
-    bgf:numPorts 2 .
+    rdfs:label "One node" ;
+    dcterms:description "Energy conservation" .
 
 bgf:ZeroNode
     rdfs:subClassOf bg:JunctionStructure ;
-    rdfs:label "Zero node" .
+    rdfs:label "Zero node" ;
+    dcterms:description "Quantity conservation" .
 
 #################################################################
 
