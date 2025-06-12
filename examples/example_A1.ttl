@@ -6,7 +6,7 @@
 
 #===============================================================================
 #
-#          q_C          R           L
+#           C           R           L
 #           |           |           |
 #           |           |           |
 #          u_C ------> v_R ------> u_L
@@ -15,13 +15,13 @@
 
 :example_A1
     a bg:BondGraph ;
-    bg:hasBondElement :q_C, :R, :L ;
+    bg:hasBondElement :C, :R, :L ;
     bg:hasJunctionStructure :u_C, :v_R, :u_L ;
-    bg:hasPowerBond :u_C.q_C, :u_C.v_R, :v_R.R, :v_R.u_L, :u_L.L .
+    bg:hasPowerBond :u_C.C, :u_C.v_R, :v_R.R, :v_R.u_L, :u_L.L .
 
 #===============================================================================
 
-:q_C
+:C
     a bgf:PotentialStore ;
     bgf:hasDomain bgf:Electrical ;
     bgf:variableValue [
@@ -64,9 +64,9 @@
 
 #===============================================================================
 
-:u_C.q_C
+:u_C.C
     bgf:hasSource :u_C ;
-    bgf:hasTarget :q_C .
+    bgf:hasTarget :C .
 
 :u_C.v_R
     bgf:hasSource :u_C ;
