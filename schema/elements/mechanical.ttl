@@ -1,0 +1,125 @@
+@prefix bg: <https://celldl.org/ontologies/bondgraph#> .
+@prefix bgf: <https://celldl.org/ontologies/bondgraph-framework#> .
+@prefix cdt: <https://w3id.org/cdt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+#===============================================================================
+
+# Physical System level
+
+#===============================================================================
+
+bgf:Mechanical
+    bgf:hasFlow [
+        bgf:varName "v" ;
+        bgf:hasUnits "m/s"^^cdt:ucumunit
+    ] ;
+    bgf:hasPotential [
+        bgf:varName "u" ;
+        bgf:hasUnits "J/m"^^cdt:ucumunit
+    ] .
+
+#===============================================================================
+
+bgf:MechanicalResistor
+    a bgf:ElementTemplate ;
+    rdfs:subClassOf bgf:Resistance ;
+    bgf:hasDomain bgf:Mechanical ;
+    rdfs:label "Mechanical resistor" ;
+    bgf:hasVariable [
+        bgf:varName "R" ;
+        bgf:hasUnits "J.s.m-2"^^cdt:ucumunit
+    ] ;
+    bgf:constitutiveRelation """
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>u</ci>
+                <apply>
+                    <times/>
+                    <ci>v</ci>
+                    <ci>R</ci>
+                </apply>
+            </apply>
+        </math>
+    """^^bgf:mathml .
+
+#===============================================================================
+
+bgf:MechanicalCapacitor
+    a bgf:ElementTemplate ;
+    rdfs:subClassOf bgf:PotentialStore ;
+    bgf:hasDomain bgf:Mechanical ;
+    rdfs:label "Mechanical capacitor" ;
+    bgf:hasVariable [
+        bgf:varName "C" ;
+        bgf:hasUnits "m2.J-1"^^cdt:ucumunit
+    ], [
+        bgf:varName "q" ;
+        bgf:hasUnits "m"^^cdt:ucumunit
+    ] ;
+    bgf:constitutiveRelation """
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>v</ci>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u</ci>
+                <apply>
+                    <divide/>
+                    <ci>q</ci>
+                    <ci>C</ci>
+                </apply>
+            </apply>
+        </math>
+    """^^bgf:mathml .
+
+#===============================================================================
+
+bgf:MechanicalInductor
+    a bgf:ElementTemplate ;
+    rdfs:subClassOf bgf:KineticStore ;
+    bgf:hasDomain bgf:Mechanical ;
+    rdfs:label "Mechanical inductor" ;
+    bgf:hasVariable [
+        bgf:varName "L" ;
+        bgf:hasUnits "J.s2.m-2"^^cdt:ucumunit
+    ], [
+        bgf:varName "a" ;
+        bgf:hasUnits "m/s2"^^cdt:ucumunit
+    ] ;
+    bgf:constitutiveRelation """
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>a</ci>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>v</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u</ci>
+                <apply>
+                    <times/>
+                    <ci>L</ci>
+                    <ci>a</ci>
+                </apply>
+            </apply>
+        </math>
+    """^^bgf:mathml .
+
+#===============================================================================

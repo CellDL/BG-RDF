@@ -1,0 +1,73 @@
+@prefix bg: <https://celldl.org/ontologies/bondgraph#> .
+@prefix bgf: <https://celldl.org/ontologies/bondgraph-framework#> .
+@prefix cdt: <https://w3id.org/cdt/> .
+
+@prefix : <#> .
+
+#===============================================================================
+#
+#    q <------ v_1 ------> R
+#               |
+#               |
+#               L
+#
+#===============================================================================
+
+:example_A2
+    a bg:BondGraph ;
+    bg:hasBondElement :q, :R, :L ;
+    bg:hasJunctionStructure :v_1 ;
+    bg:hasPowerBond :v_1.q, :v_1.R, :v_1.L .
+
+#===============================================================================
+
+:q
+    a bgf:PotentialStore ;
+    bgf:hasDomain bgf:Mechanical ;
+    bgf:variableValue [
+        bgf:varName "C" ;
+        bgf:hasValue "20 m2.J-1"^^cdt:ucum
+    ], [
+        bgf:varName "q" ;
+        bgf:hasValue "1 m"^^cdt:ucum
+    ] .
+
+:R
+    a bgf:Resistance ;
+    bgf:hasDomain bgf:Mechanical ;
+    bgf:variableValue [
+        bgf:varName "R" ;
+        bgf:hasValue "0.1 J.s.m-2"^^cdt:ucum
+    ] .
+
+:L
+    a bgf:KineticStore ;
+    bgf:hasDomain bgf:Mechanical ;
+    bgf:variableValue [
+        bgf:varName "L" ;
+        bgf:hasValue "10 J.s2.m-2"^^cdt:ucum
+    ], [
+        bgf:varName "v" ;
+        bgf:hasValue "0 m/s"^^cdt:ucum
+    ] .
+
+#===============================================================================
+
+:v_1
+    a bgf:OneNode .
+
+#===============================================================================
+
+:v_1.q
+    bgf:hasSource :v_1 ;
+    bgf:hasTarget :q .
+
+:v_1.R
+    bgf:hasSource :v_1 ;
+    bgf:hasTarget :R .
+
+:v_1.L
+    bgf:hasSource :v_1 ;
+    bgf:hasTarget :L .
+
+#===============================================================================
