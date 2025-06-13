@@ -52,8 +52,8 @@ bgf:MechanicalCapacitor
     bgf:hasDomain bgf:Mechanical ;
     rdfs:label "Mechanical capacitor" ;
     bgf:hasVariable [
-        bgf:varName "C" ;
-        bgf:hasUnits "m2.J-1"^^cdt:ucumunit
+        bgf:varName "E" ;
+        bgf:hasUnits "J.m-2"^^cdt:ucumunit
     ], [
         bgf:varName "q" ;
         bgf:hasUnits "m"^^cdt:ucumunit
@@ -75,9 +75,9 @@ bgf:MechanicalCapacitor
                 <eq/>
                 <ci>u</ci>
                 <apply>
-                    <divide/>
+                    <times/>
+                    <ci>E</ci>
                     <ci>q</ci>
-                    <ci>C</ci>
                 </apply>
             </apply>
         </math>
