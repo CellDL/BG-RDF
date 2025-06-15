@@ -8,74 +8,26 @@
 #===============================================================================
 
 :circulation
-    a bg:BondGraph, bgf:Block ;
-    bg:hasJunctionStructure :u_vc_osmotic ;
-    bg:hasPowerBond :b1 .
+    a bgf:BondgraphModel, bgf:Block ;
+    bg:hasBondElement :q_vc_W, :u_ac_W.q, :v_cc_W.R ;
+    bg:hasJunctionStructure :u_vc_osmotic, :v_lv_W, :u_ac_W, :v_cc_W ;
+    bg:hasPowerBond
+        :u_vc_osmotic.bond, :u_vc_osmotic.v_lv_W,
+        :v_lv_W.u_ac_W, :u_ac_W.bond, :u_ac_W.v_cc_W,
+        :v_cc_W.bond, :v_cc_W.u_vc_osmotic .
+    # Interfaces
+    ##bg:hasPowerBond :v_gi_W.u_vc_osmotic, :u_ac_W.v_gl_W .
 
 #===============================================================================
-
-:u_vc_osmotic
-    a bgf:ZeroNode .
-
 #===============================================================================
 
-:b1
+:v_gi_W.u_vc_osmotic
     bgf:hasSource :v_gi_W ;
     bgf:hasTarget :u_vc_osmotic .
 
 #===============================================================================
 
-
-
-#===============================================================================
-#===============================================================================
-
-:q_W_vc
-    a bgf:PotentialStore ;
-    bgf:hasDomain bgf:Hydraulic ;
-    bgf:variableValue [
-        bgf:varName "C" ;
-    ], [
-        bgf:varName "q" ;
-    ] .
-
-:u_osmotic_vc
-    a bgf:ZeroNode .
-
-:u_osmotic_vc.bond
-    bgf:hasSource :u_osmotic_vc ;
-    bgf:hasTarget :q_W_vc .
-
-:u_osmotic_vc
-    a bgf:ZeroNode .
-
-:q_W_vc.v_W_lv
-    bgf:hasSource :u_osmotic_vc ;
-    bgf:hasTarget :v_W_lv .
-
-#===============================================================================
-
-:v_W_lv.R
-    a bgf:Resistance ;
-    bgf:hasDomain bgf:Hydraulic ;
-    bgf:variableValue [
-        bgf:varName "R" ;
-    ] .
-
-:v_W_lv
-    a bgf:OneNode .
-
-:v_W_lv.bond
-    bgf:hasSource :v_W_lv ;
-    bgf:hasTarget :v_W_lv.R .
-
-:v_W_lv.u_W_ac
-    bgf:hasSource :v_W_lv ;
-    bgf:hasTarget :u_W_ac .
-
-#===============================================================================
-
-:u_W_ac.q
+:q_vc_W
     a bgf:ElasticVessel ;
     bgf:variableValue [
         bgf:varName "E" ;
@@ -83,48 +35,98 @@
         bgf:hasValue "6e1 J"^^cdt:ucum
     ], [
         bgf:varName "q" ;
-        bgf:hasSymbol "u_vc_W"
+        bgf:hasSymbol "q_vc_W" ;
+        bgf:hasValue "2 L"^^cdt:ucum
     ], [
         bgf:varName "q_hat" ;
-        bgf:hasSymbol "L_ac_W" ;
+        bgf:hasSymbol "U_vc_W" ;
         bgf:hasValue "1.5 L"^^cdt:ucum
     ], [
         bgf:varName "q_bar" ;
-        bgf:hasSymbol "U_vc_W" ;
-        bgf:hasValue "1.5 L"^^cdt:ucum
+        bgf:hasSymbol "L_vc_W" ;
+        bgf:hasValue "2.5 L"^^cdt:ucum
     ] .
 
-:u_W_ac
+:u_vc_osmotic
     a bgf:ZeroNode .
 
-:u_W_ac.bond
-    bgf:hasSource :u_W_ac ;
-    bgf:hasTarget :u_W_ac.q .
+:u_vc_osmotic.bond
+    bgf:hasSource :u_vc_osmotic ;
+    bgf:hasTarget :q_vc_W .
 
-:u_W_ac.v_W_cc
-    bgf:hasSource :u_W_ac ;
-    bgf:hasTarget :v_W_cc .
+:u_vc_osmotic.v_lv_W
+    bgf:hasSource :u_vc_osmotic ;
+    bgf:hasTarget :v_lv_W .
 
 #===============================================================================
 
-:v_W_cc.R
-    a bgf:Resistance ;
-    bgf:hasDomain bgf:Hydraulic ;
+:v_lv_W
+    a bgf:OneNode ;
+    bgf:hasValue "0.1 L/s"^^cdt:ucum .
+
+:v_lv_W.u_ac_W
+    bgf:hasSource :v_lv_W ;
+    bgf:hasTarget :u_ac_W .
+
+#===============================================================================
+
+:u_ac_W
+    a bgf:ZeroNode .
+
+:u_ac_W.q
+    a bgf:ElasticVessel ;
     bgf:variableValue [
-        bgf:varName "R" ;
+        bgf:varName "E" ;
+        bgf:hasSymbol "E_vc" ;
+        bgf:hasValue "6e1 J"^^cdt:ucum
+    ], [
+        bgf:varName "q" ;
+        bgf:hasSymbol "q_ac_W" ;
+        bgf:hasValue "1 L"^^cdt:ucum
+    ], [
+        bgf:varName "q_hat" ;
+        bgf:hasSymbol "U_ac_W" ;
+        bgf:hasValue "0.5 L"^^cdt:ucum
+    ], [
+        bgf:varName "q_bar" ;
+        bgf:hasSymbol "L_ac_W" ;
+        bgf:hasValue "1.5 L"^^cdt:ucum
     ] .
 
-:v_W_cc
+:u_ac_W.bond
+    bgf:hasSource :u_ac_W ;
+    bgf:hasTarget :u_ac_W.q .
+
+:u_ac_W.v_cc_W
+    bgf:hasSource :u_ac_W ;
+    bgf:hasTarget :v_cc_W .
+
+:u_ac_W.v_gl_W
+    bgf:hasSource :u_ac_W ;
+    bgf:hasTarget :v_gl_W .
+
+#===============================================================================
+
+:v_cc_W
     a bgf:OneNode .
 
-:v_W_cc.bond
-    bgf:hasSource :v_W_cc ;
-    bgf:hasTarget :v_W_cc.R .
+:v_cc_W.R
+    a bgf:HydraulicResistor ;
+    bgf:variableValue [
+        bgf:varName "k" ;
+        bgf:hasSymbol "k_cc_W" ;
+        bgf:hasValue "1 L.s-1.kPa-1"^^cdt:ucum
+    ] .
 
-:v_W_cc.u_osmotic_vc
-    bgf:hasSource :v_W_cc ;
-    bgf:hasTarget :u_osmotic_vc .
+:v_cc_W.bond
+    bgf:hasSource :v_cc_W ;
+    bgf:hasTarget :v_cc_W.R .
 
+:v_cc_W.u_vc_osmotic
+    bgf:hasSource :v_cc_W ;
+    bgf:hasTarget :u_vc_osmotic .
+
+#===============================================================================
 #===============================================================================
 
 :q_Na_vc

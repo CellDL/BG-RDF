@@ -8,6 +8,85 @@
 #===============================================================================
 
 :kidney
-    a bg:BondGraph, bgf:Block .
+    a bgf:BondgraphModel, bgf:Block ;
+    bg:hasBondElement :q_pt_W, :v_pt_W.R ;
+    bg:hasJunctionStructure
+        :v_gl_W, :u_pt_osmotic,
+        :v_pt_W, :v_out2_W ;
+    bg:hasPowerBond
+        :u_pt_osmotic.bond, :v_pt_W.bond,
+        :v_gl_W.u_pt_osmotic, :u_pt_osmotic.v_out2_W, :u_pt_osmotic.v_pt_W .
 
+#===============================================================================
+#===============================================================================
+
+:q_pt_W
+    a bgf:ElasticVessel ;
+    bgf:variableValue [
+        bgf:varName "E" ;
+        bgf:hasSymbol "E_pt" ;
+        bgf:hasValue "1 J"^^cdt:ucum
+    ], [
+        bgf:varName "q" ;
+        bgf:hasSymbol "q_pt_W" ;
+        bgf:hasValue "0.1 L"^^cdt:ucum
+    ], [
+        bgf:varName "q_hat" ;
+        bgf:hasSymbol "U_pt_W" ;
+        bgf:hasValue "0.1 L"^^cdt:ucum
+    ], [
+        bgf:varName "q_bar" ;
+        bgf:hasSymbol "L_pt_W" ;
+        bgf:hasValue "1 L"^^cdt:ucum
+    ] .
+
+:u_pt_osmotic
+    a bgf:ZeroNode .
+
+:u_pt_osmotic.bond
+    bgf:hasSource :u_pt_osmotic ;
+    bgf:hasTarget :q_pt_W .
+
+#===============================================================================
+
+:v_pt_W.R
+    a bgf:HydraulicResistor ;
+    bgf:variableValue [
+        bgf:varName "k" ;
+        bgf:hasSymbol "k_gi_W" ;
+        bgf:hasValue "1 L.s-1.kPa-1"^^cdt:ucum
+    ] .
+
+:v_pt_W
+    a bgf:OneNode .
+
+:v_pt_W.bond
+    bgf:hasSource :v_pt_W ;
+    bgf:hasTarget :v_pt_W.R .
+
+#===============================================================================
+
+:v_gl_W
+    a bgf:OneNode .
+
+:v_out2_W
+    a bgf:OneNode ;
+    bgf:hasValue "0 L/s"^^cdt:ucum .
+
+#===============================================================================
+#===============================================================================
+
+:v_gl_W.u_pt_osmotic
+    bgf:hasSource :v_gl_W ;
+    bgf:hasTarget :u_pt_osmotic .
+
+:u_pt_osmotic.v_out2_W
+    bgf:hasSource :u_pt_osmotic ;
+    bgf:hasTarget :v_out2_W .
+
+:u_pt_osmotic.v_pt_W
+    bgf:hasSource :u_pt_osmotic ;
+    bgf:hasTarget :v_pt_W .
+
+#===============================================================================
 #===============================================================================
