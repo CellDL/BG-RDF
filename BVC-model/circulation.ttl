@@ -1,0 +1,160 @@
+@prefix bg: <https://celldl.org/ontologies/bondgraph#> .
+@prefix bgf: <https://celldl.org/ontologies/bondgraph-framework#> .
+@prefix cdt: <https://w3id.org/cdt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+@prefix : <#> .
+
+#===============================================================================
+
+:circulation
+    a bg:BondGraph, bgf:Block ;
+    bg:hasJunctionStructure :u_vc_osmotic ;
+    bg:hasPowerBond :b1 .
+
+#===============================================================================
+
+:u_vc_osmotic
+    a bgf:ZeroNode .
+
+#===============================================================================
+
+:b1
+    bgf:hasSource :v_gi_W ;
+    bgf:hasTarget :u_vc_osmotic .
+
+#===============================================================================
+
+
+
+#===============================================================================
+#===============================================================================
+
+:q_W_vc
+    a bgf:PotentialStore ;
+    bgf:hasDomain bgf:Hydraulic ;
+    bgf:variableValue [
+        bgf:varName "C" ;
+    ], [
+        bgf:varName "q" ;
+    ] .
+
+:u_osmotic_vc
+    a bgf:ZeroNode .
+
+:u_osmotic_vc.bond
+    bgf:hasSource :u_osmotic_vc ;
+    bgf:hasTarget :q_W_vc .
+
+:u_osmotic_vc
+    a bgf:ZeroNode .
+
+:q_W_vc.v_W_lv
+    bgf:hasSource :u_osmotic_vc ;
+    bgf:hasTarget :v_W_lv .
+
+#===============================================================================
+
+:v_W_lv.R
+    a bgf:Resistance ;
+    bgf:hasDomain bgf:Hydraulic ;
+    bgf:variableValue [
+        bgf:varName "R" ;
+    ] .
+
+:v_W_lv
+    a bgf:OneNode .
+
+:v_W_lv.bond
+    bgf:hasSource :v_W_lv ;
+    bgf:hasTarget :v_W_lv.R .
+
+:v_W_lv.u_W_ac
+    bgf:hasSource :v_W_lv ;
+    bgf:hasTarget :u_W_ac .
+
+#===============================================================================
+
+:u_W_ac.q
+    a bgf:ElasticVessel ;
+    bgf:variableValue [
+        bgf:varName "E" ;
+        bgf:hasSymbol "E_vc" ;
+        bgf:hasValue "6e1 J"^^cdt:ucum
+    ], [
+        bgf:varName "q" ;
+        bgf:hasSymbol "u_vc_W"
+    ], [
+        bgf:varName "q_hat" ;
+        bgf:hasSymbol "L_ac_W" ;
+        bgf:hasValue "1.5 L"^^cdt:ucum
+    ], [
+        bgf:varName "q_bar" ;
+        bgf:hasSymbol "U_vc_W" ;
+        bgf:hasValue "1.5 L"^^cdt:ucum
+    ] .
+
+:u_W_ac
+    a bgf:ZeroNode .
+
+:u_W_ac.bond
+    bgf:hasSource :u_W_ac ;
+    bgf:hasTarget :u_W_ac.q .
+
+:u_W_ac.v_W_cc
+    bgf:hasSource :u_W_ac ;
+    bgf:hasTarget :v_W_cc .
+
+#===============================================================================
+
+:v_W_cc.R
+    a bgf:Resistance ;
+    bgf:hasDomain bgf:Hydraulic ;
+    bgf:variableValue [
+        bgf:varName "R" ;
+    ] .
+
+:v_W_cc
+    a bgf:OneNode .
+
+:v_W_cc.bond
+    bgf:hasSource :v_W_cc ;
+    bgf:hasTarget :v_W_cc.R .
+
+:v_W_cc.u_osmotic_vc
+    bgf:hasSource :v_W_cc ;
+    bgf:hasTarget :u_osmotic_vc .
+
+#===============================================================================
+
+:q_Na_vc
+    a bgf:PotentialStore ;
+    bgf:hasDomain bgf:Chemical ;
+    bgf:variableValue [
+        bgf:varName "C" ;
+    ], [
+        bgf:varName "q" ;
+    ] .
+
+:q_Na_vc.u
+    a bgf:ZeroNode .
+
+:q_Na_vc.bond
+    bgf:hasSource :q_Na_vc.u ;
+    bgf:hasTarget :q_Na_vc .
+
+#===============================================================================
+
+:q_Na_vc.u_osmotic_vc.gy
+    a bgf:Transformation .
+
+:q_Na_vc.u_osmotic_vc.bond.0
+    bgf:hasSource :q_Na_vc.u ;
+    bgf:hasTarget :q_Na_vc.u_osmotic_vc.0 .
+
+:q_Na_vc.u_osmotic_vc.bond.1
+    bgf:hasSource :q_Na_vc.u_osmotic_vc.1 ;
+    bgf:hasTarget :u_osmotic_vc .
+
+#===============================================================================
+#===============================================================================

@@ -1,0 +1,70 @@
+@prefix bg: <https://celldl.org/ontologies/bondgraph#> .
+@prefix bgf: <https://celldl.org/ontologies/bondgraph-framework#> .
+@prefix cdt: <https://w3id.org/cdt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+@prefix : <#> .
+
+#===============================================================================
+
+:gi-tract
+    a bg:BondGraph, bgf:Block ;
+    bg:hasBondElement :q_gi_W, :R ;
+    bg:hasJunctionStructure
+        :v_in_W, :v_out1_W,
+        :v_gi_W, :u_gi_osmotic ;
+    bg:hasPowerBond :b1, :b2, :b3, :b4, :b5 .
+
+#===============================================================================
+
+:q_gi_W
+    a bgf:TestC ;
+    bgf:hasVariable [
+        bgf:varName "C" ;
+        bgf:hasValue "1 L/kPa"^^cdt:ucum
+    ] .
+
+:v_in_W
+    a bgf:OneNode .
+
+:v_out1_W
+    a bgf:OneNode .
+
+:v_gi_W
+    a bgf:OneNode .
+
+:u_gi_osmotic
+    a bgf:ZeroNode .
+
+:R
+    a bgf:TestR ;
+    bgf:variableValue [
+        bgf:varName "k" ;
+        bgf:hasSymbol "k_gi_W" ;
+        bgf:hasValue "1 L.s-1.kPa-1"^^cdt:ucum
+    ] .
+
+#===============================================================================
+
+:b1
+    bgf:hasSource :v_in_W ;
+    bgf:hasTarget :u_gi_osmotic .
+
+:b2
+    bgf:hasSource :u_gi_osmotic ;
+    bgf:hasTarget :q_gi_W .
+
+:b3
+    bgf:hasSource :u_gi_osmotic ;
+    bgf:hasTarget :v_out1_W .
+
+:b4
+    bgf:hasSource :u_gi_osmotic ;
+    bgf:hasTarget :v_gi_W .
+
+:b5
+    bgf:hasSource :v_gi_W ;
+    bgf:hasTarget :R .
+
+#===============================================================================
+#===============================================================================
