@@ -17,7 +17,7 @@
 #===============================================================================
 
 :example_A3
-    a bg:BondGraph ;
+    a bgf:BondgraphModel ;
     bg:hasBondElement :R_1, :L_1, :R_2, :L_2, :q_C ;
     bg:hasJunctionStructure :u_in, :v_1, :GY, :v_2, :u_C ;
     bg:hasPowerBond :u_in.v_1, :v_1.R_1, :v_1.L_1, :v_1.GY_0,

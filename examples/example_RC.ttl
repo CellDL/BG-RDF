@@ -28,7 +28,7 @@
 #===============================================================================
 
 :RC_circuit
-    a bg:BondGraph ;
+    a bgf:BondgraphModel ;
     bg:hasBondElement :R, :C ;
     bg:hasJunctionStructure :u_0, :v, :u_1 ;
     bg:hasPowerBond :u_0.v, :v.R, :v.u_1, :u_1.C .

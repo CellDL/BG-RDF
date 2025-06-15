@@ -19,6 +19,10 @@
 #    Classes
 #################################################################
 
+bgf:BondgraphModel
+    a owl:Class ;
+    rdfs:subClassOf bg:BondGraph .
+
 bgf:ElementTemplate
     a owl:Class .
 
