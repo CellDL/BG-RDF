@@ -1,0 +1,155 @@
+@prefix bg: <https://celldl.org/ontologies/bondgraph#> .
+@prefix bgf: <https://celldl.org/ontologies/bondgraph-framework#> .
+@prefix cdt: <https://w3id.org/cdt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+#===============================================================================
+
+# Physical System level
+
+#===============================================================================
+
+bgf:Hydraulic
+    a bgf:ModellingDomain ;
+    bgf:hasFlow [
+        bgf:varName "v" ;
+        bgf:hasUnits "L/s"^^cdt:ucumunit
+    ] ;
+    bgf:hasPotential [
+        bgf:varName "u" ;
+        bgf:hasUnits "kPa"^^cdt:ucumunit
+    ] .
+
+#===============================================================================
+
+bgf:HydraulicCapacitor
+    a bgf:ElementTemplate ;
+    rdfs:subClassOf bgf:PotentialStore ;
+    bgf:hasDomain bgf:Hydraulic ;
+    bgf:hasVariable [
+        bgf:varName "C" ;
+        bgf:hasUnits "J-1"^^cdt:ucumunit
+    ], [
+        bgf:varName "q" ;
+        bgf:hasUnits "L"^^cdt:ucumunit
+    ] ;
+    # ode(q, t) = v
+    # u = q/C
+    bgf:constitutiveRelation """
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q</ci>
+                </apply>
+                <ci>v</ci>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u</ci>
+                <apply>
+                    <divide/>
+                    <ci>q</ci>
+                    <ci>C</ci>
+                </apply>
+            </apply>
+        </math>
+    """^^bgf:mathml .
+
+#===============================================================================
+
+bgf:HydraulicResistor
+    a bgf:ElementTemplate ;
+    rdfs:subClassOf bgf:Resistance ;
+    bgf:hasDomain bgf:Hydraulic ;
+    bgf:hasVariable [
+        bgf:varName "k" ;
+        bgf:hasUnits "L.s-1.kPa-1"^^cdt:ucumunit
+    ] ;
+    bgf:constitutiveRelation """
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>v</ci>
+                <apply>
+                    <times/>
+                    <ci>k</ci>
+                    <ci>u</ci>
+                </apply>
+            </apply>
+        </math>
+    """^^bgf:mathml .
+
+#===============================================================================
+
+bgf:ElasticVessel
+    a bgf:ElementTemplate ;
+    rdfs:subClassOf bgf:PotentialStore ;
+    bgf:hasDomain bgf:Hydraulic ;
+    rdfs:label "Elastic vessel" ;
+    bgf:hasVariable [
+        bgf:varName "E" ;
+        rdfs:label "Elasticity" ;
+        bgf:hasUnits "J"^^cdt:ucumunit
+    ], [
+        bgf:varName "q" ;
+        rdfs:label "Fluid volume" ;
+        bgf:hasUnits "L"^^cdt:ucumunit
+    ], [
+        bgf:varName "q_hat" ;
+        rdfs:label "Unstressed volume" ;
+        bgf:hasUnits "L"^^cdt:ucumunit
+    ], [
+        bgf:varName "q_bar" ;
+        rdfs:label "Maximum volume" ;
+        bgf:hasUnits "L"^^cdt:ucumunit
+    ] ;
+    # u = E*(q - q_hat)/sqr(q_bar - q);
+    # ode(q, t) = v
+    bgf:constitutiveRelation """
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>u</ci>
+                <apply>
+                    <divide/>
+                    <apply>
+                        <times/>
+                        <ci>E</ci>
+                        <apply>
+                            <minus/>
+                            <ci>q</ci>
+                            <ci>q_hat</ci>
+                        </apply>
+                    </apply>
+                    <apply>
+                        <power/>
+                        <apply>
+                            <minus/>
+                            <ci>q_bar</ci>
+                            <ci>q</ci>
+                        </apply>
+                        <cn>2</cn>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q</ci>
+                </apply>
+                <ci>v</ci>
+            </apply>
+        </math>
+    """^^bgf:mathml .
+
+#===============================================================================
+#===============================================================================
