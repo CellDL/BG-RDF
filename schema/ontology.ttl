@@ -38,17 +38,6 @@ bgf:Variable
 
 #################################################################
 
-bgf:Chemical
-    a bgf:ModellingDomain .
-
-bgf:Electrical
-    a bgf:ModellingDomain .
-
-bgf:Mechanical
-    a bgf:ModellingDomain .
-
-#################################################################
-
 bgf:PotentialStore
     rdfs:subClassOf bg:BondElement ;
     rdfs:label "Potential storage node" ;

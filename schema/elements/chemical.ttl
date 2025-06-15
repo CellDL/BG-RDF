@@ -6,6 +6,7 @@
 #===============================================================================
 
 bgf:Chemical
+    a bgf:ModellingDomain ;
     bgf:hasConstant [
         bgf:varName "RT" ;
         bgf:hasValue "2578.73058 J/mol"^^cdt:ucum
