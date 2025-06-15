@@ -1,0 +1,205 @@
+def model my_model as
+    // Simple model of blood volume
+
+    def unit dim as
+        unit dimensionless;
+    enddef;
+
+    def unit per_s as
+        unit second {expo: -1};
+    enddef;
+
+    def unit L_per_s as
+        unit litre;
+        unit second {expo: -1};
+    enddef;
+
+    def unit kPa as
+        unit joule;
+        unit litre {expo: -1};
+    enddef;
+
+    def unit kPa_s_per_L as
+        unit kPa;
+        unit second;
+        unit litre {expo: -1};
+    enddef;
+
+    def unit kPa_per_L as
+        unit kPa;
+        unit litre {expo: -1};
+    enddef;
+
+    def unit L_per_s_per_kPa as
+        unit L_per_s;
+        unit kPa {expo: -1};
+    enddef;
+
+    def unit per_mol as
+        unit mole {expo: -1};
+    enddef;
+
+    def unit mol_per_s as
+        unit mole;
+        unit second {expo: -1};
+    enddef;
+
+    def unit mol_per_L as
+        unit mole;
+        unit litre {expo: -1};
+    enddef;
+
+    def unit L_per_mol as
+        unit litre;
+        unit mole {expo: -1};
+    enddef;
+
+    def unit mM as
+        unit mol_per_L {pref: milli};
+    enddef;
+
+    def unit J_per_mol as
+        unit joule;
+        unit mole {expo: -1};
+    enddef;
+
+    def unit J_per_C as
+        unit joule;
+        unit coulomb {expo: -1};
+    enddef;
+
+    def unit C_per_mol as
+        unit coulomb;
+        unit mole {expo: -1};
+    enddef;
+
+    def comp main as
+        var t: second;
+        var RT: J_per_mol {init: 2.5e3};
+        var F: C_per_mol {init: 0.965e5};
+        var q_ac_W: litre {init: 1};
+        var q_vc_W: litre {init: 2};
+        var q_gi_W: litre {init: 1};
+        var q_pt_W: litre {init: 0.1};
+        var q_giEpi_W: litre {init: 0.5};
+        var q_ptEpi_W: litre {init: 0.5};
+        var q_tot_W: litre;
+        var q_vc_Na: mole {init: 0.84};
+        var q_gi_Na: mole {init: 0.1};
+        var q_pt_Na: mole {init: 0.01};
+        var q_giEpi_Na: mole {init: 0.012};
+        var q_ptEpi_Na: mole {init: 0.012};
+        var q_vc_K: mole {init: 0.03};
+        var q_giEpi_K: mole {init: 0.012};
+        var q_ptEpi_K: mole {init: 0.012};
+        var q_tot_Na: mole;
+        var c_vc_Na: mol_per_L;
+        var c_gi_Na: mol_per_L;
+        var c_pt_Na: mol_per_L;
+        var c_giEpi_Na: mol_per_L;
+        var c_ptEpi_Na: mol_per_L;
+        var C_vc_Na: mM;
+        var C_gi_Na: mM;
+        var C_pt_Na: mM;
+        var C_giEpi_Na: mM;
+        var C_ptEpi_Na: mM;
+        var v_lv_W: L_per_s {init: 0.1};
+        var v_in_W: L_per_s {init: 0};
+        var v_out1_W: L_per_s {init: 0};
+        var v_out2_W: L_per_s {init: 0};
+        var v_gl_W: L_per_s;
+        var v_gi_W: L_per_s;
+        var v_pt_W: L_per_s;
+        var v_cc_W: L_per_s;
+        var v_in_Na: mol_per_s {init: 1.16e-6};
+        var v_out1_Na: mol_per_s {init: 0};
+        var v_out2_Na: mol_per_s {init: 1.16e-6};
+        var v_gl_Na: mol_per_s;
+        var v_gi_Na: mol_per_s;
+        var v_pt_Na: mol_per_s;
+        var v_giEpi_NKE: mol_per_s;
+        var v_ptEpi_NKE: mol_per_s;
+        var u_vc_W: kPa;
+        var u_ac_W: kPa;
+        var u_pt_W: kPa;
+        var u_vc_osmotic: kPa;
+        var u_gi_osmotic: kPa;
+        var u_pt_osmotic: kPa;
+        var u_giEpi_e: J_per_C {init: -0.040};
+        var u_ptEpi_e: J_per_C {init: -0.040};
+        var k_gi_W: L_per_s_per_kPa {init: 1};
+        var k_pt_W: L_per_s_per_kPa {init: 0};
+        var k_gl_W: L_per_s_per_kPa {init: 1};
+        var k_cc_W: L_per_s_per_kPa {init: 1};
+        var kK_gi_Na: per_s {init: 1};
+        var kK_pt_Na: per_s {init: 1};
+        var kK_gl_Na: per_s {init: 1};
+        var k_giEpi_NKE: mol_per_s {init: 1e4};
+        var k_ptEpi_NKE: mol_per_s {init: 1e5};
+        var K_Na: L_per_mol {init: 1};
+        var K_K: L_per_mol {init: 1};
+        var E_vc: joule {init: 6e1};
+        var E_ac: joule {init: 6e1};
+        var E_pt: joule {init: 1};
+        var U_ac_W: litre {init: 0.5};
+        var U_vc_W: litre {init: 1.5};
+        var U_pt_W: litre {init: 0.1};
+        var L_ac_W: litre {init: 1.5};
+        var L_vc_W: litre {init: 2.5};
+        var L_pt_W: litre {init: 1};
+
+        // ODEs for qtys of water & sodium in the 4 compartments
+
+        ode(q_gi_W, t)     = v_in_W-RT*k_gi_W*(q_vc_Na/q_vc_W-q_gi_Na/q_gi_W)-v_out1_W;
+        ode(q_pt_W, t)     = k_gl_W*(E_ac*(q_ac_W-U_ac_W)/sqr(L_ac_W-q_ac_W)-E_pt*(q_pt_W-U_pt_W)/sqr(L_pt_W-q_pt_W))-RT*k_pt_W*(q_vc_Na/q_vc_W-q_pt_Na/q_pt_W)-v_out2_W;
+        ode(q_vc_W, t)     = k_cc_W*(E_ac*(q_ac_W-U_ac_W)/sqr(L_ac_W-q_ac_W)-E_vc*(q_vc_W-U_vc_W)/sqr(L_vc_W-q_vc_W))+RT*k_gi_W*(q_vc_Na/q_vc_W-q_gi_Na/q_gi_W)+RT*k_pt_W*(q_vc_Na/q_vc_W-q_pt_Na/q_pt_W)-v_lv_W;
+        ode(q_ac_W, t)     = v_lv_W+k_cc_W*E_vc*(q_vc_W-U_vc_W)/sqr(L_vc_W-q_vc_W)-(k_gl_W+k_cc_W)*E_ac*(q_ac_W-U_ac_W)/sqr(L_ac_W-q_ac_W)+k_gl_W*E_pt*(q_pt_W-U_pt_W)/sqr(L_pt_W-q_pt_W);
+        ode(q_gi_Na, t)    = v_in_Na-kK_gi_Na*(q_gi_Na-q_giEpi_Na)-v_out1_Na;
+        ode(q_giEpi_Na, t) = kK_gi_Na*(q_gi_Na-q_giEpi_Na)-3{dim}*k_giEpi_NKE*(pow(K_Na*q_giEpi_Na/q_giEpi_W, 3{dim})*sqr(K_K*q_vc_K/q_vc_W)-pow(K_Na*q_vc_Na/q_vc_W, 3{dim})*sqr(K_K*q_giEpi_K/q_giEpi_W)*exp(2{dim}*F*u_giEpi_e/RT))/((1{dim}+pow(K_Na*q_giEpi_Na/q_giEpi_W, 3{dim}))*(1{dim}+pow(K_Na*q_vc_Na/q_vc_W, 3{dim}))*(1{dim}+sqr(K_K*q_vc_K/q_vc_W))*(1{dim}+sqr(K_K*q_giEpi_K/q_giEpi_W)));
+        ode(q_pt_Na, t)    = kK_gl_Na*(q_vc_Na-q_pt_Na)-kK_pt_Na*(q_pt_Na-q_ptEpi_Na)-v_out2_Na;
+        ode(q_ptEpi_Na, t) = kK_pt_Na*(q_pt_Na-q_ptEpi_Na)-3{dim}*k_ptEpi_NKE*(pow(K_Na*q_ptEpi_Na/q_ptEpi_W, 3{dim})*sqr(K_K*q_vc_K/q_vc_W)-pow(K_Na*q_vc_Na/q_vc_W, 3{dim})*sqr(K_K*q_ptEpi_K/q_ptEpi_W)*exp(2{dim}*F*u_ptEpi_e/RT))/((1{dim}+pow(K_Na*q_ptEpi_Na/q_ptEpi_W, 3{dim}))*(1{dim}+pow(K_Na*q_vc_Na/q_vc_W, 3{dim}))*(1{dim}+sqr(K_K*q_vc_K/q_vc_W))*(1{dim}+sqr(K_K*q_ptEpi_K/q_ptEpi_W)));
+        ode(q_vc_Na, t)    = 3{dim}*k_giEpi_NKE*(pow(K_Na*q_giEpi_Na/q_giEpi_W, 3{dim})*sqr(K_K*q_vc_K/q_vc_W)-pow(K_Na*q_vc_Na/q_vc_W, 3{dim})*sqr(K_K*q_giEpi_K/q_giEpi_W)*exp(2{dim}*F*u_giEpi_e/RT))/((1{dim}+pow(K_Na*q_giEpi_Na/q_giEpi_W, 3{dim}))*(1{dim}+pow(K_Na*q_vc_Na/q_vc_W, 3{dim}))*(1{dim}+sqr(K_K*q_vc_K/q_vc_W))*(1{dim}+sqr(K_K*q_giEpi_K/q_giEpi_W)))+3{dim}*k_ptEpi_NKE*(pow(K_Na*q_ptEpi_Na/q_ptEpi_W, 3{dim})*sqr(K_K*q_vc_K/q_vc_W)-pow(K_Na*q_vc_Na/q_vc_W, 3{dim})*sqr(K_K*q_ptEpi_K/q_ptEpi_W)*exp(2{dim}*F*u_ptEpi_e/RT))/((1{dim}+pow(K_Na*q_ptEpi_Na/q_ptEpi_W, 3{dim}))*(1{dim}+pow(K_Na*q_vc_Na/q_vc_W, 3{dim}))*(1{dim}+sqr(K_K*q_vc_K/q_vc_W))*(1{dim}+sqr(K_K*q_ptEpi_K/q_ptEpi_W)))-kK_gl_Na*(q_vc_Na-q_pt_Na);
+
+        // Water pressures 
+
+        u_vc_W = E_vc*(q_vc_W-U_vc_W)/sqr(L_vc_W-q_vc_W);
+        u_ac_W = E_ac*(q_ac_W-U_ac_W)/sqr(L_ac_W-q_ac_W);
+        u_pt_W = E_pt*(q_pt_W-U_pt_W)/sqr(L_pt_W-q_pt_W);
+
+        // Concentrations & Osmotic pressures
+
+        c_vc_Na      = q_vc_Na/q_vc_W;
+        c_gi_Na      = q_gi_Na/q_gi_W;
+        c_pt_Na      = q_pt_Na/q_pt_W;
+        c_giEpi_Na   = q_giEpi_Na/q_giEpi_W;
+        c_ptEpi_Na   = q_ptEpi_Na/q_ptEpi_W;
+        C_vc_Na      = 1e3{dim}*c_vc_Na;
+        C_gi_Na      = 1e3{dim}*c_gi_Na;
+        C_pt_Na      = 1e3{dim}*c_pt_Na;
+        C_giEpi_Na   = 1e3{dim}*c_giEpi_Na;
+        C_ptEpi_Na   = 1e3{dim}*c_ptEpi_Na;
+        u_gi_osmotic = RT*c_gi_Na;
+        u_vc_osmotic = RT*c_vc_Na;
+        u_pt_osmotic = RT*c_pt_Na;
+
+        // Water fluxes 
+
+        v_gi_W = k_gi_W*(u_vc_osmotic-u_gi_osmotic);
+        v_pt_W = k_pt_W*(u_vc_osmotic-u_pt_osmotic);
+        v_gl_W = k_gl_W*(u_ac_W-u_pt_W);
+        v_cc_W = k_cc_W*(u_ac_W-u_vc_W);
+
+        // Sodium fluxes
+
+        v_gl_Na     = kK_gl_Na*(q_vc_Na-q_pt_Na);
+        v_gi_Na     = kK_gi_Na*(q_gi_Na-q_giEpi_Na);
+        v_pt_Na     = kK_pt_Na*(q_pt_Na-q_ptEpi_Na);
+        v_giEpi_NKE = 3{dim}*k_giEpi_NKE*(pow(K_Na*q_giEpi_Na/q_giEpi_W, 3{dim})*sqr(K_K*q_vc_K/q_vc_W)-pow(K_Na*q_vc_Na/q_vc_W, 3{dim})*sqr(K_K*q_giEpi_K/q_giEpi_W)*exp(2{dim}*F*u_giEpi_e/RT))/((1{dim}+pow(K_Na*q_giEpi_Na/q_giEpi_W, 3{dim}))*(1{dim}+pow(K_Na*q_vc_Na/q_vc_W, 3{dim}))*(1{dim}+sqr(K_K*q_vc_K/q_vc_W))*(1{dim}+sqr(K_K*q_giEpi_K/q_giEpi_W)));
+        v_ptEpi_NKE = 3{dim}*k_ptEpi_NKE*(pow(K_Na*q_ptEpi_Na/q_ptEpi_W, 3{dim})*sqr(K_K*q_vc_K/q_vc_W)-pow(K_Na*q_vc_Na/q_vc_W, 3{dim})*sqr(K_K*q_ptEpi_K/q_ptEpi_W)*exp(2{dim}*F*u_ptEpi_e/RT))/((1{dim}+pow(K_Na*q_ptEpi_Na/q_ptEpi_W, 3{dim}))*(1{dim}+pow(K_Na*q_vc_Na/q_vc_W, 3{dim}))*(1{dim}+sqr(K_K*q_vc_K/q_vc_W))*(1{dim}+sqr(K_K*q_ptEpi_K/q_ptEpi_W)));
+
+        //Total water & total sodium
+
+        q_tot_W  = q_ac_W+q_vc_W+q_gi_W+q_pt_W+q_giEpi_W+q_ptEpi_W;
+        q_tot_Na = q_vc_Na+q_gi_Na+q_pt_Na+q_giEpi_Na+q_ptEpi_Na;
+    enddef;
+enddef;
