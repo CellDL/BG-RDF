@@ -10,6 +10,7 @@
 #===============================================================================
 
 bgf:Mechanical
+    a bgf:ModellingDomain ;
     bgf:hasFlow [
         bgf:varName "v" ;
         bgf:hasUnits "m/s"^^cdt:ucumunit

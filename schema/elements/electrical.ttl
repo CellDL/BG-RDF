@@ -10,6 +10,7 @@
 #===============================================================================
 
 bgf:Electrical
+    a bgf:ModellingDomain ;
     bgf:hasFlow [
         bgf:varName "v" ;
         bgf:hasUnits "C/s"^^cdt:ucumunit
