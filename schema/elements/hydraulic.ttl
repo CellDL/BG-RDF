@@ -1,4 +1,3 @@
-@prefix bg: <https://celldl.org/ontologies/bondgraph#> .
 @prefix bgf: <https://celldl.org/ontologies/bondgraph-framework#> .
 @prefix cdt: <https://w3id.org/cdt/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -64,7 +63,7 @@ bgf:HydraulicCapacitor
 
 bgf:HydraulicResistor
     a bgf:ElementTemplate ;
-    rdfs:subClassOf bgf:Resistance ;
+    rdfs:subClassOf bgf:Dissapator ;
     bgf:hasDomain bgf:Hydraulic ;
     bgf:hasVariable [
         bgf:varName "k" ;

@@ -1,4 +1,3 @@
-@prefix bg: <https://celldl.org/ontologies/bondgraph#> .
 @prefix bgf: <https://celldl.org/ontologies/bondgraph-framework#> .
 @prefix cdt: <https://w3id.org/cdt/> .
 
@@ -15,15 +14,14 @@
 
 :example_A2
     a bgf:BondgraphModel ;
-    bg:hasBondElement :q, :R, :L ;
-    bg:hasJunctionStructure :v_1 ;
-    bg:hasPowerBond :v_1.q, :v_1.R, :v_1.L .
+    bgf:hasBondElement :q, :R, :L ;
+    bgf:hasJunctionStructure :v_1 ;
+    bgf:hasPowerBond :v_1.q, :v_1.R, :v_1.L .
 
 #===============================================================================
 
 :q
-    a bgf:PotentialStore ;
-    bgf:hasDomain bgf:Mechanical ;
+    a bgf:MechanicalCapacitor ;
     bgf:variableValue [
         bgf:varName "C" ;
         bgf:hasValue "20 m2.J-1"^^cdt:ucum
@@ -33,16 +31,14 @@
     ] .
 
 :R
-    a bgf:Resistance ;
-    bgf:hasDomain bgf:Mechanical ;
+    a bgf:MechanicalResistor ;
     bgf:variableValue [
         bgf:varName "R" ;
         bgf:hasValue "0.1 J.s.m-2"^^cdt:ucum
     ] .
 
 :L
-    a bgf:KineticStore ;
-    bgf:hasDomain bgf:Mechanical ;
+    a bgf:MechanicalInductor ;
     bgf:variableValue [
         bgf:varName "L" ;
         bgf:hasValue "10 J.s2.m-2"^^cdt:ucum

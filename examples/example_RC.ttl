@@ -1,4 +1,3 @@
-@prefix bg: <https://celldl.org/ontologies/bondgraph#> .
 @prefix bgf: <https://celldl.org/ontologies/bondgraph-framework#> .
 @prefix cdt: <https://w3id.org/cdt/> .
 
@@ -29,9 +28,9 @@
 
 :RC_circuit
     a bgf:BondgraphModel ;
-    bg:hasBondElement :R, :C ;
-    bg:hasJunctionStructure :u_0, :v, :u_1 ;
-    bg:hasPowerBond :u_0.v, :v.R, :v.u_1, :u_1.C .
+    bgf:hasBondElement :R, :C ;
+    bgf:hasJunctionStructure :u_0, :v, :u_1 ;
+    bgf:hasPowerBond :u_0.v, :v.R, :v.u_1, :u_1.C .
 
 #===============================================================================
 

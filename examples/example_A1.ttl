@@ -1,4 +1,3 @@
-@prefix bg: <https://celldl.org/ontologies/bondgraph#> .
 @prefix bgf: <https://celldl.org/ontologies/bondgraph-framework#> .
 @prefix cdt: <https://w3id.org/cdt/> .
 
@@ -15,15 +14,14 @@
 
 :example_A1
     a bgf:BondgraphModel ;
-    bg:hasBondElement :C, :R, :L ;
-    bg:hasJunctionStructure :u_C, :v_R, :u_L ;
-    bg:hasPowerBond :u_C.C, :u_C.v_R, :v_R.R, :v_R.u_L, :u_L.L .
+    bgf:hasBondElement :C, :R, :L ;
+    bgf:hasJunctionStructure :u_C, :v_R, :u_L ;
+    bgf:hasPowerBond :u_C.C, :u_C.v_R, :v_R.R, :v_R.u_L, :u_L.L .
 
 #===============================================================================
 
 :C
-    a bgf:PotentialStore ;
-    bgf:hasDomain bgf:Electrical ;
+    a bgf:ElectricalCapacitor ;
     bgf:variableValue [
         bgf:varName "C" ;
         bgf:hasValue "20 F"^^cdt:ucum
@@ -33,16 +31,14 @@
     ] .
 
 :R
-    a bgf:Resistance ;
-    bgf:hasDomain bgf:Electrical ;
+    a bgf:ElectricalResistor ;
     bgf:variableValue [
         bgf:varName "R" ;
         bgf:hasValue "2 Ohm"^^cdt:ucum
     ] .
 
 :L
-    a bgf:KineticStore ;
-    bgf:hasDomain bgf:Electrical ;
+    a bgf:ElectricalInductor ;
     bgf:variableValue [
         bgf:varName "L" ;
         bgf:hasValue "10 H"^^cdt:ucum
