@@ -245,18 +245,6 @@ class PowerPort:
 #===============================================================================
 #===============================================================================
 
-ELEMENT_TEMPLATE_DEFINITIONS = f"""
-    SELECT DISTINCT ?uri ?element_type ?label ?domain ?relation
-    WHERE {{
-        ?uri
-            a bgf:ElementTemplate ;
-            rdfs:subClassOf ?element_type ;
-            rdfs:subClassOf* bg:BondElement ;
-            bgf:hasDomain ?domain ;
-            bgf:constitutiveRelation ?relation .
-        OPTIONAL {{ ?uri rdfs:label ?label }}
-    }} ORDER BY ?uri"""
-
 ELEMENT_VARIABLES = f"""
     SELECT DISTINCT ?name ?units ?value
     WHERE {{
@@ -393,6 +381,18 @@ DOMAIN_QUERY = f"""
         OPTIONAL {{ ?domain rdfs:label ?label }}
     }} ORDER BY ?domain"""
 
+ELEMENT_TEMPLATE_DEFINITIONS = f"""
+    SELECT DISTINCT ?uri ?element_type ?label ?domain ?relation
+    WHERE {{
+        ?uri
+            a bgf:ElementTemplate ;
+            rdfs:subClassOf ?element_type ;
+            rdfs:subClassOf* bg:BondElement ;
+            bgf:hasDomain ?domain ;
+            bgf:constitutiveRelation ?relation .
+        OPTIONAL {{ ?uri rdfs:label ?label }}
+    }} ORDER BY ?uri"""
+
 JUNCTION_STRUCTURES = f"""
     SELECT DISTINCT ?junction ?label ?numPorts
     WHERE {{
@@ -400,6 +400,8 @@ JUNCTION_STRUCTURES = f"""
         OPTIONAL {{ ?junction rdfs:label ?label }}
         OPTIONAL {{ ?junction bgf:numPorts ?numPorts }}
     }} ORDER BY ?junction"""
+
+#===============================================================================
 
 class _BondgraphFramework:
     _instance = None
