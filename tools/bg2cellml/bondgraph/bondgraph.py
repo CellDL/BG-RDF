@@ -40,6 +40,12 @@ from .utils import Labelled
 #===============================================================================
 #===============================================================================
 
+def make_element_port_id(element_id: str, port_id: str) -> str:
+#==============================================================
+    return element_id if port_id in [None, ''] else f'{element_id}_{port_id}'
+
+#===============================================================================
+
 class ModelElement(Labelled):
     def __init__(self,  model: 'BondgraphModel', uri: URIRef, label: Optional[str]):
         super().__init__(uri, label)
@@ -50,12 +56,6 @@ class ModelElement(Labelled):
         return self.__model
 
 #===============================================================================
-#===============================================================================
-
-def make_element_port_id(element_id: str, port_id: str) -> str:
-#==============================================================
-    return element_id if port_id in [None, ''] else f'{element_id}_{port_id}'
-
 #===============================================================================
 
 ELEMENT_VARIABLES = f"""
