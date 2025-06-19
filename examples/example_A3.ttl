@@ -1,4 +1,3 @@
-@prefix bg: <https://celldl.org/ontologies/bondgraph#> .
 @prefix bgf: <https://celldl.org/ontologies/bondgraph-framework#> .
 @prefix cdt: <https://w3id.org/cdt/> .
 
@@ -18,48 +17,43 @@
 
 :example_A3
     a bgf:BondgraphModel ;
-    bg:hasBondElement :R_1, :L_1, :R_2, :L_2, :q_C ;
-    bg:hasJunctionStructure :u_in, :v_1, :GY, :v_2, :u_C ;
-    bg:hasPowerBond :u_in.v_1, :v_1.R_1, :v_1.L_1, :v_1.GY_0,
+    bgf:hasBondElement :R_1, :L_1, :R_2, :L_2, :q_C ;
+    bgf:hasJunctionStructure :u_in, :v_1, :GY, :v_2, :u_C ;
+    bgf:hasPowerBond :u_in.v_1, :v_1.R_1, :v_1.L_1, :v_1.GY_0,
                     :GY_1.v_2, :v_2.R_2, :v_2.L_2, :v_2.u_C, :u_c.q_C .
 
 #===============================================================================
 
 :R_1
-    a bgf:Resistance ;
-    bgf:hasDomain bgf:Electrical ;
+    a bgf:ElectricalResistor ;
     bgf:variableValue [
         bgf:varName "R" ;
         bgf:hasValue "10 Ohm"^^cdt:ucum
     ] .
 
 :L_1
-    a bgf:KineticStore ;
-    bgf:hasDomain bgf:Electrical ;
+    a bgf:ElectricalInductor ;
     bgf:variableValue [
         bgf:varName "L" ;
         bgf:hasValue "0.2 H"^^cdt:ucum
     ] .
 
 :R_2
-    a bgf:Resistance ;
-    bgf:hasDomain bgf:Mechanical ;
+    a bgf:MechanicalResistor ;
     bgf:variableValue [
         bgf:varName "R" ;
         bgf:hasValue "0.4 J.s.m-2"^^cdt:ucum
     ] .
 
 :L_2
-    a bgf:KineticStore ;
-    bgf:hasDomain bgf:Mechanical ;
+    a bgf:MechanicalInductor ;
     bgf:variableValue [
         bgf:varName "L" ;
         bgf:hasValue "0.01 J.s2.m-2"^^cdt:ucum
     ] .
 
 :q_C
-    a bgf:PotentialStore ;
-    bgf:hasDomain bgf:Mechanical ;
+    a bgf:MechanicalCapacitor ;
     bgf:variableValue [
         bgf:varName "E" ;
         bgf:hasValue "100 J.m-2"^^cdt:ucum
@@ -77,9 +71,10 @@
     a bgf:OneNode .
 
 :GY
-    a bgf:Transformation ;
+    a bgf:TransformNode ;
     bgf:hasPort :GY_0, :GY_1 ;
-    bgf:hasRatio [
+    bgf:variableValue [
+        bgf:varName "K" ;
         bgf:hasValue "6 J.s.C-1.m-1"^^cdt:ucum
     ] .
 

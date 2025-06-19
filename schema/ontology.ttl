@@ -23,13 +23,66 @@ bgf:BondgraphModel
     a owl:Class ;
     rdfs:subClassOf bg:BondGraph .
 
+bgf:BondElement
+    a owl:Class ;
+    rdfs:subClassOf bg:BondElement .
+
+bgf:JunctionStructure
+    a owl:Class ;
+    rdfs:subClassOf bg:JunctionStructure .
+
+bgf:PowerBond
+    a owl:Class ;
+    rdfs:subClassOf bg:PowerBond .
+
+bgf:PowerPort
+    a owl:Class ;
+    rdfs:subClassOf bg:PowerPort .
+
+#################################################################
+#################################################################
+
+bgf:PotentialStore
+    rdfs:subClassOf bgf:BondElement ;
+    rdfs:label "Potential storage node" ;
+    dcterms:description "Potential energy store" .
+
+bgf:KineticStore
+    rdfs:subClassOf bgf:BondElement ;
+    rdfs:label "Dynamic storage node" ;
+    dcterms:description "Kinetic energy store" .
+
+bgf:Dissapator
+    rdfs:subClassOf bgf:BondElement ;
+    rdfs:label "Dissapative node" ;
+    dcterms:description "Energy dissipation" .
+
+#################################################################
+
+bgf:OneNode
+    rdfs:subClassOf bgf:JunctionStructure ;
+    rdfs:label "One node" ;
+    dcterms:description "Energy conservation" .
+
+bgf:TransformNode
+    rdfs:subClassOf bgf:JunctionStructure ;
+    rdfs:label "Transform node" ;
+    dcterms:description "Energy transformation" ;
+    bgf:numPorts 2 .
+
+bgf:ZeroNode
+    rdfs:subClassOf bgf:JunctionStructure ;
+    rdfs:label "Zero node" ;
+    dcterms:description "Quantity conservation" .
+
+#################################################################
+#################################################################
+
 bgf:ElementTemplate
     a owl:Class .
 
 bgf:ModellingDomain
     a owl:Class .
-
-#################################################################
 
 bgf:Constant
     a owl:Class .
@@ -41,40 +94,7 @@ bgf:Variable
     a owl:Class .
 
 #################################################################
-
-bgf:PotentialStore
-    rdfs:subClassOf bg:BondElement ;
-    rdfs:label "Potential storage node" ;
-    dcterms:description "Potential energy store" .
-
-bgf:KineticStore
-    rdfs:subClassOf bg:BondElement ;
-    rdfs:label "Dynamic storage node" ;
-    dcterms:description "Kinetic energy store" .
-
-bgf:Resistance
-    rdfs:subClassOf bg:BondElement ;
-    rdfs:label "Resistance node" ;
-    dcterms:description "Energy dissipation" .
-
-bgf:Transformation
-    rdfs:subClassOf bg:JunctionStructure ;
-    rdfs:label "Transform node" ;
-    dcterms:description "Energy transformation" ;
-    bgf:numPorts 2 .
-
-#################################################################
-
-bgf:OneNode
-    rdfs:subClassOf bg:JunctionStructure ;
-    rdfs:label "One node" ;
-    dcterms:description "Energy conservation" .
-
-bgf:ZeroNode
-    rdfs:subClassOf bg:JunctionStructure ;
-    rdfs:label "Zero node" ;
-    dcterms:description "Quantity conservation" .
-
+#    Datatypes
 #################################################################
 
 bgf:latex
@@ -137,6 +157,23 @@ bgf:varName
 #    Object Properties
 #################################################################
 
+bgf:hasBondElement
+    a owl:ObjectProperty ;
+    rdfs:domain bgf:BondgraphModel ;
+    rdfs:range bgf:BondElement .
+
+bgf:hasJunctionStructure
+    a owl:ObjectProperty ;
+    rdfs:domain bgf:BondgraphModel ;
+    rdfs:range bgf:JunctionStructure .
+
+bgf:hasPowerBond
+    a owl:ObjectProperty ;
+    rdfs:domain bgf:BondgraphModel ;
+    rdfs:range bgf:hasPowerBond .
+
+#################################################################
+
 bgf:hasConstant
     a owl:ObjectProperty, owl:FunctionalProperty ;
     rdfs:domain bgf:ModellingDomain ;
@@ -145,7 +182,7 @@ bgf:hasConstant
 bgf:hasPort
     a owl:ObjectProperty, owl:FunctionalProperty ;
     rdfs:domain bgf:ElementTemplate ;
-    rdfs:range bg:PowerPort .
+    rdfs:range bgf:PowerPort .
 
 bgf:hasVariable
     a owl:ObjectProperty, owl:FunctionalProperty ;

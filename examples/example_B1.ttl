@@ -1,4 +1,3 @@
-@prefix bg: <https://celldl.org/ontologies/bondgraph#> .
 @prefix bgf: <https://celldl.org/ontologies/bondgraph-framework#> .
 @prefix cdt: <https://w3id.org/cdt/> .
 
@@ -22,15 +21,21 @@
 
 :Simple_reaction
     a bgf:BondgraphModel ;
-    bg:hasBondElement :q_1, :q_2, :Re_r ;
-    bg:hasJunctionStructure :u_1, :v_r_1, :v_r_2, :u_2 ;
-    bg:hasPowerBond :u_1.q_1, :u_1.v_r_1, :v_r_1.Re_r, :Re_r.v_r_2, :v_r_2.u_2, :u_2.q_2 .
+    bgf:hasBondElement :q_1, :q_2, :Re_r ;
+    bgf:hasJunctionStructure :u_1, :v_r_1, :v_r_2, :u_2 ;
+    bgf:hasPowerBond :u_1.q_1, :u_1.v_r_1, :v_r_1.Re_r, :Re_r.v_r_2, :v_r_2.u_2, :u_2.q_2 .
 
 #===============================================================================
 
+
+## Can we set u/v symbols by node??
+## To compare in tests?
+
+## Or have a new property (not bgf:) to denote equivalence???
+
+
 :q_1
-    a bgf:PotentialStore ;
-    bgf:hasDomain bgf:Chemical ;
+    a bgf:ChemicalConcentration ;
     bgf:variableValue [
         bgf:varName "K" ;
         bgf:hasValue "1 mol-1"^^cdt:ucum
@@ -41,8 +46,7 @@
     ] .
 
 :q_2
-    a bgf:PotentialStore ;
-    bgf:hasDomain bgf:Chemical ;
+    a bgf:ChemicalConcentration ;
     bgf:variableValue [
         bgf:varName "K" ;
         bgf:hasValue "1 mol-1"^^cdt:ucum
@@ -53,8 +57,7 @@
     ] .
 
 :Re_r
-    a bgf:Resistance ;
-    bgf:hasDomain bgf:Chemical ;
+    a bgf:ChemicalReaction ;
     bgf:variableValue [
         bgf:varName "kappa_r" ;
         bgf:hasSymbol "kappa_r" ;
