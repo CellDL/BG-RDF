@@ -94,7 +94,7 @@ bgf:constitutiveRelation
     rdfs:domain bgf:ElementTemplate ;
     rdfs:range bgf:mathml .
 
-bgf:hasPortId
+bgf:hasPortSuffix
     a owl:DatatypeProperty ;
     rdfs:domain bgf:ElementTemplate ;
     rdfs:range xsd:string .

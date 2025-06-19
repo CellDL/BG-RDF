@@ -27,7 +27,7 @@ bgf:ChemicalReaction
     rdfs:subClassOf bgf:Resistance ;
     bgf:hasDomain bgf:Chemical ;
     rdfs:label "Chemical reaction" ;
-    bgf:hasPortId 'f', 'r' ;
+    bgf:hasPortSuffix 'f', 'r' ;
     bgf:hasVariable [
         bgf:varName "kappa_r" ;
         bgf:hasUnits "mol/s"^^cdt:ucumunit
