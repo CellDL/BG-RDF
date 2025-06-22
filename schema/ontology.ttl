@@ -144,7 +144,7 @@ bgf:hasValue
 
 bgf:varName
     a owl:DatatypeProperty, owl:FunctionalProperty ;
-    rdfs:domain bgf:Value, bgf:Variable ;
+    dcterms:description "A name to identify a variable, for both when it is declared and when it is given a value." ;
     rdfs:range xsd:Name .
 
 #################################################################
