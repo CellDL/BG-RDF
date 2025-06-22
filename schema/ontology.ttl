@@ -199,19 +199,19 @@ bgf:hasSource
 
 bgf:hasTarget
     a owl:ObjectProperty, owl:FunctionalProperty ;
-    rdfs:domain bgf:ModellingDomain, bgf:PowerBond ;
+    rdfs:domain bgf:PowerBond ;
     rdfs:range bgf:PowerPort .
 
 #################################################################
 
 bgf:hasPotential
     a owl:ObjectProperty, owl:FunctionalProperty ;
-    rdfs:domain bgf:PowerPort ;
+    rdfs:domain bgf:ModellingDomain ;
     rdfs:range bgf:Variable .
 
 bgf:hasFlow
     a owl:ObjectProperty, owl:FunctionalProperty ;
-    rdfs:domain bgf:ModellingDomain, bgf:PowerPort ;
+    rdfs:domain bgf:ModellingDomain ;
     rdfs:range bgf:Variable .
 
 #################################################################
