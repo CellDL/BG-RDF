@@ -26,7 +26,7 @@ bgf:ChemicalReaction
     rdfs:subClassOf bgf:Dissapator ;
     bgf:hasDomain bgf:Chemical ;
     rdfs:label "Chemical reaction" ;
-    bgf:hasPortSuffix 'f', 'r' ;
+    bgf:hasPort 'f', 'r' ;
     bgf:hasVariable [
         bgf:varName "kappa_r" ;
         bgf:hasUnits "mol/s"^^cdt:ucumunit

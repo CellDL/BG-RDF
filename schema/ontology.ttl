@@ -67,8 +67,7 @@ bgf:OneNode
 bgf:TransformNode
     rdfs:subClassOf bgf:JunctionStructure ;
     rdfs:label "Transform node" ;
-    dcterms:description "Energy transformation" ;
-    bgf:numPorts 2 .
+    dcterms:description "Energy transformation" .
 
 bgf:ZeroNode
     rdfs:subClassOf bgf:JunctionStructure ;
@@ -114,15 +113,10 @@ bgf:constitutiveRelation
     rdfs:domain bgf:ElementTemplate ;
     rdfs:range bgf:mathml .
 
-bgf:hasPortSuffix
+bgf:hasPort
     a owl:DatatypeProperty ;
-    rdfs:domain bgf:ElementTemplate ;
-    rdfs:range xsd:string .
-
-bgf:numPorts
-    a owl:DatatypeProperty, owl:FunctionalProperty ;
-    rdfs:domain bgf:ElementTemplate ;
-    rdfs:range xsd:positiveInteger .
+    dcterms:description "The identity of each port when a Bond Element or Junction Structure has more than a single Power Port." ;
+    rdfs:range xsd:Name .
 
 #################################################################
 
