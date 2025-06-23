@@ -120,19 +120,15 @@ bgf:constitutiveRelation
     rdfs:domain bgf:ElementTemplate ;
     rdfs:range bgf:mathml .
 
-bgf:hasPort
-    a owl:DatatypeProperty ;
-    dcterms:description "The identity of each port when a Bond Element or Junction Structure has more than a single Power Port." ;
-    rdfs:range xsd:Name .
-
-#################################################################
-
 bgf:hasDomain
     a owl:DatatypeProperty, owl:FunctionalProperty ;
     rdfs:domain bgf:PowerPort ;
     rdfs:range bgf:ModellingDomain .
 
-#################################################################
+bgf:hasPort
+    a owl:DatatypeProperty ;
+    dcterms:description "The identity of each port when a Bond Element or Junction Structure has more than a single Power Port." ;
+    rdfs:range xsd:Name .
 
 bgf:hasSymbol
     a owl:DatatypeProperty, owl:FunctionalProperty ;
