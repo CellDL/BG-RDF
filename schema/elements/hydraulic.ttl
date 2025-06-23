@@ -63,7 +63,7 @@ bgf:HydraulicCapacitor
 
 bgf:HydraulicResistor
     a bgf:ElementTemplate ;
-    rdfs:subClassOf bgf:Dissapator ;
+    rdfs:subClassOf bgf:Dissipator ;
     bgf:hasDomain bgf:Hydraulic ;
     bgf:hasVariable [
         bgf:varName "k" ;

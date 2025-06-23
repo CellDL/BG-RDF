@@ -23,7 +23,7 @@ bgf:Chemical
 
 bgf:ChemicalReaction
     a bgf:ElementTemplate ;
-    rdfs:subClassOf bgf:Dissapator ;
+    rdfs:subClassOf bgf:Dissipator ;
     bgf:hasDomain bgf:Chemical ;
     rdfs:label "Chemical reaction" ;
     bgf:hasPort 'f', 'r' ;

@@ -23,7 +23,7 @@ bgf:Mechanical
 
 bgf:MechanicalResistor
     a bgf:ElementTemplate ;
-    rdfs:subClassOf bgf:Dissapator ;
+    rdfs:subClassOf bgf:Dissipator ;
     bgf:hasDomain bgf:Mechanical ;
     rdfs:label "Mechanical resistor" ;
     bgf:hasVariable [
