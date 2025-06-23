@@ -108,6 +108,13 @@ bgf:mathml
 #    Data properties
 #################################################################
 
+bgf:hasBlock
+    a owl:DatatypeProperty ;
+    rdfs:domain bgf:BondgraphModel ;
+    rdfs:range xsd:string .
+
+#################################################################
+
 bgf:constitutiveRelation
     a owl:DatatypeProperty, owl:FunctionalProperty ;
     rdfs:domain bgf:ElementTemplate ;
@@ -165,6 +172,10 @@ bgf:hasPowerBond
     a owl:ObjectProperty ;
     rdfs:domain bgf:BondgraphModel ;
     rdfs:range bgf:hasPowerBond .
+
+bgf:hasInterfaceBond
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf bgf:hasPowerBond .
 
 #################################################################
 
