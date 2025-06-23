@@ -1,21 +1,20 @@
-@prefix bg: <https://celldl.org/ontologies/bondgraph#> .
 @prefix bgf: <https://celldl.org/ontologies/bondgraph-framework#> .
 @prefix cdt: <https://w3id.org/cdt/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-@prefix : <#> .
+@prefix : <https://bg-rdf.org/models/local/gi-tract#> .
 
 #===============================================================================
 
-:gi-tract
-    a bgf:BondgraphModel, bgf:Block ;
-    bg:hasBondElement :q_gi_W, :v_gi_W.R ;
-    bg:hasJunctionStructure
+:model
+    a bgf:BondgraphModel ;
+    bgf:hasBondElement :q_gi_W, :v_gi_W.R ;
+    bgf:hasJunctionStructure
         :v_in_W, :v_out1_W,
-        :v_gi_W, :u_gi_osmotic ;
-    bg:hasPowerBond
-        :u_gi_osmotic.bond, :v_gi_W.bond,
-        :v_in_W.u_gi_osmotic, :u_gi_osmotic.v_out1_W, :u_gi_osmotic.v_gi_W .
+        :v_gi_W, :q_gi_W.u ;
+    bgf:hasPowerBond
+        :q_gi_W.bond, :v_gi_W.bond,
+        :v_in_W.q_gi_W.u, :q_gi_W.v_out1_W, :q_gi_W.v_gi_W .
 
 #===============================================================================
 #===============================================================================
@@ -23,15 +22,15 @@
 :q_gi_W
     a bgf:HydraulicCapacitor ;
     bgf:hasVariable [
-        bgf:varName "C" ;
-        bgf:hasValue "1 J-1"^^cdt:ucum
+        bgf:varName "E" ;
+        bgf:hasValue "1 J"^^cdt:ucum
     ] .
 
-:u_gi_osmotic
+:q_gi_W.u
     a bgf:ZeroNode .
 
-:u_gi_osmotic.bond
-    bgf:hasSource :u_gi_osmotic ;
+:q_gi_W.bond
+    bgf:hasSource :q_gi_W.u ;
     bgf:hasTarget :q_gi_W .
 
 #===============================================================================
@@ -64,16 +63,16 @@
 #===============================================================================
 #===============================================================================
 
-:v_in_W.u_gi_osmotic
+:v_in_W.q_gi_W.u
     bgf:hasSource :v_in_W ;
-    bgf:hasTarget :u_gi_osmotic .
+    bgf:hasTarget :q_gi_W.u .
 
-:u_gi_osmotic.v_out1_W
-    bgf:hasSource :u_gi_osmotic ;
+:q_gi_W.v_out1_W
+    bgf:hasSource :q_gi_W.u ;
     bgf:hasTarget :v_out1_W .
 
-:u_gi_osmotic.v_gi_W
-    bgf:hasSource :u_gi_osmotic ;
+:q_gi_W.v_gi_W
+    bgf:hasSource :q_gi_W.u ;
     bgf:hasTarget :v_gi_W .
 
 #===============================================================================

@@ -1,4 +1,3 @@
-@prefix bg: <https://celldl.org/ontologies/bondgraph#> .
 @prefix bgf: <https://celldl.org/ontologies/bondgraph-framework#> .
 @prefix cdt: <https://w3id.org/cdt/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -9,8 +8,11 @@
 #===============================================================================
 
 :blood-volume-control
-    a bg:BondgraphModel ;
-    bgf:hasBlock :gi-tract, :circulation, :kidney .
+    a bgf:BondgraphModel ;
+    bgf:hasBlock
+        "./gi-tract.ttl",
+        "./kidney.ttl",
+        "./circulation.ttl" .
 
 #===============================================================================
 #===============================================================================

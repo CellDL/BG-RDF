@@ -1,21 +1,20 @@
-@prefix bg: <https://celldl.org/ontologies/bondgraph#> .
 @prefix bgf: <https://celldl.org/ontologies/bondgraph-framework#> .
 @prefix cdt: <https://w3id.org/cdt/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-@prefix : <#> .
+@prefix : <https://bg-rdf.org/models/local/kidney#> .
 
 #===============================================================================
 
-:kidney
-    a bgf:BondgraphModel, bgf:Block ;
-    bg:hasBondElement :q_pt_W, :v_pt_W.R ;
-    bg:hasJunctionStructure
-        :v_gl_W, :u_pt_osmotic,
+:model
+    a bgf:BondgraphModel ;
+    bgf:hasBondElement :q_pt_W, :v_pt_W.R ;
+    bgf:hasJunctionStructure
+        :v_gl_W, :q_pt_W.u,
         :v_pt_W, :v_out2_W ;
-    bg:hasPowerBond
-        :u_pt_osmotic.bond, :v_pt_W.bond,
-        :v_gl_W.u_pt_osmotic, :u_pt_osmotic.v_out2_W, :u_pt_osmotic.v_pt_W .
+    bgf:hasPowerBond
+        :q_pt_W.bond, :v_pt_W.bond,
+        :v_gl_W.q_pt_W.u, :q_pt_W.v_out2_W, :q_pt_W.v_pt_W .
 
 #===============================================================================
 #===============================================================================
@@ -40,11 +39,11 @@
         bgf:hasValue "1 L"^^cdt:ucum
     ] .
 
-:u_pt_osmotic
+:q_pt_W.u
     a bgf:ZeroNode .
 
-:u_pt_osmotic.bond
-    bgf:hasSource :u_pt_osmotic ;
+:q_pt_W.bond
+    bgf:hasSource :q_pt_W.u ;
     bgf:hasTarget :q_pt_W .
 
 #===============================================================================
@@ -76,16 +75,16 @@
 #===============================================================================
 #===============================================================================
 
-:v_gl_W.u_pt_osmotic
+:v_gl_W.q_pt_W.u
     bgf:hasSource :v_gl_W ;
-    bgf:hasTarget :u_pt_osmotic .
+    bgf:hasTarget :q_pt_W.u .
 
-:u_pt_osmotic.v_out2_W
-    bgf:hasSource :u_pt_osmotic ;
+:q_pt_W.v_out2_W
+    bgf:hasSource :q_pt_W.u ;
     bgf:hasTarget :v_out2_W .
 
-:u_pt_osmotic.v_pt_W
-    bgf:hasSource :u_pt_osmotic ;
+:q_pt_W.v_pt_W
+    bgf:hasSource :q_pt_W.u ;
     bgf:hasTarget :v_pt_W .
 
 #===============================================================================

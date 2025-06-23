@@ -1,29 +1,39 @@
-@prefix bg: <https://celldl.org/ontologies/bondgraph#> .
 @prefix bgf: <https://celldl.org/ontologies/bondgraph-framework#> .
 @prefix cdt: <https://w3id.org/cdt/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-@prefix : <#> .
+@prefix : <https://bg-rdf.org/models/local/circulation#> .
+@prefix circ: <https://bg-rdf.org/models/local/circulation#> .
+@prefix gi-tract: <https://bg-rdf.org/models/local/gi-tract#> .
+@prefix kidney: <https://bg-rdf.org/models/local/kidney#> .
 
 #===============================================================================
 
-:circulation
-    a bgf:BondgraphModel, bgf:Block ;
-    bg:hasBondElement :q_vc_W, :u_ac_W.q, :v_cc_W.R ;
-    bg:hasJunctionStructure :u_vc_osmotic, :v_lv_W, :u_ac_W, :v_cc_W ;
-    bg:hasPowerBond
-        :u_vc_osmotic.bond, :u_vc_osmotic.v_lv_W,
+:model
+    a bgf:BondgraphModel ;
+    bgf:hasBondElement :q_vc_W, :u_ac_W.q, :v_cc_W.R ;
+    bgf:hasJunctionStructure :q_vc_W.u, :v_lv_W, :u_ac_W, :v_cc_W ;
+    bgf:hasPowerBond
+        :q_vc_W.bond, :q_vc_W.v_lv_W,
         :v_lv_W.u_ac_W, :u_ac_W.bond, :u_ac_W.v_cc_W,
-        :v_cc_W.bond, :v_cc_W.u_vc_osmotic .
     # Interfaces
     ##bg:hasPowerBond :v_gi_W.u_vc_osmotic, :u_ac_W.v_gl_W .
+        :v_cc_W.bond, :v_cc_W.q_vc_W ;
+    bgf:hasInterfaceBond
+        :kidney.v_pt_W.q_vc_W.u,
+        :gi-tract.v_gi_W.q_vc_W.u,
+        :u_ac_W.kidney.v_gl_W .
 
 #===============================================================================
 #===============================================================================
 
-:v_gi_W.u_vc_osmotic
-    bgf:hasSource :v_gi_W ;
-    bgf:hasTarget :u_vc_osmotic .
+:kidney.v_pt_W.q_vc_W.u
+    bgf:hasSource kidney:v_pt_W ;
+    bgf:hasTarget :q_vc_W.u .
+
+:gi-tract.v_gi_W.q_vc_W.u
+    bgf:hasSource gi-tract:v_gi_W ;
+    bgf:hasTarget :q_vc_W.u .
 
 #===============================================================================
 
@@ -47,15 +57,15 @@
         bgf:hasValue "2.5 L"^^cdt:ucum
     ] .
 
-:u_vc_osmotic
+:q_vc_W.u
     a bgf:ZeroNode .
 
-:u_vc_osmotic.bond
-    bgf:hasSource :u_vc_osmotic ;
+:q_vc_W.bond
+    bgf:hasSource :q_vc_W.u ;
     bgf:hasTarget :q_vc_W .
 
-:u_vc_osmotic.v_lv_W
-    bgf:hasSource :u_vc_osmotic ;
+:q_vc_W.v_lv_W
+    bgf:hasSource :q_vc_W.u ;
     bgf:hasTarget :v_lv_W .
 
 #===============================================================================
@@ -101,9 +111,9 @@
     bgf:hasSource :u_ac_W ;
     bgf:hasTarget :v_cc_W .
 
-:u_ac_W.v_gl_W
+:u_ac_W.kidney.v_gl_W
     bgf:hasSource :u_ac_W ;
-    bgf:hasTarget :v_gl_W .
+    bgf:hasTarget kidney:v_gl_W .
 
 #===============================================================================
 
@@ -122,41 +132,9 @@
     bgf:hasSource :v_cc_W ;
     bgf:hasTarget :v_cc_W.R .
 
-:v_cc_W.u_vc_osmotic
+:v_cc_W.q_vc_W
     bgf:hasSource :v_cc_W ;
-    bgf:hasTarget :u_vc_osmotic .
-
-#===============================================================================
-#===============================================================================
-
-:q_Na_vc
-    a bgf:PotentialStore ;
-    bgf:hasDomain bgf:Chemical ;
-    bgf:variableValue [
-        bgf:varName "C" ;
-    ], [
-        bgf:varName "q" ;
-    ] .
-
-:q_Na_vc.u
-    a bgf:ZeroNode .
-
-:q_Na_vc.bond
-    bgf:hasSource :q_Na_vc.u ;
-    bgf:hasTarget :q_Na_vc .
-
-#===============================================================================
-
-:q_Na_vc.u_osmotic_vc.gy
-    a bgf:Transformation .
-
-:q_Na_vc.u_osmotic_vc.bond.0
-    bgf:hasSource :q_Na_vc.u ;
-    bgf:hasTarget :q_Na_vc.u_osmotic_vc.0 .
-
-:q_Na_vc.u_osmotic_vc.bond.1
-    bgf:hasSource :q_Na_vc.u_osmotic_vc.1 ;
-    bgf:hasTarget :u_osmotic_vc .
+    bgf:hasTarget :q_vc_W.u .
 
 #===============================================================================
 #===============================================================================
