@@ -28,7 +28,7 @@ bgf:ChemicalReaction
     rdfs:label "Chemical reaction" ;
     bgf:hasPort 'f', 'r' ;
     bgf:hasVariable [
-        bgf:varName "kappa_r" ;
+        bgf:varName "kappa" ;
         bgf:hasUnits "mol/s"^^cdt:ucumunit
     ] ;
     bgf:constitutiveRelation """
@@ -43,7 +43,7 @@ bgf:ChemicalReaction
                 <ci>v_r</ci>
                 <apply>
                     <times/>
-                    <ci>kappa_r</ci>
+                    <ci>kappa</ci>
                     <apply>
                         <minus/>
                         <apply>

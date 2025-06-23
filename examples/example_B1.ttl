@@ -59,7 +59,7 @@
 :Re_r
     a bgf:ChemicalReaction ;
     bgf:variableValue [
-        bgf:varName "kappa_r" ;
+        bgf:varName "kappa" ;
         bgf:hasSymbol "kappa_r" ;
         bgf:hasValue "0.1 mol/s"^^cdt:ucum
     ] .
