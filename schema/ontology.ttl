@@ -52,9 +52,9 @@ bgf:KineticStore
     rdfs:label "Dynamic storage node" ;
     dcterms:description "Kinetic energy store" .
 
-bgf:Dissapator
+bgf:Dissipator
     rdfs:subClassOf bgf:BondElement ;
-    rdfs:label "Dissapative node" ;
+    rdfs:label "Dissipative node" ;
     dcterms:description "Energy dissipation" .
 
 #################################################################

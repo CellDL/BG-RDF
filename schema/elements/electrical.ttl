@@ -23,7 +23,7 @@ bgf:Electrical
 
 bgf:ElectricalResistor
     a bgf:ElementTemplate ;
-    rdfs:subClassOf bgf:Dissapator ;
+    rdfs:subClassOf bgf:Dissipator ;
     bgf:hasDomain bgf:Electrical ;
     rdfs:label "Electrical resistor" ;
     bgf:hasVariable [
