@@ -93,6 +93,12 @@ bgf:Variable
     a owl:Class .
 
 #################################################################
+
+bgf:CompositeElement
+    a owl:Class ;
+    dcterms:description "A composite of a bgf:ElementTemplate and a bgf:JunctionStructure, for example a ZeroStorageNode." .
+
+#################################################################
 #    Datatypes
 #################################################################
 
@@ -231,4 +237,18 @@ bgf:hasQuantity
     rdfs:domain bgf:ModellingDomain ;
     rdfs:range bgf:Variable .
 
+#################################################################
+#################################################################
+
+bgf:elementTemplate
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:CompositeElement ;
+    rdfs:range bgf:ElementTemplate .
+
+bgf:junctionStructure
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:CompositeElement ;
+    rdfs:range bgf:JunctionStructure .
+
+#################################################################
 #################################################################
