@@ -22,12 +22,10 @@
 
 :q
     a bgf:MechanicalCapacitor ;
+    bgf:quantityValue "1 m"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "C" ;
         bgf:hasValue "20 m2.J-1"^^cdt:ucum
-    ], [
-        bgf:varName "q" ;
-        bgf:hasValue "1 m"^^cdt:ucum
     ] .
 
 :R

@@ -22,12 +22,10 @@
 
 :C
     a bgf:ElectricalCapacitor ;
+    bgf:quantityValue "1 C"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "C" ;
         bgf:hasValue "20 F"^^cdt:ucum
-    ], [
-        bgf:varName "q" ;
-        bgf:hasValue "1 C"^^cdt:ucum
     ] .
 
 :R

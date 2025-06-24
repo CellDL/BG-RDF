@@ -36,24 +36,18 @@
 
 :q_1
     a bgf:ChemicalConcentration ;
+    bgf:quantityValue "1 mol"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "K" ;
         bgf:hasValue "1 mol-1"^^cdt:ucum
-    ], [
-        bgf:varName "q" ;
-        bgf:hasSymbol "q_1" ;
-        bgf:hasValue "1 mol"^^cdt:ucum
     ] .
 
 :q_2
     a bgf:ChemicalConcentration ;
+    bgf:quantityValue "0 mol"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "K" ;
         bgf:hasValue "1 mol-1"^^cdt:ucum
-    ], [
-        bgf:varName "q" ;
-        bgf:hasSymbol "q_2" ;
-        bgf:hasValue "0 mol"^^cdt:ucum
     ] .
 
 :Re_r
