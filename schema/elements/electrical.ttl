@@ -17,6 +17,11 @@ bgf:Electrical
     bgf:hasPotential [
         bgf:varName "u" ;
         bgf:hasUnits "J/C"^^cdt:ucumunit
+    ] ;
+    bgf:hasQuantity [
+        bgf:varName "q" ;
+        rdfs:label "Electrical charge (C)" ;
+        bgf:hasUnits "C"^^cdt:ucumunit
     ] .
 
 #===============================================================================
@@ -54,9 +59,6 @@ bgf:ElectricalCapacitor
     bgf:hasVariable [
         bgf:varName "C" ;
         bgf:hasUnits "F"^^cdt:ucumunit
-    ], [
-        bgf:varName "q" ;
-        bgf:hasUnits "C"^^cdt:ucumunit
     ] ;
     bgf:constitutiveRelation """
         <math xmlns="http://www.w3.org/1998/Math/MathML">
