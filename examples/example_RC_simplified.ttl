@@ -1,0 +1,76 @@
+@prefix bgf: <https://celldl.org/ontologies/bondgraph-framework#> .
+@prefix cdt: <https://w3id.org/cdt/> .
+@prefix sim: <https://celldl.org/ontologies/simulation#> .
+
+@prefix : <#> .
+
+#===============================================================================
+#
+#      +------- R_0 -------+  V_out
+#      |                   |
+#     V_in                C_1
+#      |                   |
+#      +-------------------+
+#
+#===============================================================================
+#
+#                R         C
+#                |         |
+#                |         |
+#     u_0 ------ v ------ u_1
+#
+#
+#     u_0 ------ R ------ C
+#
+#===============================================================================
+
+# Simulate for 0.1 sec at 1 ms steps
+
+:simulation
+    a sim:Simulation ;
+    sim:hasModel :RC_circuit ;
+    sim:begin "0 s"^^cdt:ucum ;
+    sim:end "0.1 s"^^cdt:ucum ;
+    sim:numberOfSteps 100 .
+
+#===============================================================================
+
+:RC_circuit
+    a bgf:BondgraphModel ;
+    bgf:hasBondElement :R, :C ;
+    bgf:hasJunctionStructure :u_0 .
+
+#===============================================================================
+
+:R
+    a bgf:ElectricalOneResistance ;
+    bgf:variableValue [
+        bgf:varName "R" ;
+        bgf:hasValue "10 Ohm"^^cdt:ucum
+    ] .
+
+:C
+    a bgf:ElectricalZeroStorage ;
+    bgf:quantityValue "0 C"^^cdt:ucum ;
+    bgf:variableValue [
+        bgf:varName "C" ;
+        bgf:hasValue "0.001 F"^^cdt:ucum
+    ] .
+
+#===============================================================================
+
+:u_0
+    a bgf:ZeroNode ;
+    bgf:hasValue "10 V"^^cdt:ucum .
+
+#===============================================================================
+
+:u_0.R
+    bgf:hasSource :u_0 ;
+    bgf:hasTarget :R .
+
+:R.C
+    bgf:hasSource :R ;
+    bgf:hasTarget :C .
+
+#===============================================================================
