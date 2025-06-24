@@ -17,6 +17,10 @@ bgf:Mechanical
     bgf:hasPotential [
         bgf:varName "u" ;
         bgf:hasUnits "J/m"^^cdt:ucumunit
+    ] ;
+    bgf:hasQuantity [
+        bgf:varName "q" ;
+        bgf:hasUnits "m"^^cdt:ucumunit
     ] .
 
 #===============================================================================
@@ -54,9 +58,6 @@ bgf:MechanicalCapacitor
     bgf:hasVariable [
         bgf:varName "E" ;
         bgf:hasUnits "J.m-2"^^cdt:ucumunit
-    ], [
-        bgf:varName "q" ;
-        bgf:hasUnits "m"^^cdt:ucumunit
     ] ;
     bgf:constitutiveRelation """
         <math xmlns="http://www.w3.org/1998/Math/MathML">

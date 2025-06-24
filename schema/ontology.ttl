@@ -192,6 +192,11 @@ bgf:hasVariable
 
 #################################################################
 
+bgf:quantityValue
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:PotentialStore ;
+    rdfs:range cdt:ucum .
+
 bgf:variableValue
     a owl:ObjectProperty, owl:FunctionalProperty ;
     rdfs:domain bgf:BondElement ;
@@ -217,6 +222,11 @@ bgf:hasPotential
     rdfs:range bgf:Variable .
 
 bgf:hasFlow
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:ModellingDomain ;
+    rdfs:range bgf:Variable .
+
+bgf:hasQuantity
     a owl:ObjectProperty, owl:FunctionalProperty ;
     rdfs:domain bgf:ModellingDomain ;
     rdfs:range bgf:Variable .

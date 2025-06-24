@@ -17,6 +17,11 @@ bgf:Chemical
     bgf:hasPotential [
         bgf:varName "u" ;
         bgf:hasUnits "J/mol"^^cdt:ucumunit
+    ] ;
+    bgf:hasQuantity [
+        bgf:varName "q" ;
+        rdfs:label "Chemical quantity (mol)" ;
+        bgf:hasUnits "mol"^^cdt:ucumunit
     ] .
 
 #===============================================================================
@@ -74,9 +79,6 @@ bgf:ChemicalConcentration
     bgf:hasVariable [
         bgf:varName "K" ;
         bgf:hasUnits "mol-1"^^cdt:ucumunit
-    ], [
-        bgf:varName "q" ;
-        bgf:hasUnits "mol"^^cdt:ucumunit
     ] ;
     bgf:constitutiveRelation """
         <math xmlns="http://www.w3.org/1998/Math/MathML">

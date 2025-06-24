@@ -17,6 +17,11 @@ bgf:Hydraulic
     bgf:hasPotential [
         bgf:varName "u" ;
         bgf:hasUnits "kPa"^^cdt:ucumunit
+    ] ;
+    bgf:hasQuantity [
+        bgf:varName "q" ;
+        rdfs:label "Fluid volume (L)" ;
+        bgf:hasUnits "L"^^cdt:ucumunit
     ] .
 
 #===============================================================================
@@ -28,9 +33,6 @@ bgf:HydraulicCapacitor
     bgf:hasVariable [
         bgf:varName "C" ;
         bgf:hasUnits "J-1"^^cdt:ucumunit
-    ], [
-        bgf:varName "q" ;
-        bgf:hasUnits "L"^^cdt:ucumunit
     ] ;
     # ode(q, t) = v
     # u = q/C
@@ -94,10 +96,6 @@ bgf:ElasticVessel
         bgf:varName "E" ;
         rdfs:label "Elasticity" ;
         bgf:hasUnits "J"^^cdt:ucumunit
-    ], [
-        bgf:varName "q" ;
-        rdfs:label "Fluid volume" ;
-        bgf:hasUnits "L"^^cdt:ucumunit
     ], [
         bgf:varName "q_hat" ;
         rdfs:label "Unstressed volume" ;
