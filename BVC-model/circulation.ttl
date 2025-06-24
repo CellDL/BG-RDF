@@ -39,14 +39,11 @@
 
 :q_vc_W
     a bgf:ElasticVessel ;
+    bgf:quantityValue "2 L"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "E" ;
         bgf:hasSymbol "E_vc" ;
         bgf:hasValue "6e1 J"^^cdt:ucum
-    ], [
-        bgf:varName "q" ;
-        bgf:hasSymbol "q_vc_W" ;
-        bgf:hasValue "2 L"^^cdt:ucum
     ], [
         bgf:varName "q_hat" ;
         bgf:hasSymbol "U_vc_W" ;
@@ -85,14 +82,11 @@
 
 :u_ac_W.q
     a bgf:ElasticVessel ;
+    bgf:quantityValue "1 L"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "E" ;
         bgf:hasSymbol "E_vc" ;
         bgf:hasValue "6e1 J"^^cdt:ucum
-    ], [
-        bgf:varName "q" ;
-        bgf:hasSymbol "q_ac_W" ;
-        bgf:hasValue "1 L"^^cdt:ucum
     ], [
         bgf:varName "q_hat" ;
         bgf:hasSymbol "U_ac_W" ;

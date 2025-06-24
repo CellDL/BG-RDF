@@ -21,14 +21,11 @@
 
 :q_pt_W
     a bgf:ElasticVessel ;
+    bgf:quantityValue "0.1 L"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "E" ;
         bgf:hasSymbol "E_pt" ;
         bgf:hasValue "1 J"^^cdt:ucum
-    ], [
-        bgf:varName "q" ;
-        bgf:hasSymbol "q_pt_W" ;
-        bgf:hasValue "0.1 L"^^cdt:ucum
     ], [
         bgf:varName "q_hat" ;
         bgf:hasSymbol "U_pt_W" ;
