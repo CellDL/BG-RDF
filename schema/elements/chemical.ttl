@@ -113,4 +113,21 @@ bgf:ChemicalConcentration
     """^^bgf:mathml .
 
 #===============================================================================
+#===============================================================================
 
+bgf:ChemicalZeroStorage
+    a bgf:CompositeElement ;
+    rdfs:label "Chemical zero storage node" ;
+    bgf:elementTemplate bgf:ChemicalConcentration ;
+    bgf:junctionStructure bgf:ZeroNode .
+
+#===============================================================================
+
+bgf:ChemicalOneReaction
+    a bgf:CompositeElement ;
+    rdfs:label "Chemical reaction node" ;
+    bgf:elementTemplate bgf:ChemicalReaction ;
+    bgf:junctionStructure bgf:OneNode .
+
+#===============================================================================
+#===============================================================================

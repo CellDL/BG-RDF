@@ -1,0 +1,77 @@
+@prefix bgf: <https://celldl.org/ontologies/bondgraph-framework#> .
+@prefix cdt: <https://w3id.org/cdt/> .
+
+@prefix : <#> .
+
+#===============================================================================
+#
+#      q_1                                    q_2
+#       |                                      |
+#       |            u_f        u_r            |
+#      u_1 ---- v_r ----- Re_r ----- v_r ---- u_2
+#
+#
+#                    u_f      u_r
+#              q_1 ------ Re ------ q_2
+#
+#===============================================================================
+#
+# FAIRDO BG example 3.4 on PMR
+# https://models.physiomeproject.org/e/b53/FAIRDO%20BG%20example%203.4.cellml/view
+#
+#===============================================================================
+
+:Simple_reaction
+    a bgf:BondgraphModel ;
+    bgf:hasBondElement :q_1, :q_2, :Re .
+
+#===============================================================================
+
+
+## Can we set u/v symbols by node??
+## To compare in tests?
+
+## Or have a new property (not bgf:) to denote equivalence???
+
+
+:q_1
+    a bgf:ChemicalZeroStorage ;
+    bgf:quantityValue "1 mol"^^cdt:ucum ;
+    bgf:variableValue [
+        bgf:varName "K" ;
+        bgf:hasValue "1 mol-1"^^cdt:ucum
+    ] .
+
+:q_2
+    a bgf:ChemicalZeroStorage ;
+    bgf:quantityValue "0 mol"^^cdt:ucum ;
+    bgf:variableValue [
+        bgf:varName "K" ;
+        bgf:hasValue "1 mol-1"^^cdt:ucum
+    ] .
+
+:Re
+    a bgf:ChemicalOneReaction ;
+    bgf:variableValue [
+        bgf:varName "kappa" ;
+        bgf:hasSymbol "kappa_r" ;
+        bgf:hasValue "0.1 mol/s"^^cdt:ucum
+    ] .
+
+#===============================================================================
+
+:q_1.Re_f
+    bgf:hasSource :q_1 ;
+    bgf:hasTarget [
+        bgf:element :Re ;
+        bgf:port "f"
+    ] .
+
+:Re_r.q_2
+    bgf:hasSource [
+        bgf:element :Re ;
+        bgf:port "r"
+    ] ;
+    bgf:hasTarget :q_2 .
+
+#===============================================================================
