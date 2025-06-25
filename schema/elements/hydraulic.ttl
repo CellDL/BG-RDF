@@ -31,8 +31,9 @@ bgf:HydraulicCapacitor
     rdfs:subClassOf bgf:PotentialStore ;
     bgf:hasDomain bgf:Hydraulic ;
     bgf:hasVariable [
-        bgf:varName "C" ;
-        bgf:hasUnits "J-1"^^cdt:ucumunit
+        bgf:varName "E" ;
+        rdfs:label "Elastance" ;
+        bgf:hasUnits "J"^^cdt:ucumunit
     ] ;
     # ode(q, t) = v
     # u = q/C
@@ -53,9 +54,9 @@ bgf:HydraulicCapacitor
                 <eq/>
                 <ci>u</ci>
                 <apply>
-                    <divide/>
+                    <times/>
+                    <ci>E</ci>
                     <ci>q</ci>
-                    <ci>C</ci>
                 </apply>
             </apply>
         </math>
