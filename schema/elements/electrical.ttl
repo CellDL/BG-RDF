@@ -60,6 +60,8 @@ bgf:ElectricalCapacitor
         bgf:varName "C" ;
         bgf:hasUnits "F"^^cdt:ucumunit
     ] ;
+    # ode(q, t) = v
+    # u = q/C
     bgf:constitutiveRelation """
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>

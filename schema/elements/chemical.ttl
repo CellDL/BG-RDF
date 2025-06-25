@@ -80,10 +80,13 @@ bgf:ChemicalConcentration
         bgf:varName "K" ;
         bgf:hasUnits "mol-1"^^cdt:ucumunit
     ] ;
+    # ode(q, t) = v
+    # u = RT*ln(K*q);
     bgf:constitutiveRelation """
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
+                <ci>v</ci>
                 <apply>
                     <diff/>
                     <bvar>
@@ -91,7 +94,6 @@ bgf:ChemicalConcentration
                     </bvar>
                     <ci>q</ci>
                 </apply>
-                <ci>v</ci>
             </apply>
             <apply>
                 <eq/>

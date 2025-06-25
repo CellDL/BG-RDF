@@ -12,10 +12,12 @@ bgf:Hydraulic
     a bgf:ModellingDomain ;
     bgf:hasFlow [
         bgf:varName "v" ;
+        rdfs:label "Fluid flow (L/s)" ;
         bgf:hasUnits "L/s"^^cdt:ucumunit
     ] ;
     bgf:hasPotential [
         bgf:varName "u" ;
+        rdfs:label "Fluid pressure (kPa)" ;
         bgf:hasUnits "kPa"^^cdt:ucumunit
     ] ;
     bgf:hasQuantity [
@@ -70,6 +72,7 @@ bgf:HydraulicResistor
     bgf:hasDomain bgf:Hydraulic ;
     bgf:hasVariable [
         bgf:varName "k" ;
+        rdfs:label "Conductance (L/s/kPa)" ;
         bgf:hasUnits "L.s-1.kPa-1"^^cdt:ucumunit
     ] ;
     bgf:constitutiveRelation """
@@ -95,15 +98,15 @@ bgf:ElasticVessel
     rdfs:label "Elastic vessel" ;
     bgf:hasVariable [
         bgf:varName "E" ;
-        rdfs:label "Elasticity" ;
+        rdfs:label "Elastance (J)" ;
         bgf:hasUnits "J"^^cdt:ucumunit
     ], [
         bgf:varName "q_hat" ;
-        rdfs:label "Unstressed volume" ;
+        rdfs:label "Unstressed volume (L)" ;
         bgf:hasUnits "L"^^cdt:ucumunit
     ], [
         bgf:varName "q_bar" ;
-        rdfs:label "Maximum volume" ;
+        rdfs:label "Maximum volume (L)" ;
         bgf:hasUnits "L"^^cdt:ucumunit
     ] ;
     # u = E*(q - q_hat)/sqr(q_bar - q);
