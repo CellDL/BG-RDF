@@ -11,10 +11,7 @@
     bgf:hasBondElement :q_pt_W, :v_pt_W.R ;
     bgf:hasJunctionStructure
         :v_gl_W, :q_pt_W.u,
-        :v_pt_W, :v_out2_W ;
-    bgf:hasPowerBond
-        :q_pt_W.bond, :v_pt_W.bond,
-        :v_gl_W.q_pt_W.u, :q_pt_W.v_out2_W, :q_pt_W.v_pt_W .
+        :v_pt_W, :v_out2_W .
 
 #===============================================================================
 #===============================================================================

@@ -12,17 +12,9 @@
 :model
     a bgf:BondgraphModel ;
     bgf:hasBondElement :q_vc_W, :u_ac_W.q, :v_cc_W.R ;
-    bgf:hasJunctionStructure :q_vc_W.u, :v_lv_W, :u_ac_W, :v_cc_W ;
-    bgf:hasPowerBond
-        :q_vc_W.bond, :q_vc_W.v_lv_W,
-        :v_lv_W.u_ac_W, :u_ac_W.bond, :u_ac_W.v_cc_W,
     # Interfaces
     ##bg:hasPowerBond :v_gi_W.u_vc_osmotic, :u_ac_W.v_gl_W .
-        :v_cc_W.bond, :v_cc_W.q_vc_W ;
-    bgf:hasInterfaceBond
-        :kidney.v_pt_W.q_vc_W.u,
-        :gi-tract.v_gi_W.q_vc_W.u,
-        :u_ac_W.kidney.v_gl_W .
+    bgf:hasJunctionStructure :q_vc_W.u, :v_lv_W, :u_ac_W, :v_cc_W .
 
 #===============================================================================
 #===============================================================================

@@ -22,8 +22,7 @@
 :Simple_reaction
     a bgf:BondgraphModel ;
     bgf:hasBondElement :q_1, :q_2, :Re_r ;
-    bgf:hasJunctionStructure :u_1, :v_r_1, :v_r_2, :u_2 ;
-    bgf:hasPowerBond :u_1.q_1, :u_1.v_r_1, :v_r_1.Re_r, :Re_r.v_r_2, :v_r_2.u_2, :u_2.q_2 .
+    bgf:hasJunctionStructure :u_1, :v_r_1, :v_r_2, :u_2 .
 
 #===============================================================================
 
