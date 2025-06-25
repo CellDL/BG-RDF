@@ -15,8 +15,7 @@
 :example_A2
     a bgf:BondgraphModel ;
     bgf:hasBondElement :q, :R, :L ;
-    bgf:hasJunctionStructure :v_1 ;
-    bgf:hasPowerBond :v_1.q, :v_1.R, :v_1.L .
+    bgf:hasJunctionStructure :v_1 .
 
 #===============================================================================
 

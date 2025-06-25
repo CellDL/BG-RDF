@@ -32,8 +32,7 @@
 :R_C_R_circuit
     a bgf:BondgraphModel ;
     bgf:hasBondElement :R_0, :R_1, :C_1 ;
-    bgf:hasJunctionStructure :u_0, :v_0, :u_1 ;
-    bgf:hasPowerBond :u_0.v_0, :v_0.R_0, :v_0.u_1, :u_1.C_1, :u_1.R_1 .
+    bgf:hasJunctionStructure :u_0, :v_0, :u_1 .
 
 #===============================================================================
 

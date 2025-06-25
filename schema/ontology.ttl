@@ -175,10 +175,6 @@ bgf:hasPowerBond
     rdfs:domain bgf:BondgraphModel ;
     rdfs:range bgf:hasPowerBond .
 
-bgf:hasInterfaceBond
-    a owl:ObjectProperty ;
-    rdfs:subPropertyOf bgf:hasPowerBond .
-
 #################################################################
 
 bgf:hasConstant
