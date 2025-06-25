@@ -10,3 +10,17 @@
   
 > [!NOTE]
 > The framework and its tooling are actively being developed and nothing should be considered stable until version `1.0` has been released.
+
+## Outstanding
+
+A non-exhaustive list...
+
+- [ ] Generating CellML code for Transformers and Gyrators.
+- [ ] Validating source BG-RDF against ontology and bondgraph semantics.
+    - [ ] SHACL or SHeX?
+- [ ] Improved error reporting and logging.
+- [ ] Setting correct domain for connections in generated CellDL.
+- [ ] Styling issues in generated CellDL.
+- [ ] Documentation:
+    - [ ] Add labels and descriptions to ontology elements.
+    - [ ] Create a User Guide.
