@@ -43,14 +43,14 @@
 #===============================================================================
 
 :R
-    a bgf:ElectricalOneResistance ;
+    a bgf:ElectricalResistanceNode ;
     bgf:variableValue [
         bgf:varName "R" ;
         bgf:hasValue "10 Ohm"^^cdt:ucum
     ] .
 
 :C
-    a bgf:ElectricalZeroStorage ;
+    a bgf:ElectricalStorageNode ;
     bgf:quantityValue "0 C"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "C" ;

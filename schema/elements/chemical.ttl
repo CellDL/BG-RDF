@@ -317,17 +317,17 @@ bgf:NKETransporter
 
 #===============================================================================
 
-bgf:ChemicalZeroStorage
+bgf:ChemicalStorageNode
     a bgf:CompositeElement ;
-    rdfs:label "Chemical zero storage node" ;
+    rdfs:label "Chemical storage with Zero Node" ;
     bgf:elementTemplate bgf:ChemicalConcentration ;
     bgf:junctionStructure bgf:ZeroNode .
 
 #===============================================================================
 
-bgf:ChemicalOneReaction
+bgf:ChemicalReactionNode
     a bgf:CompositeElement ;
-    rdfs:label "Chemical reaction node" ;
+    rdfs:label "Chemical reaction withe One Node" ;
     bgf:elementTemplate bgf:ChemicalReaction ;
     bgf:junctionStructure bgf:OneNode .
 
