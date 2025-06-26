@@ -63,7 +63,6 @@ bgf:MechanicalCapacitor
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
-                <ci>v</ci>
                 <apply>
                     <diff/>
                     <bvar>
@@ -71,6 +70,7 @@ bgf:MechanicalCapacitor
                     </bvar>
                     <ci>q</ci>
                 </apply>
+                <ci>v</ci>
             </apply>
             <apply>
                 <eq/>
@@ -102,7 +102,6 @@ bgf:MechanicalInductor
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
-                <ci>a</ci>
                 <apply>
                     <diff/>
                     <bvar>
@@ -110,6 +109,7 @@ bgf:MechanicalInductor
                     </bvar>
                     <ci>v</ci>
                 </apply>
+                <ci>a</ci>
             </apply>
             <apply>
                 <eq/>
