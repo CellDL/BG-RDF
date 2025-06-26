@@ -10,6 +10,10 @@
 
 bgf:Hydraulic
     a bgf:ModellingDomain ;
+    bgf:hasConstant [
+        bgf:varName "RT" ;
+        bgf:hasValue "2578.73058 J/mol"^^cdt:ucum
+    ] ;
     bgf:hasFlow [
         bgf:varName "v" ;
         rdfs:label "Fluid flow (L/s)" ;
@@ -153,4 +157,84 @@ bgf:ElasticVessel
     """^^bgf:mathml .
 
 #===============================================================================
+
+bgf:OsmoticTransporter
+    a bgf:ElementTemplate ;
+    rdfs:subClassOf bgf:Dissipator ;
+    bgf:hasDomain bgf:Hydraulic ;   # this gives us flow/potential symbols (v: L/s, u: kPa)
+    rdfs:label "Osmotic transport" ;
+    bgf:hasPort 'water_in', 'water_out' ;
+    bgf:hasVariable [
+        bgf:varName "k_membrane" ;
+        rdfs:label "Membrane permeability" ;
+        bgf:hasUnits "L.s-1.kPa-1"^^cdt:ucumunit
+    ], [
+        bgf:varName "u_water_in" ;
+        rdfs:label "Inner water pressue (kPa)" ;
+        bgf:hasUnits "kPa"^^cdt:ucumunit
+    ], [
+        bgf:varName "u_water_out" ;
+        rdfs:label "Outer water pressue (kPa)" ;
+        bgf:hasUnits "kPa"^^cdt:ucumunit
+    ], [
+        bgf:varName "q_solute_in" ;
+        rdfs:label "Inner solute quantity (mol)" ;
+        bgf:hasUnits "mol"^^cdt:ucumunit
+    ], [
+        bgf:varName "q_water_in" ;
+        rdfs:label "Inner water quantity (L)" ;
+        bgf:hasUnits "L"^^cdt:ucumunit
+    ], [
+        bgf:varName "q_solute_out" ;
+        rdfs:label "Outer solute quantity (mol)" ;
+        bgf:hasUnits "mol"^^cdt:ucumunit
+    ], [
+        bgf:varName "q_water_out" ;
+        rdfs:label "Outer water quantity (L)" ;
+        bgf:hasUnits "L"^^cdt:ucumunit
+    ] ;
+    bgf:constitutiveRelation """
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>v</ci>
+                <apply>
+                    <times/>
+                    <ci>k_membrane</ci>
+                    <apply>
+                        <minus/>
+                        <apply>
+                            <minus/>
+                            <ci>u_water_in</ci>
+                            <ci>u_water_out</ci>
+                        </apply>
+                        <apply>
+                            <times/>
+                            <ci>RT</ci>
+                            <apply>
+                                <minus/>
+                                <apply>
+                                    <divide/>
+                                    <ci>q_solute_in</ci>
+                                    <ci>q_water_in</ci>
+                                </apply>
+                                <apply>
+                                    <divide/>
+                                    <ci>q_solute_out</ci>
+                                    <ci>q_water_out</ci>
+                                </apply>
+                            </apply>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+        </math>
+    """^^bgf:mathml .
+
 #===============================================================================
+#===============================================================================
+bgf:OsmoticTransporterNode
+    a bgf:CompositeElement ;
+    rdfs:label "Hydraulic osmotic transport with One Node" ;
+    bgf:elementTemplate bgf:OsmoticTransporter ;
+    bgf:junctionStructure bgf:OneNode .
