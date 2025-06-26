@@ -35,7 +35,7 @@
 
 
 :q_1
-    a bgf:ChemicalZeroStorage ;
+    a bgf:ChemicalStorageNode ;
     bgf:quantityValue "1 mol"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "K" ;
@@ -43,7 +43,7 @@
     ] .
 
 :q_2
-    a bgf:ChemicalZeroStorage ;
+    a bgf:ChemicalStorageNode ;
     bgf:quantityValue "0 mol"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "K" ;
@@ -51,7 +51,7 @@
     ] .
 
 :Re
-    a bgf:ChemicalOneReaction ;
+    a bgf:ChemicalReactionNode ;
     bgf:variableValue [
         bgf:varName "kappa" ;
         bgf:hasSymbol "kappa_r" ;

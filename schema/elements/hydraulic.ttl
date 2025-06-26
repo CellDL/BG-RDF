@@ -32,7 +32,7 @@ bgf:Hydraulic
 
 #===============================================================================
 
-bgf:HydraulicCapacitor
+bgf:HydraulicStorage
     a bgf:ElementTemplate ;
     rdfs:subClassOf bgf:PotentialStore ;
     bgf:hasDomain bgf:Hydraulic ;

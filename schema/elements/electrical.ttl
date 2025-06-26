@@ -127,18 +127,19 @@ bgf:ElectricalInductor
     """^^bgf:mathml .
 
 #===============================================================================
+#===============================================================================
 
-bgf:ElectricalZeroStorage
+bgf:ElectricalStorageNode
     a bgf:CompositeElement ;
-    rdfs:label "Electrical zero storage node" ;
+    rdfs:label "Electrical storage with Zero Node" ;
     bgf:elementTemplate bgf:ElectricalCapacitor ;
     bgf:junctionStructure bgf:ZeroNode .
 
 #===============================================================================
 
-bgf:ElectricalOneResistance
+bgf:ElectricalResistanceNode
     a bgf:CompositeElement ;
-    rdfs:label "Electrical one resistance node" ;
+    rdfs:label "Electrical resistance with One Node" ;
     bgf:elementTemplate bgf:ElectricalResistor ;
     bgf:junctionStructure bgf:OneNode .
 
