@@ -66,7 +66,6 @@ bgf:ElectricalCapacitor
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
-                <ci>v</ci>
                 <apply>
                     <diff/>
                     <bvar>
@@ -74,6 +73,7 @@ bgf:ElectricalCapacitor
                     </bvar>
                     <ci>q</ci>
                 </apply>
+                <ci>v</ci>
             </apply>
             <apply>
                 <eq/>
@@ -105,7 +105,6 @@ bgf:ElectricalInductor
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
-                <ci>a</ci>
                 <apply>
                     <diff/>
                     <bvar>
@@ -113,6 +112,7 @@ bgf:ElectricalInductor
                     </bvar>
                     <ci>v</ci>
                 </apply>
+                <ci>a</ci>
             </apply>
             <apply>
                 <eq/>
