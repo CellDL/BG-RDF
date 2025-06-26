@@ -18,8 +18,9 @@
     a bgf:BondgraphModel ;
     bgf:hasBondElement
         :v_gi_W, :v_gi_NKE, :q_giEpi_Na, :v_giEpi_Na, :q_gi_Na, :q_gi_W,
-        :v_gl_W, :v_gl_Na, :v_pt_W, :v_pt_NKE, :q_ptEpi_Na, :q_pt_Na, :q_pt_W,
-        :q_vc_W, :u_ac_W, :q_vc_Na, :v_cc_W ;
+        :v_gl_W, :v_gl_Na,
+        :v_pt_W, :v_pt_NKE, :q_ptEpi_Na, :v_ptEpi_Na, :q_pt_Na, :q_pt_W,
+        :q_vc_W, :q_ac_W, :q_vc_Na, :v_cc_W ;
     bgf:hasJunctionStructure
         :v_in_W, :v_out1_W, :v_out2_W,
         :v_in_Na, :v_out1_Na, :v_out2_Na,
@@ -95,6 +96,7 @@
         bgf:hasValue :q_vc_W
     ], [
         bgf:varName "K_Na" ;
+        bgf:hasSymbol "K_Na" ;
         bgf:hasValue "1 L/mol"^^cdt:ucum
     ], [
         bgf:varName "q_Na_in" ;
@@ -104,6 +106,7 @@
         bgf:hasValue :q_vc_Na
     ], [
         bgf:varName "K_K";
+        bgf:hasSymbol "K_K" ;
         bgf:hasValue "1 L/mol"^^cdt:ucum
     ], [
         bgf:varName "q_K_in" ;
@@ -128,9 +131,9 @@
 :v_giEpi_Na
     a bgf:ChemicalReactionNode ;
     bgf:variableValue [
-        bgf:varName "k" ;
-        bgf:hasSymbol "kK_gi_Na" ;
-        bgf:hasValue "1 s-1"^^cdt:ucum
+        bgf:varName "kappa" ;
+        bgf:hasSymbol "kappa_gi_Na" ;
+        bgf:hasValue "1 mol/s"^^cdt:ucum
     ] .
 # var v_giEpi_NKE: mol_per_s;
 # var kK_gi_Na: per_s {init: 1};
@@ -160,10 +163,16 @@
 
 :gi_bond_3
     bgf:hasSource :q_gi_Na ;
-    bgf:hasTarget :v_giEpi_Na .
+    bgf:hasTarget [
+        bgf:element :v_giEpi_Na ;
+        bgf:port 'f'
+    ] .
 
 :gi_bond_4
-    bgf:hasSource :v_giEpi_Na ;
+    bgf:hasSource [
+        bgf:element :v_giEpi_Na ;
+        bgf:port 'r'
+    ] ;
     bgf:hasTarget :q_giEpi_Na .
 
 :gi_bond_5
@@ -180,7 +189,10 @@
 
 :gi_bond_8
     bgf:hasSource :q_gi_W ;
-    bgf:hasTarget :v_gi_W .
+    bgf:hasTarget [
+        bgf:element :v_gi_W ;
+        bgf:port "water_in"
+    ] .
 
 #===============================================================================
 
@@ -210,9 +222,9 @@
 :v_gl_Na
     a bgf:ChemicalReactionNode ;
     bgf:variableValue [
-        bgf:varName "k" ;
-        bgf:hasSymbol "kK_gl_Na" ;
-        bgf:hasValue "1 s-1"^^cdt:ucum
+        bgf:varName "kappa" ;
+        bgf:hasSymbol "kappa_gl_Na" ;
+        bgf:hasValue "1 mol/s"^^cdt:ucum
     ] .
 # var v_gl_Na: mol_per_s;
 # var kK_gl_Na: per_s {init: 1};
@@ -254,13 +266,14 @@
         bgf:hasValue "-0.040 J/C"^^cdt:ucum
     ], [
         bgf:varName "q_H2O_in" ;
-        bgf:hasValue :q_ptEpi_W ;
+        bgf:hasSymbol "q_ptEpi_W" ;
         bgf:hasValue "0.5 L"^^cdt:ucum
     ], [
         bgf:varName "q_H2O_out" ;
         bgf:hasValue :q_vc_W
     ], [
         bgf:varName "K_Na" ;
+        bgf:hasSymbol "K_Na" ;
         bgf:hasValue "1 L/mol"^^cdt:ucum
     ], [
         bgf:varName "q_Na_in" ;
@@ -270,6 +283,7 @@
         bgf:hasValue :q_vc_Na
     ], [
         bgf:varName "K_K";
+        bgf:hasSymbol "K_K" ;
         bgf:hasValue "1 L/mol"^^cdt:ucum
     ], [
         bgf:varName "q_K_in" ;
@@ -294,9 +308,9 @@
 :v_ptEpi_Na
     a bgf:ChemicalReactionNode ;
     bgf:variableValue [
-        bgf:varName "k" ;
-        bgf:hasSymbol "kK_pt_Na" ;
-        bgf:hasValue "1 s-1"^^cdt:ucum
+        bgf:varName "kappa" ;
+        bgf:hasSymbol "kappa_pt_Na" ;
+        bgf:hasValue "1 mol/s"^^cdt:ucum
     ] .
 # var v_ptEpi_NKE: mol_per_s;
 # var kK_pt_Na: per_s {init: 1};
@@ -312,7 +326,7 @@
     bgf:quantityValue "0.1 L"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "E" ;
-        bgf:hasSymbol "E_vc" ;
+        bgf:hasSymbol "E_pt" ;
         bgf:hasValue "1 J"^^cdt:ucum
     ], [
         bgf:varName "q_hat" ;
@@ -330,7 +344,10 @@
 # u_pt_W = E_pt*(q_pt_W-U_pt_W)/sqr(L_pt_W-q_pt_W);
 
 :kidney_bond_1
-    bgf:hasSource :v_gl_Na ;
+    bgf:hasSource [
+        bgf:element :v_gl_Na ;
+        bgf:port 'r'
+    ] ;
     bgf:hasTarget :q_pt_Na .
 
 :kidney_bond_2
@@ -339,10 +356,16 @@
 
 :kidney_bond_3
     bgf:hasSource :q_pt_Na ;
-    bgf:hasTarget :v_ptEpi_Na .
+    bgf:hasTarget [
+        bgf:element :v_ptEpi_Na ;
+        bgf:port 'f'
+    ] .
 
 :kidney_bond_4
-    bgf:hasSource :v_ptEpi_Na ;
+    bgf:hasSource [
+        bgf:element :v_ptEpi_Na ;
+        bgf:port 'r'
+    ] ;
     bgf:hasTarget :q_ptEpi_Na .
 
 :kidney_bond_5
@@ -359,7 +382,10 @@
 
 :kidney_bond_8
     bgf:hasSource :q_pt_W ;
-    bgf:hasTarget :v_pt_W .
+    bgf:hasTarget [
+        bgf:element :v_pt_W ;
+        bgf:port "water_in"
+    ] .
 
 #===============================================================================
 
@@ -392,7 +418,7 @@
     bgf:hasValue "0.1 L/s"^^cdt:ucum .
 # var v_lv_W: L_per_s {init: 0.1};
 
-:u_ac_W
+:q_ac_W
     a bgf:HydraulicElasticStorageNode ;
     bgf:quantityValue "1 L"^^cdt:ucum ;
     bgf:variableValue [
@@ -441,14 +467,23 @@
 
 :circ_bond_3
     bgf:hasSource :q_vc_Na ;
-    bgf:hasTarget :v_gl_Na .
+    bgf:hasTarget [
+        bgf:element :v_gl_Na ;
+        bgf:port 'f'
+    ] .
 
 :circ_bond_4
-    bgf:hasSource :v_gi_W ;
+    bgf:hasSource [
+        bgf:element :v_gi_W ;
+        bgf:port "water_out"
+    ] ;
     bgf:hasTarget :q_vc_W .
 
 :circ_bond_5
-    bgf:hasSource :v_pt_W ;
+    bgf:hasSource [
+        bgf:element :v_pt_W ;
+        bgf:port "water_out"
+    ] ;
     bgf:hasTarget :q_vc_W .
 
 :circ_bond_6
