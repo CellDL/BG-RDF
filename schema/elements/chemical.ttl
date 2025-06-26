@@ -9,6 +9,9 @@ bgf:Chemical
     bgf:hasConstant [
         bgf:varName "RT" ;
         bgf:hasValue "2578.73058 J/mol"^^cdt:ucum
+    ], [
+        bgf:varName "F" ;
+        bgf:hasValue "0.965e5 C/mol"^^cdt:ucum
     ] ;
     bgf:hasFlow [
         bgf:varName "v" ;
@@ -115,6 +118,203 @@ bgf:ChemicalConcentration
     """^^bgf:mathml .
 
 #===============================================================================
+
+bgf:NKETransporter
+    a bgf:ElementTemplate ;
+    rdfs:subClassOf bgf:Dissipator ;
+    bgf:hasDomain bgf:Chemical ;
+    bgf:hasVariable [
+        bgf:varName "k_NKE" ;
+        bgf:hasUnits "mol/s"^^cdt:ucumunit
+    ], [
+        bgf:varName "u_e";
+        bgf:hasUnits "J/C"^^cdt:ucumunit
+    ], [
+        bgf:varName "q_H2O_in" ;
+        bgf:hasUnits "L"^^cdt:ucumunit
+    ], [
+        bgf:varName "q_H2O_out" ;
+        bgf:hasUnits "L"^^cdt:ucumunit
+    ], [
+        bgf:varName "K_Na" ;
+        bgf:hasUnits "L/mol"^^cdt:ucumunit
+    ], [
+        bgf:varName "q_Na_in" ;
+        bgf:hasUnits "mol"^^cdt:ucumunit
+    ], [
+        bgf:varName "q_Na_out" ;
+        bgf:hasUnits "mol"^^cdt:ucumunit
+    ], [
+        bgf:varName "K_K";
+        bgf:hasUnits "L/mol"^^cdt:ucumunit
+    ], [
+        bgf:varName "q_K_in" ;
+        bgf:hasUnits "mol"^^cdt:ucumunit
+    ], [
+        bgf:varName "q_K_out" ;
+        bgf:hasUnits "mol"^^cdt:ucumunit
+    ] ;
+    bgf:constitutiveRelation """
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>v</ci>
+                <apply>
+                    <divide/>
+                    <apply>
+                        <times/>
+                        <ci>k_NKE</ci>
+                        <apply>
+                            <minus/>
+                            <apply>
+                                <times/>
+                                <apply>
+                                    <power/>
+                                    <apply>
+                                        <divide/>
+                                        <apply>
+                                            <times/>
+                                            <ci>K_Na</ci>
+                                            <ci>q_Na_in</ci>
+                                        </apply>
+                                        <ci>q_H2O_in</ci>
+                                    </apply>
+                                    <cn>3</cn>
+                                </apply>
+                                <apply>
+                                    <power/>
+                                    <apply>
+                                        <divide/>
+                                        <apply>
+                                            <times/>
+                                            <ci>K_K</ci>
+                                            <ci>q_K_out</ci>
+                                        </apply>
+                                        <ci>q_H2O_out</ci>
+                                    </apply>
+                                    <cn>2</cn>
+                                </apply>
+                            </apply>
+                            <apply>
+                                <times/>
+                                <apply>
+                                    <power/>
+                                    <apply>
+                                        <divide/>
+                                        <apply>
+                                            <times/>
+                                            <ci>K_Na</ci>
+                                            <ci>q_Na_out</ci>
+                                        </apply>
+                                        <ci>q_H2O_out</ci>
+                                    </apply>
+                                    <cn>3</cn>
+                                </apply>
+                                <apply>
+                                    <power/>
+                                    <apply>
+                                        <divide/>
+                                        <apply>
+                                            <times/>
+                                            <ci>K_K</ci>
+                                            <ci>q_K_in</ci>
+                                        </apply>
+                                        <ci>q_H2O_in</ci>
+                                    </apply>
+                                    <cn>2</cn>
+                                </apply>
+                                <apply>
+                                    <exp/>
+                                    <apply>
+                                        <divide/>
+                                        <apply>
+                                            <times/>
+                                            <cn>2</cn>
+                                            <ci>F</ci>
+                                            <ci>u_e</ci>
+                                        </apply>
+                                        <ci>RT</ci>
+                                    </apply>
+                                </apply>
+                            </apply>
+                        </apply>
+                    </apply>
+                    <apply>
+                        <times/>
+                        <apply>
+                            <plus/>
+                            <cn>1</cn>
+                            <apply>
+                                <power/>
+                                <apply>
+                                    <divide/>
+                                    <apply>
+                                        <times/>
+                                        <ci>K_Na</ci>
+                                        <ci>q_Na_in</ci>
+                                    </apply>
+                                    <ci>q_H2O_in</ci>
+                                </apply>
+                                <cn>3</cn>
+                            </apply>
+                        </apply>
+                        <apply>
+                            <plus/>
+                            <cn>1</cn>
+                            <apply>
+                                <power/>
+                                <apply>
+                                    <divide/>
+                                    <apply>
+                                        <times/>
+                                        <ci>K_Na</ci>
+                                        <ci>q_Na_out</ci>
+                                    </apply>
+                                    <ci>q_H2O_out</ci>
+                                </apply>
+                                <cn>3</cn>
+                            </apply>
+                        </apply>
+                        <apply>
+                            <plus/>
+                            <cn>1</cn>
+                            <apply>
+                                <power/>
+                                <apply>
+                                    <divide/>
+                                    <apply>
+                                        <times/>
+                                        <ci>K_K</ci>
+                                        <ci>q_K_out</ci>
+                                    </apply>
+                                    <ci>q_H2O_out</ci>
+                                </apply>
+                                <cn>2</cn>
+                            </apply>
+                        </apply>
+                        <apply>
+                            <plus/>
+                            <cn>1</cn>
+                            <apply>
+                                <power/>
+                                <apply>
+                                    <divide/>
+                                    <apply>
+                                        <times/>
+                                        <ci>K_K</ci>
+                                        <ci>q_K_in</ci>
+                                    </apply>
+                                    <ci>q_H2O_in</ci>
+                                </apply>
+                                <cn>2</cn>
+                            </apply>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+        </math>
+    """^^bgf:mathml .
+
 #===============================================================================
 
 bgf:ChemicalZeroStorage
@@ -129,6 +329,14 @@ bgf:ChemicalOneReaction
     a bgf:CompositeElement ;
     rdfs:label "Chemical reaction node" ;
     bgf:elementTemplate bgf:ChemicalReaction ;
+    bgf:junctionStructure bgf:OneNode .
+
+#===============================================================================
+
+bgf:NKETransporterNode
+    a bgf:CompositeElement ;
+    rdfs:label "NKE transporter with One Node" ;
+    bgf:elementTemplate bgf:NKETransporter ;
     bgf:junctionStructure bgf:OneNode .
 
 #===============================================================================
