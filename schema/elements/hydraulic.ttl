@@ -233,6 +233,25 @@ bgf:OsmoticTransporter
 
 #===============================================================================
 #===============================================================================
+
+bgf:HydraulicResistanceNode
+    a bgf:CompositeElement ;
+    rdfs:label "Hydraulic resistance with One Node" ;
+    bgf:elementTemplate bgf:HydraulicResistor ;
+    bgf:junctionStructure bgf:OneNode .
+
+bgf:HydraulicStorageNode
+    a bgf:CompositeElement ;
+    rdfs:label "Hydraulic storage with Zero Node" ;
+    bgf:elementTemplate bgf:HydraulicStorage ;
+    bgf:junctionStructure bgf:ZeroNode .
+
+bgf:HydraulicElasticStorageNode
+    a bgf:CompositeElement ;
+    rdfs:label "Hydraulic elastic storage with Zero Node" ;
+    bgf:elementTemplate bgf:ElasticVessel ;
+    bgf:junctionStructure bgf:ZeroNode .
+
 bgf:OsmoticTransporterNode
     a bgf:CompositeElement ;
     rdfs:label "Hydraulic osmotic transport with One Node" ;
