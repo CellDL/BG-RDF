@@ -17,7 +17,7 @@
 #===============================================================================
 
 :q_gi_W
-    a bgf:HydraulicCapacitor ;
+    a bgf:HydraulicStorage ;
     bgf:hasVariable [
         bgf:varName "E" ;
         bgf:hasValue "1 J"^^cdt:ucum

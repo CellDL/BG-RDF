@@ -50,7 +50,7 @@
 # var v_out1_Na: mol_per_s {init: 0};
 
 :v_gi_W
-    a bgf:OsmoticTransporter ;
+    a bgf:OsmoticTransporterNode ;
     bgf:variableValue [
         bgf:varName "k_membrane" ;
         bgf:hasSymbol "k_gi_W" ;
@@ -77,7 +77,7 @@
 # v = k_osmosis*(u_W_i - u_W_o - RT*(q_solute_i/q_W_i - q_solute_out/q_W_o));
 
 :v_gi_NKE
-    a bgf:SodiumNKETransport ;
+    a bgf:NKETransporterNode ;
     bgf:variableValue [
         bgf:varName "k_NKE" ;
         bgf:hasSymbol "k_giEpi_NKE" ;
@@ -88,7 +88,7 @@
         bgf:hasValue "-0.040 J/C"^^cdt:ucum
     ], [
         bgf:varName "q_H2O_in" ;
-        bgf:hasValue :q_giEpi_W ;
+        bgf:hasSymbol "q_giEpi_W" ;
         bgf:hasValue "0.5 L"^^cdt:ucum
     ], [
         bgf:varName "q_H2O_out" ;
@@ -121,12 +121,12 @@
 # var q_giEpi_W: litre {init: 0.5};
 
 :q_giEpi_Na
-    a bgf:ChemicalZeroStorage ;
+    a bgf:ChemicalStorageNode ;
     bgf:quantityValue "0.012 mol"^^cdt:ucum .
 # var q_giEpi_Na: mole {init: 0.012};
 
 :v_giEpi_Na
-    a bgf:ChemicalOneResistance ;
+    a bgf:ChemicalReactionNode ;
     bgf:variableValue [
         bgf:varName "k" ;
         bgf:hasSymbol "kK_gi_Na" ;
@@ -137,12 +137,12 @@
 # v_gi_Na     = kK_gi_Na*(q_gi_Na-q_giEpi_Na);
 
 :q_gi_Na
-    a bgf:ChemicalZeroStorage ;
+    a bgf:ChemicalStorageNode ;
     bgf:quantityValue "0.1 mol"^^cdt:ucum .
 # var q_gi_Na: mole {init: 0.1};
 
 :q_gi_W
-    a bgf:HydraulicZeroStorage ;
+    a bgf:HydraulicStorageNode ;
     bgf:quantityValue "1 L"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "E" ;  ### ??????????
@@ -197,7 +197,7 @@
 # var v_out2_Na: mol_per_s {init: 1.16e-6};
 
 :v_gl_W
-    a bgf:HydraulicOneResistance ;
+    a bgf:HydraulicResistanceNode ;
     bgf:variableValue [
         bgf:varName "k" ;
         bgf:hasSymbol "k_gl_W" ;
@@ -208,7 +208,7 @@
 # v_gl_W = k_gl_W*(u_ac_W-u_pt_W);
 
 :v_gl_Na
-    a bgf:ChemicalOneResistance ;
+    a bgf:ChemicalReactionNode ;
     bgf:variableValue [
         bgf:varName "k" ;
         bgf:hasSymbol "kK_gl_Na" ;
@@ -219,7 +219,7 @@
 # v_gl_Na     = kK_gl_Na*(q_vc_Na-q_pt_Na);
 
 :v_pt_W
-    a bgf:OsmoticTransporter ;
+    a bgf:OsmoticTransporterNode ;
     bgf:variableValue [
         bgf:varName "k_membrane" ;
         bgf:hasSymbol "k_pt_W" ;
@@ -243,7 +243,7 @@
 #          RT*k_pt_W*(q_vc_Na/q_vc_W-q_pt_Na/q_pt_W)
 
 :v_pt_NKE
-    a bgf:SodiumNKETransport ;
+    a bgf:NKETransporterNode ;
     bgf:variableValue [
         bgf:varName "k_NKE" ;
         bgf:hasSymbol "k_ptEpi_NKE" ;
@@ -287,12 +287,12 @@
 # var q_ptEpi_W: litre {init: 0.5};
 
 :q_ptEpi_Na
-    a bgf:ChemicalZeroStorage ;
+    a bgf:ChemicalStorageNode ;
     bgf:quantityValue "0.012 mol"^^cdt:ucum .
 # var q_ptEpi_Na: mole {init: 0.012};
 
 :v_ptEpi_Na
-    a bgf:ChemicalOneResistance ;
+    a bgf:ChemicalReactionNode ;
     bgf:variableValue [
         bgf:varName "k" ;
         bgf:hasSymbol "kK_pt_Na" ;
@@ -303,12 +303,12 @@
 # v_pt_Na     = kK_pt_Na*(q_pt_Na-q_ptEpi_Na);
 
 :q_pt_Na
-    a bgf:ChemicalZeroStorage ;
+    a bgf:ChemicalStorageNode ;
     bgf:quantityValue "0.01 mol"^^cdt:ucum .
 # var q_pt_Na: mole {init: 0.01};
 
 :q_pt_W
-    a bgf:HydraulicElasticStorage ;
+    a bgf:HydraulicElasticStorageNode ;
     bgf:quantityValue "0.1 L"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "E" ;
@@ -366,7 +366,7 @@
 # Circulation:
 
 :q_vc_W
-    a bgf:HydraulicElasticStorage ;
+    a bgf:HydraulicElasticStorageNode ;
     bgf:quantityValue "2 L"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "E" ;
@@ -393,7 +393,7 @@
 # var v_lv_W: L_per_s {init: 0.1};
 
 :u_ac_W
-    a bgf:HydraulicElasticStorage ;
+    a bgf:HydraulicElasticStorageNode ;
     bgf:quantityValue "1 L"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "E" ;
@@ -415,12 +415,12 @@
 # u_ac_W = E_ac*(q_ac_W-U_ac_W)/sqr(L_ac_W-q_ac_W);
 
 :q_vc_Na
-    a bgf:ChemicalZeroStorage ;
+    a bgf:ChemicalStorageNode ;
     bgf:quantityValue "0.84 mol"^^cdt:ucum .
 # var q_vc_Na: mole {init: 0.84};
 
 :v_cc_W
-    a bgf:HydraulicOneResistance ;
+    a bgf:HydraulicResistanceNode ;
     bgf:variableValue [
         bgf:varName "k" ;
         bgf:hasSymbol "k_cc_W" ;
