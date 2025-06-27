@@ -166,16 +166,8 @@ bgf:OsmoticTransporter
     bgf:hasPort 'water_in', 'water_out' ;
     bgf:hasVariable [
         bgf:varName "k_membrane" ;
-        rdfs:label "Membrane permeability" ;
+        rdfs:label "Membrane permeability (L/s/kPa)" ;
         bgf:hasUnits "L.s-1.kPa-1"^^cdt:ucumunit
-    ], [
-        bgf:varName "u_water_in" ;
-        rdfs:label "Inner water pressue (kPa)" ;
-        bgf:hasUnits "kPa"^^cdt:ucumunit
-    ], [
-        bgf:varName "u_water_out" ;
-        rdfs:label "Outer water pressue (kPa)" ;
-        bgf:hasUnits "kPa"^^cdt:ucumunit
     ], [
         bgf:varName "q_solute_in" ;
         rdfs:label "Inner solute quantity (mol)" ;
