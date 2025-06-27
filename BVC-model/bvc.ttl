@@ -125,7 +125,11 @@
 
 :q_giEpi_Na
     a bgf:ChemicalStorageNode ;
-    bgf:quantityValue "0.012 mol"^^cdt:ucum .
+    bgf:quantityValue "0.012 mol"^^cdt:ucum ;
+    bgf:variableValue [
+        bgf:varName "K" ;
+        bgf:hasValue "1 mol-1"^^cdt:ucum
+    ] .
 # var q_giEpi_Na: mole {init: 0.012};
 
 :v_giEpi_Na
@@ -141,7 +145,11 @@
 
 :q_gi_Na
     a bgf:ChemicalStorageNode ;
-    bgf:quantityValue "0.1 mol"^^cdt:ucum .
+    bgf:quantityValue "0.1 mol"^^cdt:ucum ;
+    bgf:variableValue [
+        bgf:varName "K" ;
+        bgf:hasValue "1 mol-1"^^cdt:ucum
+    ] .
 # var q_gi_Na: mole {init: 0.1};
 
 :q_gi_W
@@ -302,7 +310,11 @@
 
 :q_ptEpi_Na
     a bgf:ChemicalStorageNode ;
-    bgf:quantityValue "0.012 mol"^^cdt:ucum .
+    bgf:quantityValue "0.012 mol"^^cdt:ucum ;
+    bgf:variableValue [
+        bgf:varName "K" ;
+        bgf:hasValue "1 mol-1"^^cdt:ucum
+    ] .
 # var q_ptEpi_Na: mole {init: 0.012};
 
 :v_ptEpi_Na
@@ -318,7 +330,11 @@
 
 :q_pt_Na
     a bgf:ChemicalStorageNode ;
-    bgf:quantityValue "0.01 mol"^^cdt:ucum .
+    bgf:quantityValue "0.01 mol"^^cdt:ucum ;
+    bgf:variableValue [
+        bgf:varName "K" ;
+        bgf:hasValue "1 mol-1"^^cdt:ucum
+    ] .
 # var q_pt_Na: mole {init: 0.01};
 
 :q_pt_W
@@ -442,7 +458,11 @@
 
 :q_vc_Na
     a bgf:ChemicalStorageNode ;
-    bgf:quantityValue "0.84 mol"^^cdt:ucum .
+    bgf:quantityValue "0.84 mol"^^cdt:ucum ;
+    bgf:variableValue [
+        bgf:varName "K" ;
+        bgf:hasValue "1 mol-1"^^cdt:ucum
+    ] .
 # var q_vc_Na: mole {init: 0.84};
 
 :v_cc_W
