@@ -55,7 +55,7 @@
     bgf:variableValue [
         bgf:varName "k_membrane" ;
         bgf:hasSymbol "k_gi_W" ;
-        bgf:hasUnits "1 L.s-1.kPa-1"^^cdt:ucum
+        bgf:hasValue "1 L.s-1.kPa-1"^^cdt:ucum
     ], [
         bgf:varName "q_solute_in" ;
         bgf:hasValue :q_gi_Na
@@ -243,7 +243,7 @@
     bgf:variableValue [
         bgf:varName "k_membrane" ;
         bgf:hasSymbol "k_pt_W" ;
-        bgf:hasUnits "0 L.s-1.kPa-1"^^cdt:ucum
+        bgf:hasValue "0 L.s-1.kPa-1"^^cdt:ucum
     ], [
         bgf:varName "q_solute_in" ;
         bgf:hasValue :q_pt_Na
