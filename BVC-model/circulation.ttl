@@ -31,7 +31,7 @@
 
 :q_vc_W
     a bgf:ElasticVessel ;
-    bgf:quantityValue "2 L"^^cdt:ucum ;
+    bgf:hasValue "2 L"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "E" ;
         bgf:hasSymbol "E_vc" ;
@@ -74,7 +74,7 @@
 
 :u_ac_W.q
     a bgf:ElasticVessel ;
-    bgf:quantityValue "1 L"^^cdt:ucum ;
+    bgf:hasValue "1 L"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "E" ;
         bgf:hasSymbol "E_vc" ;

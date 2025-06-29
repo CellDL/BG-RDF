@@ -18,7 +18,7 @@
 
 :q_pt_W
     a bgf:ElasticVessel ;
-    bgf:quantityValue "0.1 L"^^cdt:ucum ;
+    bgf:hasValue "0.1 L"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "E" ;
         bgf:hasSymbol "E_pt" ;
