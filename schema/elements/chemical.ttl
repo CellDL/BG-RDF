@@ -27,6 +27,14 @@ bgf:Chemical
         bgf:hasUnits "mol"^^cdt:ucumunit
     ] .
 
+
+#===============================================================================
+
+bgf:ChemicalFlow
+    a bgf:ElementTemplate ;
+    rdfs:subClassOf bgf:FlowSource ;
+    bgf:hasDomain bgf:Chemical .
+
 #===============================================================================
 
 bgf:ChemicalReaction
