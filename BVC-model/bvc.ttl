@@ -20,33 +20,31 @@
         :v_gi_W, :v_gi_NKE, :q_giEpi_Na, :v_giEpi_Na, :q_gi_Na, :q_gi_W,
         :v_gl_W, :v_gl_Na,
         :v_pt_W, :v_pt_NKE, :q_ptEpi_Na, :v_ptEpi_Na, :q_pt_Na, :q_pt_W,
-        :q_vc_W, :q_ac_W, :q_vc_Na, :v_cc_W ;
-    bgf:hasJunctionStructure
-        :v_in_W, :v_out1_W, :v_out2_W,
-        :v_in_Na, :v_out1_Na, :v_out2_Na,
-        :v_lv_W .
+        :q_vc_W, :q_ac_W, :q_vc_Na, :v_cc_W,
+        :v_lv_W, :v_in_W, :v_out1_W, :v_out2_W,
+        :v_in_Na, :v_out1_Na, :v_out2_Na .
 
 #===============================================================================
 
 # Gi-tract
 
 :v_in_W
-    a bgf:OneNode ;
+    a bgf:HydraulicFlow ;
     bgf:hasValue "0 L/s"^^cdt:ucum .
 # var v_in_W: L_per_s {init: 0};
 
 :v_out1_W
-    a bgf:OneNode ;
+    a bgf:HydraulicFlow ;
     bgf:hasValue "0 L/s"^^cdt:ucum .
 # var v_out1_W: L_per_s {init: 0};
 
 :v_in_Na
-    a bgf:OneNode ;
+    a bgf:ChemicalFlow ;
     bgf:hasValue "1.16e-6 mol/s"^^cdt:ucum .
 # var v_in_Na: mol_per_s {init: 1.16e-6};
 
 :v_out1_Na
-    a bgf:OneNode ;
+    a bgf:ChemicalFlow ;
     bgf:hasValue "0 mol/s"^^cdt:ucum .
 # var v_out1_Na: mol_per_s {init: 0};
 
@@ -125,7 +123,7 @@
 
 :q_giEpi_Na
     a bgf:ChemicalStorageNode ;
-    bgf:quantityValue "0.012 mol"^^cdt:ucum ;
+    bgf:hasValue "0.012 mol"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "K" ;
         bgf:hasValue "1 mol-1"^^cdt:ucum
@@ -145,7 +143,7 @@
 
 :q_gi_Na
     a bgf:ChemicalStorageNode ;
-    bgf:quantityValue "0.1 mol"^^cdt:ucum ;
+    bgf:hasValue "0.1 mol"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "K" ;
         bgf:hasValue "1 mol-1"^^cdt:ucum
@@ -154,7 +152,7 @@
 
 :q_gi_W
     a bgf:HydraulicStorageNode ;
-    bgf:quantityValue "1 L"^^cdt:ucum ;
+    bgf:hasValue "1 L"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "E" ;  ### ??????????
         bgf:hasValue "1 J"^^cdt:ucum
@@ -207,12 +205,12 @@
 # Kidney
 
 :v_out2_W
-    a bgf:OneNode ;
+    a bgf:HydraulicFlow ;
     bgf:hasValue "0 L/s"^^cdt:ucum .
 # var v_out2_W: L_per_s {init: 0};
 
 :v_out2_Na
-    a bgf:OneNode ;
+    a bgf:ChemicalFlow ;
     bgf:hasValue "1.16e-6 mol/s"^^cdt:ucum .
 # var v_out2_Na: mol_per_s {init: 1.16e-6};
 
@@ -310,7 +308,7 @@
 
 :q_ptEpi_Na
     a bgf:ChemicalStorageNode ;
-    bgf:quantityValue "0.012 mol"^^cdt:ucum ;
+    bgf:hasValue "0.012 mol"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "K" ;
         bgf:hasValue "1 mol-1"^^cdt:ucum
@@ -330,7 +328,7 @@
 
 :q_pt_Na
     a bgf:ChemicalStorageNode ;
-    bgf:quantityValue "0.01 mol"^^cdt:ucum ;
+    bgf:hasValue "0.01 mol"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "K" ;
         bgf:hasValue "1 mol-1"^^cdt:ucum
@@ -339,7 +337,7 @@
 
 :q_pt_W
     a bgf:HydraulicElasticStorageNode ;
-    bgf:quantityValue "0.1 L"^^cdt:ucum ;
+    bgf:hasValue "0.1 L"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "E" ;
         bgf:hasSymbol "E_pt" ;
@@ -409,7 +407,7 @@
 
 :q_vc_W
     a bgf:HydraulicElasticStorageNode ;
-    bgf:quantityValue "2 L"^^cdt:ucum ;
+    bgf:hasValue "2 L"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "E" ;
         bgf:hasSymbol "E_vc" ;
@@ -430,13 +428,13 @@
 # u_vc_W = E_vc*(q_vc_W-U_vc_W)/sqr(L_vc_W-q_vc_W);
 
 :v_lv_W
-    a bgf:OneNode ;
+    a bgf:HydraulicFlow ;
     bgf:hasValue "0.1 L/s"^^cdt:ucum .
 # var v_lv_W: L_per_s {init: 0.1};
 
 :q_ac_W
     a bgf:HydraulicElasticStorageNode ;
-    bgf:quantityValue "1 L"^^cdt:ucum ;
+    bgf:hasValue "1 L"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "E" ;
         bgf:hasSymbol "E_ac" ;
@@ -458,7 +456,7 @@
 
 :q_vc_Na
     a bgf:ChemicalStorageNode ;
-    bgf:quantityValue "0.84 mol"^^cdt:ucum ;
+    bgf:hasValue "0.84 mol"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "K" ;
         bgf:hasValue "1 mol-1"^^cdt:ucum
