@@ -15,7 +15,9 @@
 
 A non-exhaustive list...
 
+- [ ] Implement `bgf:bondCount`.
 - [ ] Generating CellML code for Transformers and Gyrators.
+- [ ] Catch and report errors when parsing Turtle input.
 - [ ] Validating source BG-RDF against ontology and bondgraph semantics.
     - [ ] SHACL or SHeX?
 - [ ] Improved error reporting and logging.
