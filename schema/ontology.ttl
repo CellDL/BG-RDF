@@ -57,6 +57,16 @@ bgf:Dissipator
     rdfs:label "Dissipative node" ;
     dcterms:description "Energy dissipation" .
 
+bgf:PotentialSource
+    rdfs:subClassOf bgf:BondElement ;
+    rdfs:label "Potential source node" ;
+    dcterms:description "Potential energy source" .
+
+bgf:FlowSource
+    rdfs:subClassOf bgf:BondElement ;
+    rdfs:label "Flow source node" ;
+    dcterms:description "Kinetic energy source" .
+
 #################################################################
 
 bgf:OneNode
@@ -147,8 +157,7 @@ bgf:hasUnits
     rdfs:range cdt:ucumunit .
 
 bgf:hasValue
-    a owl:ObjectProperty, owl:FunctionalProperty ;
-    rdfs:domain bgf:Value ;
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
     rdfs:range cdt:ucum .
 
 bgf:varName

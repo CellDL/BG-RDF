@@ -31,8 +31,8 @@
 
 :R_C_R_circuit
     a bgf:BondgraphModel ;
-    bgf:hasBondElement :R_0, :R_1, :C_1 ;
-    bgf:hasJunctionStructure :u_0, :v_0, :u_1 .
+    bgf:hasBondElement :u_0, :R_0, :R_1, :C_1 ;
+    bgf:hasJunctionStructure :v_0, :u_1 .
 
 #===============================================================================
 
@@ -61,7 +61,7 @@
 #===============================================================================
 
 :u_0
-    a bgf:ZeroNode ;
+    a bgf:VoltageSource ;
     bgf:hasValue "11 V"^^cdt:ucum .
 
 :v_0
