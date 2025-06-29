@@ -203,11 +203,6 @@ bgf:hasVariable
 
 #################################################################
 
-bgf:quantityValue
-    a owl:ObjectProperty, owl:FunctionalProperty ;
-    rdfs:domain bgf:PotentialStore ;
-    rdfs:range cdt:ucum .
-
 bgf:variableValue
     a owl:ObjectProperty, owl:FunctionalProperty ;
     rdfs:domain bgf:BondElement ;

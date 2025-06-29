@@ -35,7 +35,7 @@
 
 :q_1
     a bgf:ChemicalConcentration ;
-    bgf:quantityValue "1 mol"^^cdt:ucum ;
+    bgf:hasValue "1 mol"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "K" ;
         bgf:hasValue "1 mol-1"^^cdt:ucum
@@ -43,7 +43,7 @@
 
 :q_2
     a bgf:ChemicalConcentration ;
-    bgf:quantityValue "0 mol"^^cdt:ucum ;
+    bgf:hasValue "0 mol"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "K" ;
         bgf:hasValue "1 mol-1"^^cdt:ucum

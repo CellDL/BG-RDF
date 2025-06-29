@@ -52,7 +52,7 @@
 
 :q_C
     a bgf:MechanicalCapacitor ;
-    bgf:quantityValue "0 m"^^cdt:ucum ;
+    bgf:hasValue "0 m"^^cdt:ucum ;
     bgf:variableValue [
         bgf:varName "E" ;
         bgf:hasValue "100 J.m-2"^^cdt:ucum
