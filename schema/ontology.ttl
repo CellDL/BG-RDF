@@ -196,15 +196,29 @@ bgf:hasPort
     rdfs:domain bgf:ElementTemplate ;
     rdfs:range bgf:PowerPort .
 
+bgf:hasParameter
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    dcterms:description "A parameter for the constitutive relation of a bond element" ;
+    rdfs:domain bgf:ElementTemplate ;
+    rdfs:range bgf:Variable .
+
 bgf:hasVariable
     a owl:ObjectProperty, owl:FunctionalProperty ;
+    dcterms:description "A non-parameter variable in the constitutive relation of a bond element that could be assigned a value" ;
     rdfs:domain bgf:ElementTemplate ;
     rdfs:range bgf:Variable .
 
 #################################################################
 
+bgf:parameterValue
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    dcterms:description "A value to assign to a parameter of a bond element" ;
+    rdfs:domain bgf:BondElement ;
+    rdfs:range bgf:Value .
+
 bgf:variableValue
     a owl:ObjectProperty, owl:FunctionalProperty ;
+    dcterms:description "A value to assign to a non-parameter variable in the constitutive relation of a bond element" ;
     rdfs:domain bgf:BondElement ;
     rdfs:range bgf:Value .
 

@@ -30,7 +30,7 @@ bgf:MechanicalResistor
     rdfs:subClassOf bgf:Dissipator ;
     bgf:hasDomain bgf:Mechanical ;
     rdfs:label "Mechanical resistor" ;
-    bgf:hasVariable [
+    bgf:hasParameter [
         bgf:varName "R" ;
         bgf:hasUnits "J.s.m-2"^^cdt:ucumunit
     ] ;
@@ -55,7 +55,7 @@ bgf:MechanicalCapacitor
     rdfs:subClassOf bgf:PotentialStore ;
     bgf:hasDomain bgf:Mechanical ;
     rdfs:label "Mechanical capacitor" ;
-    bgf:hasVariable [
+    bgf:hasParameter [
         bgf:varName "E" ;
         bgf:hasUnits "J.m-2"^^cdt:ucumunit
     ] ;
@@ -91,11 +91,13 @@ bgf:MechanicalInductor
     rdfs:subClassOf bgf:KineticStore ;
     bgf:hasDomain bgf:Mechanical ;
     rdfs:label "Mechanical inductor" ;
-    bgf:hasVariable [
+    bgf:hasParameter [
         bgf:varName "L" ;
         bgf:hasUnits "J.s2.m-2"^^cdt:ucumunit
-    ], [
+    ] ;
+    bgf:hasVariable [
         bgf:varName "a" ;
+        rdfs:label "Acceleration" ;
         bgf:hasUnits "m/s2"^^cdt:ucumunit
     ] ;
     bgf:constitutiveRelation """

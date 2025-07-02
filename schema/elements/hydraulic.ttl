@@ -43,7 +43,7 @@ bgf:HydraulicStorage
     a bgf:ElementTemplate ;
     rdfs:subClassOf bgf:PotentialStore ;
     bgf:hasDomain bgf:Hydraulic ;
-    bgf:hasVariable [
+    bgf:hasParameter [
         bgf:varName "E" ;
         rdfs:label "Elastance" ;
         bgf:hasUnits "J"^^cdt:ucumunit
@@ -81,7 +81,7 @@ bgf:HydraulicResistor
     a bgf:ElementTemplate ;
     rdfs:subClassOf bgf:Dissipator ;
     bgf:hasDomain bgf:Hydraulic ;
-    bgf:hasVariable [
+    bgf:hasParameter [
         bgf:varName "k" ;
         rdfs:label "Conductance (L/s/kPa)" ;
         bgf:hasUnits "L.s-1.kPa-1"^^cdt:ucumunit
@@ -107,7 +107,7 @@ bgf:ElasticVessel
     rdfs:subClassOf bgf:PotentialStore ;
     bgf:hasDomain bgf:Hydraulic ;
     rdfs:label "Elastic vessel" ;
-    bgf:hasVariable [
+    bgf:hasParameter [
         bgf:varName "E" ;
         rdfs:label "Elastance (J)" ;
         bgf:hasUnits "J"^^cdt:ucumunit
@@ -171,7 +171,7 @@ bgf:OsmoticTransporter
     bgf:hasDomain bgf:Hydraulic ;   # this gives us flow/potential symbols (v: L/s, u: kPa)
     rdfs:label "Osmotic transport" ;
     bgf:hasPort 'water_in', 'water_out' ;
-    bgf:hasVariable [
+    bgf:hasParameter [
         bgf:varName "k_membrane" ;
         rdfs:label "Membrane permeability (L/s/kPa)" ;
         bgf:hasUnits "L.s-1.kPa-1"^^cdt:ucumunit

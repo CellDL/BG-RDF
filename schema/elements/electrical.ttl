@@ -45,7 +45,7 @@ bgf:ElectricalResistor
     rdfs:subClassOf bgf:Dissipator ;
     bgf:hasDomain bgf:Electrical ;
     rdfs:label "Electrical resistor" ;
-    bgf:hasVariable [
+    bgf:hasParameter [
         bgf:varName "R" ;
         bgf:hasUnits "Ohm"^^cdt:ucumunit
     ] ;
@@ -70,7 +70,7 @@ bgf:ElectricalCapacitor
     rdfs:subClassOf bgf:PotentialStore ;
     bgf:hasDomain bgf:Electrical ;
     rdfs:label "Electrical capacitor" ;
-    bgf:hasVariable [
+    bgf:hasParameter [
         bgf:varName "C" ;
         bgf:hasUnits "F"^^cdt:ucumunit
     ] ;
@@ -108,10 +108,11 @@ bgf:ElectricalInductor
     rdfs:subClassOf bgf:KineticStore ;
     bgf:hasDomain bgf:Electrical ;
     rdfs:label "Electrical inductor" ;
-    bgf:hasVariable [
+    bgf:hasParameter [
         bgf:varName "L" ;
         bgf:hasUnits "H"^^cdt:ucumunit
-    ], [
+    ] ;
+    bgf:hasVariable [
         bgf:varName "a" ;
         bgf:hasUnits "C/s2"^^cdt:ucumunit
     ] ;

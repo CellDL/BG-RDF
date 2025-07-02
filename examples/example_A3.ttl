@@ -24,28 +24,28 @@
 
 :R_1
     a bgf:ElectricalResistor ;
-    bgf:variableValue [
+    bgf:parameterValue [
         bgf:varName "R" ;
         bgf:hasValue "10 Ohm"^^cdt:ucum
     ] .
 
 :L_1
     a bgf:ElectricalInductor ;
-    bgf:variableValue [
+    bgf:parameterValue [
         bgf:varName "L" ;
         bgf:hasValue "0.2 H"^^cdt:ucum
     ] .
 
 :R_2
     a bgf:MechanicalResistor ;
-    bgf:variableValue [
+    bgf:parameterValue [
         bgf:varName "R" ;
         bgf:hasValue "0.4 J.s.m-2"^^cdt:ucum
     ] .
 
 :L_2
     a bgf:MechanicalInductor ;
-    bgf:variableValue [
+    bgf:parameterValue [
         bgf:varName "L" ;
         bgf:hasValue "0.01 J.s2.m-2"^^cdt:ucum
     ] .
@@ -53,7 +53,7 @@
 :q_C
     a bgf:MechanicalCapacitor ;
     bgf:hasValue "0 m"^^cdt:ucum ;
-    bgf:variableValue [
+    bgf:parameterValue [
         bgf:varName "E" ;
         bgf:hasValue "100 J.m-2"^^cdt:ucum
     ] .
@@ -69,7 +69,7 @@
 :GY
     a bgf:TransformNode ;
     bgf:hasPort :GY_0, :GY_1 ;
-    bgf:variableValue [
+    bgf:parameterValue [
         bgf:varName "K" ;
         bgf:hasValue "6 J.s.C-1.m-1"^^cdt:ucum
     ] .

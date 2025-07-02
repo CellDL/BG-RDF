@@ -22,24 +22,25 @@
 :q
     a bgf:MechanicalCapacitor ;
     bgf:hasValue "1 m"^^cdt:ucum ;
-    bgf:variableValue [
+    bgf:parameterValue [
         bgf:varName "C" ;
         bgf:hasValue "20 m2.J-1"^^cdt:ucum
     ] .
 
 :R
     a bgf:MechanicalResistor ;
-    bgf:variableValue [
+    bgf:parameterValue [
         bgf:varName "R" ;
         bgf:hasValue "0.1 J.s.m-2"^^cdt:ucum
     ] .
 
 :L
     a bgf:MechanicalInductor ;
-    bgf:variableValue [
+    bgf:parameterValue [
         bgf:varName "L" ;
         bgf:hasValue "10 J.s2.m-2"^^cdt:ucum
-    ], [
+    ] ;
+    bgf:variableValue [
         bgf:varName "v" ;
         bgf:hasValue "0 m/s"^^cdt:ucum
     ] .

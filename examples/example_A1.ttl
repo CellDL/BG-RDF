@@ -22,24 +22,25 @@
 :C
     a bgf:ElectricalCapacitor ;
     bgf:hasValue "1 C"^^cdt:ucum ;
-    bgf:variableValue [
+    bgf:parameterValue [
         bgf:varName "C" ;
         bgf:hasValue "20 F"^^cdt:ucum
     ] .
 
 :R
     a bgf:ElectricalResistor ;
-    bgf:variableValue [
+    bgf:parameterValue [
         bgf:varName "R" ;
         bgf:hasValue "2 Ohm"^^cdt:ucum
     ] .
 
 :L
     a bgf:ElectricalInductor ;
-    bgf:variableValue [
+    bgf:parameterValue [
         bgf:varName "L" ;
         bgf:hasValue "10 H"^^cdt:ucum
-    ], [
+    ] ;
+    bgf:variableValue [
         bgf:varName "v" ;
         bgf:hasValue "0 A"^^cdt:ucum
     ] .
