@@ -5,7 +5,8 @@
 
 #===============================================================================
 #
-#      +------- R_0 -------+  V_out
+#               I_R
+#      +------- R_0 -------+  V_C
 #      |                   |
 #     V_in                C_1
 #      |                   |
@@ -19,17 +20,13 @@
 #     u_0 ------ v ------ u_1
 #
 #===============================================================================
-#
 # Simulate for 0.1 sec at 1 ms steps
-#
-#  V_in = 10 V,  V_out: 0 ---> 10V
-#
 #===============================================================================
 
 :RC_circuit
     a bgf:BondgraphModel ;
-    bgf:hasBondElement :u_0, :R_0, :q_1 ;
-    bgf:hasJunctionStructure :v, :u_1 .
+    bgf:hasBondElement :V_in, :R_0, :q_1 ;
+    bgf:hasJunctionStructure :I_R, :V_C .
 
 #===============================================================================
 
@@ -48,34 +45,34 @@
         bgf:hasValue "0.001 F"^^cdt:ucum
     ] .
 
-#===============================================================================
-
-:u_0
+:V_in
     a bgf:VoltageSource ;
     bgf:hasValue "10 V"^^cdt:ucum .
 
-:v
+#===============================================================================
+
+:I_R
     a bgf:OneNode .
 
-:u_1
+:V_C
     a bgf:ZeroNode .
 
 #===============================================================================
 
-:u_0.v
-    bgf:hasSource :u_0 ;
-    bgf:hasTarget :v .
+:V_in.I_R
+    bgf:hasSource :V_in ;
+    bgf:hasTarget :I_R .
 
-:v.R
-    bgf:hasSource :v ;
+:I_R.R
+    bgf:hasSource :I_R ;
     bgf:hasTarget :R_0 .
 
-:v.u_1
-    bgf:hasSource :v ;
-    bgf:hasTarget :u_1 .
+:I_R.V_C
+    bgf:hasSource :I_R ;
+    bgf:hasTarget :V_C .
 
-:u_1.q
-    bgf:hasSource :u_1 ;
+:V_C.q
+    bgf:hasSource :V_C ;
     bgf:hasTarget :q_1 .
 
 #===============================================================================
