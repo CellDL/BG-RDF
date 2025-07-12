@@ -141,7 +141,7 @@ bgf:hasDomain
     rdfs:domain bgf:PowerPort ;
     rdfs:range bgf:ModellingDomain .
 
-bgf:hasPort
+bgf:portId
     a owl:DatatypeProperty ;
     dcterms:description "The identity of each port when a Bond Element or Junction Structure has more than a single Power Port." ;
     rdfs:range xsd:Name .
