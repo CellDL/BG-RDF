@@ -20,7 +20,7 @@
 #     u_0 ------ v ------ u_1
 #
 #
-#     u_0 ------ R ------ C
+#     u_0 ----> R_0 ----> q_1
 #
 #===============================================================================
 
@@ -37,18 +37,18 @@
 
 :RC_circuit
     a bgf:BondgraphModel ;
-    bgf:hasBondElement :u_0, :R, :C .
+    bgf:hasBondElement :u_0, :R_0, :q_1 .
 
 #===============================================================================
 
-:R
+:R_0
     a bgf:ElectricalResistanceNode ;
     bgf:parameterValue [
         bgf:varName "R" ;
         bgf:hasValue "10 Ohm"^^cdt:ucum
     ] .
 
-:C
+:q_1
     a bgf:ElectricalStorageNode ;
     bgf:hasValue "0 C"^^cdt:ucum ;
     bgf:parameterValue [
@@ -66,10 +66,10 @@
 
 :u_0.R
     bgf:hasSource :u_0 ;
-    bgf:hasTarget :R .
+    bgf:hasTarget :R_0 .
 
 :R.C
-    bgf:hasSource :R ;
-    bgf:hasTarget :C .
+    bgf:hasSource :R_0 ;
+    bgf:hasTarget :q_1 .
 
 #===============================================================================

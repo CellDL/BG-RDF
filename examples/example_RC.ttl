@@ -13,7 +13,7 @@
 #
 #===============================================================================
 #
-#               R_0       C_1
+#               R_0       q_1
 #                |         |
 #                |         |
 #     u_0 ------ v ------ u_1
@@ -28,19 +28,19 @@
 
 :RC_circuit
     a bgf:BondgraphModel ;
-    bgf:hasBondElement :u_0, :R, :C ;
+    bgf:hasBondElement :u_0, :R_0, :q_1 ;
     bgf:hasJunctionStructure :v, :u_1 .
 
 #===============================================================================
 
-:R
+:R_0
     a bgf:ElectricalResistor ;
     bgf:parameterValue [
         bgf:varName "R" ;
         bgf:hasValue "10 Ohm"^^cdt:ucum
     ] .
 
-:C
+:q_1
     a bgf:ElectricalCapacitor ;
     bgf:hasValue "0 C"^^cdt:ucum ;
     bgf:parameterValue [
@@ -68,14 +68,14 @@
 
 :v.R
     bgf:hasSource :v ;
-    bgf:hasTarget :R .
+    bgf:hasTarget :R_0 .
 
 :v.u_1
     bgf:hasSource :v ;
     bgf:hasTarget :u_1 .
 
-:u_1.C
+:u_1.q
     bgf:hasSource :u_1 ;
-    bgf:hasTarget :C .
+    bgf:hasTarget :q_1 .
 
 #===============================================================================
