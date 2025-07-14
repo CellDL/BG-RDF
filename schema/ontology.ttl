@@ -61,6 +61,12 @@ bgf:PowerPort
     rdfs:subClassOf bg:PowerPort .
 
 #################################################################
+
+bgf:CompositeElement
+    a owl:Class ;
+    dcterms:description "A composite of a bgf:ElementTemplate and a bgf:JunctionStructure, for example an ElecticalStorageNode." .
+
+#################################################################
 #################################################################
 
 bgf:PotentialStore
@@ -119,12 +125,6 @@ bgf:Value
 
 bgf:Variable
     a owl:Class .
-
-#################################################################
-
-bgf:CompositeElement
-    a owl:Class ;
-    dcterms:description "A composite of a bgf:ElementTemplate and a bgf:JunctionStructure, for example a ZeroStorageNode." .
 
 #################################################################
 #    Datatypes
@@ -192,6 +192,12 @@ bgf:hasBondElement
     rdfs:domain bgf:BondgraphModel ;
     rdfs:range bgf:BondElement .
 
+bgf:hasElementPort
+    a owl:ObjectProperty ;
+    dcterms:description "The PowerPort that is connected to a composite BondElement's implicit JunctionsStructure." ;
+    rdfs:domain bgf:JunctionStructure ;
+    rdfs:range bgf:PowerPort .
+
 bgf:hasJunctionStructure
     a owl:ObjectProperty ;
     rdfs:domain bgf:BondgraphModel ;
@@ -211,8 +217,7 @@ bgf:hasConstant
 
 bgf:hasPort
     a owl:ObjectProperty, owl:FunctionalProperty ;
-    rdfs:domain bgf:ElementTemplate ;
-    rdfs:range bgf:PowerPort .
+    rdfs:domain bgf:ElementTemplate .
 
 bgf:hasParameter
     a owl:ObjectProperty, owl:FunctionalProperty ;
