@@ -13,85 +13,68 @@
 #
 #===============================================================================
 #
+#     u_0 ----- R_0 ----- C_1 ----- R_1
+#
+#  Generates:
+#
+#               R_0       C_1       R_1
+#                |         |         |
+#                |         |         |
+#     u_0 ----- v_0 ----- u_1 ----- v_1
+#
+#  Simplifies to:
+#
 #               R_0       C_1
 #                |         |
 #                |         |
-#     u_0 ----- v_0 ----- u_1
-#                          |
-#                          |
-#                         R_1
-#
-#===============================================================================
-#
-# Simulate for 0.1 sec at 1 ms steps
-#
-#  V_in = 11 V,  V_out: 0 ---> 1V
+#     u_0 ----- v_0 ----- u_1 ----- R_1
 #
 #===============================================================================
 
 :R_C_R_circuit
     a bgf:BondgraphModel ;
-    bgf:hasBondElement :u_0, :R_0, :R_1, :C_1 ;
-    bgf:hasJunctionStructure :v_0, :u_1 .
+    bgf:hasBondElement :u_0, :R_0, :R_1, :C_1 .
 
 #===============================================================================
 
 :R_0
-    a bgf:ElectricalResistor ;
+    a bgf:ElectricalResistanceNode ;
     bgf:parameterValue [
         bgf:varName "R" ;
         bgf:hasValue "10 Ohm"^^cdt:ucum
     ] .
 
 :R_1
-    a bgf:ElectricalResistor ;
+    a bgf:ElectricalResistanceNode ;
     bgf:parameterValue [
         bgf:varName "R" ;
         bgf:hasValue "100 Ohm"^^cdt:ucum
     ] .
 
 :C_1
-    a bgf:ElectricalCapacitor ;
-    bgf:hasValue "1 C"^^cdt:ucum ;
+    a bgf:ElectricalStorageNode ;
+    bgf:hasValue "0 C"^^cdt:ucum ;
     bgf:parameterValue [
         bgf:varName "C" ;
         bgf:hasValue "0.001 F"^^cdt:ucum
     ] .
 
-#===============================================================================
-
 :u_0
     a bgf:VoltageSource ;
     bgf:hasValue "11 V"^^cdt:ucum .
 
-:v_0
-    a bgf:OneNode .
-
-:u_1
-    a bgf:ZeroNode .
-
 #===============================================================================
 
-# PowerBonds implicitly connect to PowerPorts...
-
-:u_0.v_0
+:u_0.R_0
     bgf:hasSource :u_0 ;
-    bgf:hasTarget :v_0 .
-
-:v_0.R_0
-    bgf:hasSource :v_0 ;
     bgf:hasTarget :R_0 .
 
-:v_0.u_1
-    bgf:hasSource :v_0 ;
-    bgf:hasTarget :u_1 .
-
-:u_1.C_1
-    bgf:hasSource :u_1 ;
+:R_0.C_1
+    bgf:hasSource :R_0 ;
     bgf:hasTarget :C_1 .
 
-:u_1.R_1
-    bgf:hasSource :u_1 ;
+:C_1.R_1
+    bgf:hasSource :C_1 ;
     bgf:hasTarget :R_1 .
 
 #===============================================================================
