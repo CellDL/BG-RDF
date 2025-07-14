@@ -9,7 +9,7 @@
 #===============================================================================
 
 bgf:Mechanical
-    a bgf:ModellingDomain ;
+    a bgf:PhysicalDomain ;
     bgf:hasFlow [
         bgf:varName "v" ;
         bgf:hasUnits "m/s"^^cdt:ucumunit
@@ -88,7 +88,7 @@ bgf:MechanicalCapacitor
 
 bgf:MechanicalInductor
     a bgf:ElementTemplate ;
-    rdfs:subClassOf bgf:KineticStore ;
+    rdfs:subClassOf bgf:FlowStore ;
     bgf:hasDomain bgf:Mechanical ;
     rdfs:label "Mechanical inductor" ;
     bgf:hasParameter [

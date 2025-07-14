@@ -9,7 +9,7 @@
 #===============================================================================
 
 bgf:Hydraulic
-    a bgf:ModellingDomain ;
+    a bgf:PhysicalDomain ;
     bgf:hasConstant [
         bgf:varName "RT" ;
         bgf:hasValue "2578.73058 J/mol"^^cdt:ucum

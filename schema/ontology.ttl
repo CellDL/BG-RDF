@@ -19,6 +19,25 @@
 #    Classes
 #################################################################
 
+bgf:PhysicalDomain
+    a owl:Class ;
+    dcterms:description "A physical domain in which energy is carried by some quantity." .
+
+bgf:Quantity
+    a owl:Class ;
+    dcterms:description "A carrier of energy." .
+
+bgf:Flow
+    a owl:Class ;
+    dcterms:description "The rate of change of a physical domain's quantity." .
+
+bgf:Potential
+    a owl:Class ;
+    dcterms:description "The energy gradient with respect to quantity in a physical domain." .
+
+#################################################################
+#################################################################
+
 bgf:BondgraphModel
     a owl:Class ;
     rdfs:subClassOf bg:BondGraph .
@@ -33,10 +52,12 @@ bgf:JunctionStructure
 
 bgf:PowerBond
     a owl:Class ;
+    dcterms:description "A connection between two PowerPorts over which power is transfered." ;
     rdfs:subClassOf bg:PowerBond .
 
 bgf:PowerPort
     a owl:Class ;
+    dcterms:description "A port of a BondElement or JunctionStructure through which power is transfered." ;
     rdfs:subClassOf bg:PowerPort .
 
 #################################################################
@@ -44,27 +65,27 @@ bgf:PowerPort
 
 bgf:PotentialStore
     rdfs:subClassOf bgf:BondElement ;
-    rdfs:label "Potential storage node" ;
+    rdfs:label "Potential storage element" ;
     dcterms:description "Potential energy store" .
 
-bgf:KineticStore
+bgf:FlowStore
     rdfs:subClassOf bgf:BondElement ;
-    rdfs:label "Dynamic storage node" ;
+    rdfs:label "Flow storage element" ;
     dcterms:description "Kinetic energy store" .
 
 bgf:Dissipator
     rdfs:subClassOf bgf:BondElement ;
-    rdfs:label "Dissipative node" ;
-    dcterms:description "Energy dissipation" .
+    rdfs:label "Dissipative element" ;
+    dcterms:description "Dissipate energy" .
 
 bgf:PotentialSource
     rdfs:subClassOf bgf:BondElement ;
-    rdfs:label "Potential source node" ;
+    rdfs:label "Potential source element" ;
     dcterms:description "Potential energy source" .
 
 bgf:FlowSource
     rdfs:subClassOf bgf:BondElement ;
-    rdfs:label "Flow source node" ;
+    rdfs:label "Flow source element" ;
     dcterms:description "Kinetic energy source" .
 
 #################################################################
@@ -72,25 +93,22 @@ bgf:FlowSource
 bgf:OneNode
     rdfs:subClassOf bgf:JunctionStructure ;
     rdfs:label "One node" ;
-    dcterms:description "Energy conservation" .
+    dcterms:description "Total potential at node is zero" .
 
 bgf:TransformNode
     rdfs:subClassOf bgf:JunctionStructure ;
     rdfs:label "Transform node" ;
-    dcterms:description "Energy transformation" .
+    dcterms:description "Transform potential and flow" .
 
 bgf:ZeroNode
     rdfs:subClassOf bgf:JunctionStructure ;
     rdfs:label "Zero node" ;
-    dcterms:description "Quantity conservation" .
+    dcterms:description "Total flow at node is zero" .
 
 #################################################################
 #################################################################
 
 bgf:ElementTemplate
-    a owl:Class .
-
-bgf:ModellingDomain
     a owl:Class .
 
 bgf:Constant
@@ -139,7 +157,7 @@ bgf:constitutiveRelation
 bgf:hasDomain
     a owl:DatatypeProperty, owl:FunctionalProperty ;
     rdfs:domain bgf:PowerPort ;
-    rdfs:range bgf:ModellingDomain .
+    rdfs:range bgf:PhysicalDomain .
 
 bgf:portId
     a owl:DatatypeProperty ;
@@ -182,13 +200,13 @@ bgf:hasJunctionStructure
 bgf:hasPowerBond
     a owl:ObjectProperty ;
     rdfs:domain bgf:BondgraphModel ;
-    rdfs:range bgf:hasPowerBond .
+    rdfs:range bgf:PowerBond .
 
 #################################################################
 
 bgf:hasConstant
     a owl:ObjectProperty, owl:FunctionalProperty ;
-    rdfs:domain bgf:ModellingDomain ;
+    rdfs:domain bgf:PhysicalDomain ;
     rdfs:range bgf:Variable .
 
 bgf:hasPort
@@ -238,17 +256,17 @@ bgf:hasTarget
 
 bgf:hasPotential
     a owl:ObjectProperty, owl:FunctionalProperty ;
-    rdfs:domain bgf:ModellingDomain ;
+    rdfs:domain bgf:PhysicalDomain ;
     rdfs:range bgf:Variable .
 
 bgf:hasFlow
     a owl:ObjectProperty, owl:FunctionalProperty ;
-    rdfs:domain bgf:ModellingDomain ;
+    rdfs:domain bgf:PhysicalDomain ;
     rdfs:range bgf:Variable .
 
 bgf:hasQuantity
     a owl:ObjectProperty, owl:FunctionalProperty ;
-    rdfs:domain bgf:ModellingDomain ;
+    rdfs:domain bgf:PhysicalDomain ;
     rdfs:range bgf:Variable .
 
 #################################################################
