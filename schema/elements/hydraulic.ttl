@@ -49,7 +49,7 @@ bgf:HydraulicStorage
         bgf:hasUnits "J"^^cdt:ucumunit
     ] ;
     # ode(q, t) = v
-    # u = q/C
+    # u = E/q
     bgf:constitutiveRelation """
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
@@ -67,7 +67,7 @@ bgf:HydraulicStorage
                 <eq/>
                 <ci>u</ci>
                 <apply>
-                    <times/>
+                    <divide/>
                     <ci>E</ci>
                     <ci>q</ci>
                 </apply>
