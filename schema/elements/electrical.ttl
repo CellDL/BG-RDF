@@ -12,15 +12,17 @@ bgf:Electrical
     a bgf:PhysicalDomain ;
     bgf:hasFlow [
         bgf:varName "v" ;
+        rdfs:label "Electrical flow (current)" ;
         bgf:hasUnits "C/s"^^cdt:ucumunit
     ] ;
     bgf:hasPotential [
         bgf:varName "u" ;
+        rdfs:label "Electrical potential (voltage)" ;
         bgf:hasUnits "J/C"^^cdt:ucumunit
     ] ;
     bgf:hasQuantity [
         bgf:varName "q" ;
-        rdfs:label "Electrical charge (C)" ;
+        rdfs:label "Electrical charge" ;
         bgf:hasUnits "C"^^cdt:ucumunit
     ] .
 

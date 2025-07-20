@@ -11,7 +11,8 @@ bgf:Chemical
         bgf:hasValue "2578.73058 J/mol"^^cdt:ucum
     ], [
         bgf:varName "F" ;
-        bgf:hasValue "0.965e5 C/mol"^^cdt:ucum
+        rdfs:label "Faraday's constant" ;
+        bgf:hasValue "0.96485e5 C/mol"^^cdt:ucum
     ] ;
     bgf:hasFlow [
         bgf:varName "v" ;
