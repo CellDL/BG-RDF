@@ -1,4 +1,4 @@
-@prefix bgf: <https://celldl.org/ontologies/bondgraph-framework#> .
+@prefix bgf: <https://bg-rdf.org/ontologies/bondgraph-framework#> .
 @prefix cdt: <https://w3id.org/cdt/> .
 @prefix sim: <https://celldl.org/ontologies/simulation#> .
 

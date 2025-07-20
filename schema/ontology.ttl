@@ -1,18 +1,18 @@
-@prefix bg: <https://celldl.org/ontologies/bondgraph#> .
-@prefix bgf: <https://celldl.org/ontologies/bondgraph-framework#> .
-@prefix bpc: <https://celldl.org/ontologies/block-port-connector#> .
+@prefix bg: <https://bg-rdf.org/ontologies/bondgraph#> .
+@prefix bgf: <https://bg-rdf.org/ontologies/bondgraph-framework#> .
+@prefix bpc: <https://bg-rdf.org/ontologies/block-port-connector#> .
 @prefix cdt: <https://w3id.org/cdt/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-@base <https://celldl.org/ontologies/bondgraph-framework> .
+@base <https://bg-rdf.org/ontologies/bondgraph-framework> .
 
-<https://celldl.org/ontologies/bondgraph-framework>
+<https://bg-rdf.org/ontologies/bondgraph-framework>
     a owl:Ontology ;
     owl:versionInfo "2025-06-10" ;
-    owl:versionIRI "https://celldl.org/ontologies/bgf/2025-06-10/ontology.ttl" ;
+    owl:versionIRI "https://bg-rdf.org/ontologies/bgf/2025-06-10/ontology.ttl" ;
     dcterms:title "A Framework for Bond-Graph Modelling" .
 
 #################################################################
