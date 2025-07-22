@@ -26,13 +26,6 @@
 
 #===============================================================================
 
-
-## Can we set u/v symbols by node??
-## To compare in tests?
-
-## Or have a new property (not bgf:) to denote equivalence???
-
-
 :q_1
     a bgf:ChemicalConcentration ;
     bgf:hasValue "1 mol"^^cdt:ucum ;
