@@ -76,8 +76,8 @@ bgf:QuantityStore
 
 bgf:FlowStore
     rdfs:subClassOf bgf:BondElement ;
-    rdfs:label "Flow storage element" ;
-    dcterms:description "Kinetic energy store" .
+    rdfs:label "Dynamic energy store" ;
+    dcterms:description "Dynamic energy stored as the flow of some quantity." .
 
 bgf:Dissipator
     rdfs:subClassOf bgf:BondElement ;
@@ -92,7 +92,7 @@ bgf:PotentialSource
 bgf:FlowSource
     rdfs:subClassOf bgf:BondElement ;
     rdfs:label "Flow source element" ;
-    dcterms:description "Kinetic energy source" .
+    dcterms:description "Dynamic energy source" .
 
 #################################################################
 
