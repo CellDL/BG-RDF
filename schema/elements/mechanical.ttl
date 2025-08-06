@@ -52,7 +52,7 @@ bgf:MechanicalResistor
 
 bgf:MechanicalCapacitor
     a bgf:ElementTemplate ;
-    rdfs:subClassOf bgf:PotentialStore ;
+    rdfs:subClassOf bgf:QuantityStore ;
     bgf:hasDomain bgf:Mechanical ;
     rdfs:label "Mechanical capacitor" ;
     bgf:hasParameter [

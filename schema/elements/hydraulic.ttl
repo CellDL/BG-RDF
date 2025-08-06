@@ -41,7 +41,7 @@ bgf:HydraulicFlow
 
 bgf:HydraulicStorage
     a bgf:ElementTemplate ;
-    rdfs:subClassOf bgf:PotentialStore ;
+    rdfs:subClassOf bgf:QuantityStore ;
     bgf:hasDomain bgf:Hydraulic ;
     bgf:hasParameter [
         bgf:varName "E" ;
@@ -104,7 +104,7 @@ bgf:HydraulicResistor
 
 bgf:ElasticVessel
     a bgf:ElementTemplate ;
-    rdfs:subClassOf bgf:PotentialStore ;
+    rdfs:subClassOf bgf:QuantityStore ;
     bgf:hasDomain bgf:Hydraulic ;
     rdfs:label "Elastic vessel" ;
     bgf:hasParameter [

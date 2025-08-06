@@ -69,10 +69,10 @@ bgf:CompositeElement
 #################################################################
 #################################################################
 
-bgf:PotentialStore
+bgf:QuantityStore
     rdfs:subClassOf bgf:BondElement ;
-    rdfs:label "Potential storage element" ;
-    dcterms:description "Potential energy store" .
+    rdfs:label "Static energy store" ;
+    dcterms:description "Static energy stored as the amount of some quantity." .
 
 bgf:FlowStore
     rdfs:subClassOf bgf:BondElement ;
