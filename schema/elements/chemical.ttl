@@ -132,6 +132,19 @@ bgf:NKETransporter
     a bgf:ElementTemplate ;
     rdfs:subClassOf bgf:Dissipator ;
     bgf:hasDomain bgf:Chemical ;
+    bgf:hasPort [
+        bgf:portId 'K_f' ;
+        bgf:bondCount 2
+    ], [
+        bgf:portId 'K_r' ;
+        bgf:bondCount 2
+    ], [
+        bgf:portId 'Na_f' ;
+        bgf:bondCount 3
+    ], [
+        bgf:portId 'Na_r' ;
+        bgf:bondCount 3
+    ] ;
     bgf:hasParameter [
         bgf:varName "k_NKE" ;
         bgf:hasUnits "mol/s"^^cdt:ucumunit
