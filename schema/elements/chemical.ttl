@@ -186,6 +186,7 @@ bgf:NKETransporter
                     <apply>
                         <times/>
                         <ci>k_NKE</ci>
+                        <cn>3</cn>
                         <apply>
                             <minus/>
                             <apply>
