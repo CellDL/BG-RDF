@@ -342,24 +342,21 @@ bgf:NKETransporter
 bgf:ChemicalStorageNode
     a bgf:CompositeElement ;
     rdfs:label "Chemical storage with Zero Node" ;
-    bgf:elementTemplate bgf:ChemicalConcentration ;
-    bgf:junctionStructure bgf:ZeroNode .
+    rdfs:subClassOf bgf:ChemicalConcentration .
 
 #===============================================================================
 
 bgf:ChemicalReactionNode
     a bgf:CompositeElement ;
     rdfs:label "Chemical reaction withe One Node" ;
-    bgf:elementTemplate bgf:ChemicalReaction ;
-    bgf:junctionStructure bgf:OneNode .
+    rdfs:subClassOf bgf:ChemicalReaction .
 
 #===============================================================================
 
 bgf:NKETransporterNode
     a bgf:CompositeElement ;
     rdfs:label "NKE transporter with One Node" ;
-    bgf:elementTemplate bgf:NKETransporter ;
-    bgf:junctionStructure bgf:OneNode .
+    rdfs:subClassOf bgf:NKETransporter .
 
 #===============================================================================
 #===============================================================================

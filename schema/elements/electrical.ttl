@@ -149,15 +149,13 @@ bgf:ElectricalInductor
 bgf:ElectricalStorageNode
     a bgf:CompositeElement ;
     rdfs:label "Electrical storage with Zero Node" ;
-    bgf:elementTemplate bgf:ElectricalCapacitor ;
-    bgf:junctionStructure bgf:ZeroNode .
+    rdfs:subClassOf bgf:ElectricalCapacitor .
 
 #===============================================================================
 
 bgf:ElectricalResistanceNode
     a bgf:CompositeElement ;
     rdfs:label "Electrical resistance with One Node" ;
-    bgf:elementTemplate bgf:ElectricalResistor ;
-    bgf:junctionStructure bgf:OneNode .
+    rdfs:subClassOf bgf:ElectricalResistor .
 
 #===============================================================================
