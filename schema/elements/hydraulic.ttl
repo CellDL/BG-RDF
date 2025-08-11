@@ -231,6 +231,67 @@ bgf:OsmoticTransporter
     """^^bgf:mathml .
 
 #===============================================================================
+
+#===============================================================================
+
+bgf:OldOsmosis
+    a bgf:ElementTemplate ;
+    rdfs:subClassOf bgf:Dissipator ;
+    bgf:hasDomain bgf:Hydraulic ;   # this gives us flow/potential symbols (v: L/s, u: kPa)
+    rdfs:label "Osmotic transport" ;
+    bgf:hasParameter [
+        bgf:varName "k_membrane" ;
+        rdfs:label "Membrane permeability (L/s/kPa)" ;
+        bgf:hasUnits "L.s-1.kPa-1"^^cdt:ucumunit
+    ], [
+        bgf:varName "q_solute_in" ;
+        rdfs:label "Inner solute quantity (mol)" ;
+        bgf:hasUnits "mol"^^cdt:ucumunit
+    ], [
+        bgf:varName "q_water_in" ;
+        rdfs:label "Inner water quantity (L)" ;
+        bgf:hasUnits "L"^^cdt:ucumunit
+    ], [
+        bgf:varName "q_solute_out" ;
+        rdfs:label "Outer solute quantity (mol)" ;
+        bgf:hasUnits "mol"^^cdt:ucumunit
+    ], [
+        bgf:varName "q_water_out" ;
+        rdfs:label "Outer water quantity (L)" ;
+        bgf:hasUnits "L"^^cdt:ucumunit
+    ] ;
+    # v = -k_membrane*RT*(q_solute_in/q_water_in - q_solute_out/q_water_out)
+    bgf:constitutiveRelation """
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>v</ci>
+                <apply>
+                    <times/>
+                    <ci>k_membrane</ci>
+                    <apply>
+                        <times/>
+                        <ci>RT</ci>
+                        <apply>
+                            <minus/>
+                            <apply>
+                                <divide/>
+                                <ci>q_solute_out</ci>
+                                <ci>q_water_out</ci>
+                            </apply>
+                            <apply>
+                                <divide/>
+                                <ci>q_solute_in</ci>
+                                <ci>q_water_in</ci>
+                            </apply>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+        </math>
+    """^^bgf:mathml .
+
+#===============================================================================
 #===============================================================================
 
 bgf:HydraulicResistanceNode
@@ -252,3 +313,8 @@ bgf:OsmoticTransporterNode
     a bgf:CompositeElement ;
     rdfs:label "Hydraulic osmotic transport with One Node" ;
     rdfs:subClassOf bgf:OsmoticTransporter .
+
+bgf:OldOsmosisNode
+    a bgf:CompositeElement ;
+    rdfs:label "Hydraulic osmotic transport with One Node" ;
+    rdfs:subClassOf bgf:OldOsmosis .
