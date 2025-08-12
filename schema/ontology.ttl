@@ -142,6 +142,10 @@ bgf:mathml
 #    Data properties
 #################################################################
 
+bgf:usesTemplate
+    a owl:DatatypeProperty ;
+    rdfs:domain bgf:BondgraphModel .
+
 bgf:hasBlock
     a owl:DatatypeProperty ;
     rdfs:domain bgf:BondgraphModel ;

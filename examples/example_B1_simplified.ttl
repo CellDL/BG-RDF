@@ -23,6 +23,7 @@
 
 :Simple_reaction
     a bgf:BondgraphModel ;
+    bgf:usesTemplate '../schema/elements/chemical.ttl' ;
     bgf:hasBondElement :q_1, :q_2, :Re .
 
 #===============================================================================

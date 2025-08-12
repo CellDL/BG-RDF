@@ -17,6 +17,9 @@
 
 :example_A3
     a bgf:BondgraphModel ;
+    bgf:usesTemplate
+        '../schema/elements/electrical.ttl' ,
+        '../schema/elements/mechanical.ttl' ;
     bgf:hasBondElement :R_1, :L_1, :R_2, :L_2, :q_C ;
     bgf:hasJunctionStructure :u_in, :v_1, :GY, :v_2, :u_C .
 

@@ -25,6 +25,7 @@
 
 :RC_circuit
     a bgf:BondgraphModel ;
+    bgf:usesTemplate '../schema/elements/electrical.ttl' ;
     bgf:hasBondElement :V_in, :R_0, :q_1 ;
     bgf:hasJunctionStructure :I_R, :V_C .
 

@@ -33,6 +33,7 @@
 
 :R_C_R_circuit
     a bgf:BondgraphModel ;
+    bgf:usesTemplate '../schema/elements/electrical.ttl' ;
     bgf:hasBondElement :u_0, :R_0, :R_1, :C_1 .
 
 #===============================================================================
