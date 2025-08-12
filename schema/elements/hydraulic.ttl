@@ -126,6 +126,17 @@ bgf:ElasticVessel
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q</ci>
+                </apply>
+                <ci>v</ci>
+            </apply>
+            <apply>
+                <eq/>
                 <ci>u</ci>
                 <apply>
                     <divide/>
@@ -148,17 +159,6 @@ bgf:ElasticVessel
                         <cn>2</cn>
                     </apply>
                 </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <apply>
-                    <diff/>
-                    <bvar>
-                        <ci>t</ci>
-                    </bvar>
-                    <ci>q</ci>
-                </apply>
-                <ci>v</ci>
             </apply>
         </math>
     """^^bgf:mathml .
@@ -192,6 +192,7 @@ bgf:OsmoticTransporter
         rdfs:label "Outer water quantity (L)" ;
         bgf:hasUnits "L"^^cdt:ucumunit
     ] ;
+    # v = k_membrane*((u_water_in - u_water_out) - RT*(q_solute_in/q_water_in - q_solute_out/q_water_out))
     bgf:constitutiveRelation """
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
