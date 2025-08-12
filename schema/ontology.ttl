@@ -136,7 +136,7 @@ bgf:latex
 
 bgf:mathml
     a rdfs:Datatype ;
-    rdfs:subClassOf xsd:string .
+    rdfs:subClassOf rdf:XMLLiteral .
 
 #################################################################
 #    Data properties
