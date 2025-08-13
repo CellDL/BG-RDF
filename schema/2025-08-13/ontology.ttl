@@ -1,0 +1,296 @@
+@prefix bg: <https://bg-rdf.org/ontologies/bondgraph#> .
+@prefix bgf: <https://bg-rdf.org/ontologies/bondgraph-framework#> .
+@prefix bpc: <https://bg-rdf.org/ontologies/block-port-connector#> .
+@prefix cdt: <https://w3id.org/cdt/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@base <https://bg-rdf.org/ontologies/bondgraph-framework> .
+
+<https://bg-rdf.org/ontologies/bondgraph-framework>
+    a owl:Ontology ;
+    owl:versionInfo "2025-08-13" ;
+    owl:versionIRI "https://bg-rdf.org/ontologies/bondgraph-framework/2025-08-13/ontology.ttl" ;
+    dcterms:title "A Framework for Bond-Graph Modelling" .
+
+#################################################################
+#    Classes
+#################################################################
+
+bgf:PhysicalDomain
+    a owl:Class ;
+    dcterms:description "A physical domain in which energy is carried by some quantity." .
+
+bgf:Quantity
+    a owl:Class ;
+    dcterms:description "A carrier of energy." .
+
+bgf:Flow
+    a owl:Class ;
+    dcterms:description "The rate of change of a physical domain's quantity." .
+
+bgf:Potential
+    a owl:Class ;
+    dcterms:description "The energy gradient with respect to quantity in a physical domain." .
+
+#################################################################
+#################################################################
+
+bgf:BondgraphModel
+    a owl:Class ;
+    rdfs:subClassOf bg:BondGraph .
+
+bgf:BondElement
+    a owl:Class ;
+    rdfs:subClassOf bg:BondElement .
+
+bgf:JunctionStructure
+    a owl:Class ;
+    rdfs:subClassOf bg:JunctionStructure .
+
+bgf:PowerBond
+    a owl:Class ;
+    dcterms:description "A connection between two PowerPorts over which power is transfered." ;
+    rdfs:subClassOf bg:PowerBond .
+
+bgf:PowerPort
+    a owl:Class ;
+    dcterms:description "A port of a BondElement or JunctionStructure through which power is transfered." ;
+    rdfs:subClassOf bg:PowerPort .
+
+#################################################################
+
+bgf:CompositeElement
+    a owl:Class ;
+    dcterms:description "A composite of a bgf:ElementTemplate and a bgf:JunctionStructure, for example an ElecticalStorageNode." .
+
+#################################################################
+#################################################################
+
+bgf:QuantityStore
+    rdfs:subClassOf bgf:BondElement ;
+    rdfs:label "Static energy store" ;
+    dcterms:description "Static energy stored as the amount of some quantity." .
+
+bgf:FlowStore
+    rdfs:subClassOf bgf:BondElement ;
+    rdfs:label "Dynamic energy store" ;
+    dcterms:description "Dynamic energy stored as the flow of some quantity." .
+
+bgf:Dissipator
+    rdfs:subClassOf bgf:BondElement ;
+    rdfs:label "Dissipative element" ;
+    dcterms:description "Dissipate energy" .
+
+bgf:PotentialSource
+    rdfs:subClassOf bgf:BondElement ;
+    rdfs:label "Potential source element" ;
+    dcterms:description "Potential energy source" .
+
+bgf:FlowSource
+    rdfs:subClassOf bgf:BondElement ;
+    rdfs:label "Flow source element" ;
+    dcterms:description "Dynamic energy source" .
+
+#################################################################
+
+bgf:OneNode
+    rdfs:subClassOf bgf:JunctionStructure ;
+    rdfs:label "One node" ;
+    dcterms:description "Total potential at node is zero" .
+
+bgf:TransformNode
+    rdfs:subClassOf bgf:JunctionStructure ;
+    rdfs:label "Transform node" ;
+    dcterms:description "Transform potential and flow" .
+
+bgf:ZeroNode
+    rdfs:subClassOf bgf:JunctionStructure ;
+    rdfs:label "Zero node" ;
+    dcterms:description "Total flow at node is zero" .
+
+#################################################################
+#################################################################
+
+bgf:ElementTemplate
+    a owl:Class .
+
+bgf:Constant
+    a owl:Class .
+
+bgf:Value
+    a owl:Class .
+
+bgf:Variable
+    a owl:Class .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+bgf:latex
+    a rdfs:Datatype ;
+    rdfs:subClassOf xsd:string .
+
+bgf:mathml
+    a rdfs:Datatype ;
+    rdfs:subClassOf rdf:XMLLiteral .
+
+#################################################################
+#    Data properties
+#################################################################
+
+bgf:usesTemplate
+    a owl:DatatypeProperty ;
+    rdfs:domain bgf:BondgraphModel .
+
+bgf:hasBlock
+    a owl:DatatypeProperty ;
+    rdfs:domain bgf:BondgraphModel ;
+    rdfs:range xsd:string .
+
+#################################################################
+
+bgf:constitutiveRelation
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:ElementTemplate ;
+    rdfs:range bgf:mathml .
+
+bgf:hasDomain
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:PowerPort ;
+    rdfs:range bgf:PhysicalDomain .
+
+bgf:portId
+    a owl:DatatypeProperty ;
+    dcterms:description "The identity of each port when a Bond Element or Junction Structure has more than a single Power Port." ;
+    rdfs:range xsd:Name .
+
+bgf:hasSymbol
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:Value ;
+    rdfs:range xsd:Name .
+
+bgf:hasUnits
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:Variable ;
+    rdfs:range cdt:ucumunit .
+
+bgf:hasValue
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:range cdt:ucum .
+
+bgf:varName
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    dcterms:description "A name to identify a variable, for both when it is declared and when it is given a value." ;
+    rdfs:range xsd:Name .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+bgf:hasBondElement
+    a owl:ObjectProperty ;
+    rdfs:domain bgf:BondgraphModel ;
+    rdfs:range bgf:BondElement .
+
+bgf:hasElementPort
+    a owl:ObjectProperty ;
+    dcterms:description "The PowerPort that is connected to a composite BondElement's implicit JunctionsStructure." ;
+    rdfs:domain bgf:JunctionStructure ;
+    rdfs:range bgf:PowerPort .
+
+bgf:hasJunctionStructure
+    a owl:ObjectProperty ;
+    rdfs:domain bgf:BondgraphModel ;
+    rdfs:range bgf:JunctionStructure .
+
+bgf:hasPowerBond
+    a owl:ObjectProperty ;
+    rdfs:domain bgf:BondgraphModel ;
+    rdfs:range bgf:PowerBond .
+
+#################################################################
+
+bgf:hasConstant
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:PhysicalDomain ;
+    rdfs:range bgf:Variable .
+
+bgf:hasPort
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:ElementTemplate .
+
+bgf:hasParameter
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    dcterms:description "A parameter for the constitutive relation of a bond element" ;
+    rdfs:domain bgf:ElementTemplate ;
+    rdfs:range bgf:Variable .
+
+bgf:hasVariable
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    dcterms:description "A non-parameter variable in the constitutive relation of a bond element that could be assigned a value" ;
+    rdfs:domain bgf:ElementTemplate ;
+    rdfs:range bgf:Variable .
+
+#################################################################
+
+bgf:parameterValue
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    dcterms:description "A value to assign to a parameter of a bond element" ;
+    rdfs:domain bgf:BondElement ;
+    rdfs:range bgf:Value .
+
+bgf:variableValue
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    dcterms:description "A value to assign to a non-parameter variable in the constitutive relation of a bond element" ;
+    rdfs:domain bgf:BondElement ;
+    rdfs:range bgf:Value .
+
+#################################################################
+
+bgf:hasSource
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:PowerBond ;
+    rdfs:range bgf:PowerPort .
+
+bgf:hasTarget
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:PowerBond ;
+    rdfs:range bgf:PowerPort .
+
+#################################################################
+
+bgf:hasPotential
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:PhysicalDomain ;
+    rdfs:range bgf:Variable .
+
+bgf:hasFlow
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:PhysicalDomain ;
+    rdfs:range bgf:Variable .
+
+bgf:hasQuantity
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:PhysicalDomain ;
+    rdfs:range bgf:Variable .
+
+#################################################################
+#################################################################
+
+bgf:elementTemplate
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:CompositeElement ;
+    rdfs:range bgf:ElementTemplate .
+
+bgf:junctionStructure
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain bgf:CompositeElement ;
+    rdfs:range bgf:JunctionStructure .
+
+#################################################################
+#################################################################
