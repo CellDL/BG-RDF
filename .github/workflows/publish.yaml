@@ -34,7 +34,9 @@ jobs:
         run: pip install pylode
 
       - name: Use PyLode to build HTML for ontology
-        run: pylode -o ./doc/ontology ./schema/ontology.ttl
+        run: |
+          mkdir -p dist/ontologies
+          pylode -o dist/ontologies/bondgraph-framework ./schema/ontology.ttl
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -42,7 +44,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./doc
+          path: ./dist
 
   # Deployment job
   deploy:
