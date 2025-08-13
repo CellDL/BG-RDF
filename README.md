@@ -5,7 +5,7 @@
 
 ## Documentation:
 
-* [Ontology](https://celldl.org/ontologies/bondgraph-framework)
+* [Ontology](https://bg-rdf.org/ontologies/bondgraph-framework)
 
 ## Tools:
 
