@@ -33,11 +33,13 @@ jobs:
       - name: Install PyLode
         run: pip install pylode
 
-      - name: Use PyLode to build HTML for ontology
+      - name: Copy ontology sources and use PyLode to build HTML
         run: |
-          mkdir -p dist/ontologies
-          pylode -o dist/ontologies/bondgraph-framework ./schema/ontology.ttl
+          mkdir -p dist/ontologies/bondgraph-framework/2025-08-13/
           cp ./schema/ontology.ttl dist/ontologies/bondgraph-framework.ttl
+          cp ./schema/ontology.ttl dist/ontologies/bondgraph-framework/2025-08-13/
+          #
+          pylode -o dist/ontologies/bondgraph-framework.html ./schema/ontology.ttl
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
