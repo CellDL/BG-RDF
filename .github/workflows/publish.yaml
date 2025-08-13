@@ -37,6 +37,7 @@ jobs:
         run: |
           mkdir -p dist/ontologies
           pylode -o dist/ontologies/bondgraph-framework ./schema/ontology.ttl
+          cp ./schema/ontology.ttl dist/ontologies/bondgraph-framework.ttl
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
