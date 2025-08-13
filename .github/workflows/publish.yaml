@@ -35,11 +35,12 @@ jobs:
 
       - name: Copy ontology sources and use PyLode to build HTML
         run: |
-          mkdir -p dist/ontologies/bondgraph-framework/2025-08-13/
+          mkdir -p dist/ontologies/versioned/bondgraph-framework/
           cp ./schema/ontology.ttl dist/ontologies/bondgraph-framework.ttl
-          cp ./schema/ontology.ttl dist/ontologies/bondgraph-framework/2025-08-13/
+          cp ./schema/2025-08-13/ontology.ttl dist/ontologies/versioned/bondgraph-framework/2025-08-13-ontology.ttl
           #
           pylode -o dist/ontologies/bondgraph-framework.html ./schema/ontology.ttl
+          pylode -o dist/ontologies/versioned/bondgraph-framework/2025-08-13-ontology.html ./schema/2025-08-13/ontology.ttl
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
