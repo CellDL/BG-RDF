@@ -39,6 +39,9 @@ jobs:
           cp ./schema/ontology.ttl dist/ontologies/bondgraph-framework.ttl
           cp ./schema/2025-08-13/ontology.ttl dist/ontologies/versioned/bondgraph-framework/2025-08-13-ontology.ttl
           #
+          mkdir -p dist/templates/
+          cp ./schema/elements/*.ttl dist/templates
+          #
           pylode -o dist/ontologies/bondgraph-framework.html ./schema/ontology.ttl
           pylode -o dist/ontologies/versioned/bondgraph-framework/2025-08-13-ontology.html ./schema/2025-08-13/ontology.ttl
 
