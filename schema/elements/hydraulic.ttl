@@ -175,7 +175,8 @@ bgf:OsmoticTransporter
         bgf:varName "k_membrane" ;
         rdfs:label "Membrane permeability (L/s/kPa)" ;
         bgf:hasUnits "L.s-1.kPa-1"^^cdt:ucumunit
-    ], [
+    ] ;
+    bgf:hasVariable [
         bgf:varName "q_solute_in" ;
         rdfs:label "Inner solute quantity (mol)" ;
         bgf:hasUnits "mol"^^cdt:ucumunit
@@ -244,7 +245,8 @@ bgf:OldOsmosis
         bgf:varName "k_membrane" ;
         rdfs:label "Membrane permeability (L/s/kPa)" ;
         bgf:hasUnits "L.s-1.kPa-1"^^cdt:ucumunit
-    ], [
+    ] ;
+    bgf:hasVariable [
         bgf:varName "q_solute_in" ;
         rdfs:label "Inner solute quantity (mol)" ;
         bgf:hasUnits "mol"^^cdt:ucumunit

@@ -148,7 +148,8 @@ bgf:NKETransporter
     bgf:hasParameter [
         bgf:varName "k_NKE" ;
         bgf:hasUnits "mol/s"^^cdt:ucumunit
-    ], [
+    ] ;
+    bgf:hasVariable [
         bgf:varName "u_e";
         bgf:hasUnits "J/C"^^cdt:ucumunit
     ], [
