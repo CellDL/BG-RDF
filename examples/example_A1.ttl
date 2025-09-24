@@ -1,5 +1,6 @@
 @prefix bgf: <https://bg-rdf.org/ontologies/bondgraph-framework#> .
 @prefix cdt: <https://w3id.org/cdt/> .
+@prefix tpl: <https://bg-rdf.org/templates/> .
 
 @prefix : <#> .
 
@@ -14,7 +15,7 @@
 
 :example_A1
     a bgf:BondgraphModel ;
-    bgf:usesTemplate '../schema/elements/electrical.ttl' ;
+    bgf:usesTemplate tpl:electrical.ttl ;
     bgf:hasBondElement :C, :R, :L ;
     bgf:hasJunctionStructure :u_C, :v_R, :u_L .
 
