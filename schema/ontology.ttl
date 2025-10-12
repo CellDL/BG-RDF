@@ -29,7 +29,7 @@ bgf:PhysicalDomain
 
 bgf:Quantity
     a owl:Class ;
-    dcterms:description "A carrier of energy." .
+    dcterms:description "A carrier of energy in a physical domain." .
 
 bgf:Flow
     a owl:Class ;
