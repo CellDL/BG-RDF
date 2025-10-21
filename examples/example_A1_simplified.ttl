@@ -6,23 +6,19 @@
 
 #===============================================================================
 #
-#           C           R           L
-#           |           |           |
-#           |           |           |
-#          u_C ------> v_R ------> u_L
+#           C ------> R ------> L
 #
 #===============================================================================
 
 :example_A1
     a bgf:BondgraphModel ;
     bgf:usesTemplate tpl:electrical.ttl ;
-    bgf:hasBondElement :C, :R, :L ;
-    bgf:hasJunctionStructure :u_C, :v_R, :u_L .
+    bgf:hasBondElement :C, :R, :L .
 
 #===============================================================================
 
 :C
-    a bgf:ElectricalCapacitor ;
+    a bgf:ElectricalCapacitiveNode ;
     bgf:hasValue "1 C"^^cdt:ucum ;
     bgf:parameterValue [
         bgf:varName "C" ;
@@ -30,14 +26,14 @@
     ] .
 
 :R
-    a bgf:ElectricalResistor ;
+    a bgf:ElectricalResistiveNode ;
     bgf:parameterValue [
         bgf:varName "R" ;
         bgf:hasValue "2 Ohm"^^cdt:ucum
     ] .
 
 :L
-    a bgf:ElectricalInductor ;
+    a bgf:ElectricalInductiveNode ;
     bgf:hasValue "0 A"^^cdt:ucum ;
     bgf:parameterValue [
         bgf:varName "L" ;
@@ -46,35 +42,12 @@
 
 #===============================================================================
 
-:u_C
-    a bgf:ZeroNode .
-
-:v_R
-    a bgf:OneNode .
-
-:u_L
-    a bgf:ZeroNode .
-
-#===============================================================================
-
-:u_C.C
-    bgf:hasSource :u_C ;
-    bgf:hasTarget :C .
-
-:u_C.v_R
-    bgf:hasSource :u_C ;
-    bgf:hasTarget :v_R .
-
-:v_R.R
-    bgf:hasSource :v_R ;
+:C_R
+    bgf:hasSource :C ;
     bgf:hasTarget :R .
 
-:v_R.u_L
-    bgf:hasSource :v_R ;
-    bgf:hasTarget :u_L .
-
-:u_L.L
-    bgf:hasSource :u_L ;
+:R_L
+    bgf:hasSource :R ;
     bgf:hasTarget :L .
 
 #===============================================================================
