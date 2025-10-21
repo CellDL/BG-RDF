@@ -40,21 +40,21 @@
 #===============================================================================
 
 :R_0
-    a bgf:ElectricalResistanceNode ;
+    a bgf:ElectricalResistiveNode ;
     bgf:parameterValue [
         bgf:varName "R" ;
         bgf:hasValue "10 Ohm"^^cdt:ucum
     ] .
 
 :R_1
-    a bgf:ElectricalResistanceNode ;
+    a bgf:ElectricalResistiveNode ;
     bgf:parameterValue [
         bgf:varName "R" ;
         bgf:hasValue "100 Ohm"^^cdt:ucum
     ] .
 
 :C_1
-    a bgf:ElectricalStorageNode ;
+    a bgf:ElectricalCapacitiveNode ;
     bgf:hasValue "0 C"^^cdt:ucum ;
     bgf:parameterValue [
         bgf:varName "C" ;

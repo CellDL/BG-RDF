@@ -139,14 +139,21 @@ bgf:ElectricalInductor
 #===============================================================================
 #===============================================================================
 
-bgf:ElectricalStorageNode
+bgf:ElectricalCapacitiveNode
     a bgf:CompositeElement ;
     rdfs:label "Electrical storage with Zero Node" ;
     rdfs:subClassOf bgf:ElectricalCapacitor .
 
 #===============================================================================
 
-bgf:ElectricalResistanceNode
+bgf:ElectricalInductiveNode
+    a bgf:CompositeElement ;
+    rdfs:label "Electrical kinetic storage with Zero Node" ;
+    rdfs:subClassOf bgf:ElectricalInductor .
+
+#===============================================================================
+
+bgf:ElectricalResistiveNode
     a bgf:CompositeElement ;
     rdfs:label "Electrical resistance with One Node" ;
     rdfs:subClassOf bgf:ElectricalResistor .
