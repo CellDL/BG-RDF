@@ -51,6 +51,7 @@ bgf:ElectricalResistor
         bgf:varName "R" ;
         bgf:hasUnits "Ohm"^^cdt:ucumunit
     ] ;
+    # v = u/R
     bgf:constitutiveRelation """
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
@@ -76,7 +77,7 @@ bgf:ElectricalCapacitor
         bgf:varName "C" ;
         bgf:hasUnits "F"^^cdt:ucumunit
     ] ;
-    # ode(q, t) = v
+    # dq/dt = v
     # u = q/C
     bgf:constitutiveRelation """
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -114,6 +115,7 @@ bgf:ElectricalInductor
         bgf:varName "L" ;
         bgf:hasUnits "H"^^cdt:ucumunit
     ] ;
+    # dv/dt = u/L
     bgf:constitutiveRelation """
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
