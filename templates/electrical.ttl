@@ -114,10 +114,6 @@ bgf:ElectricalInductor
         bgf:varName "L" ;
         bgf:hasUnits "H"^^cdt:ucumunit
     ] ;
-    bgf:hasVariable [
-        bgf:varName "a" ;
-        bgf:hasUnits "C/s2"^^cdt:ucumunit
-    ] ;
     bgf:constitutiveRelation """
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
@@ -129,15 +125,10 @@ bgf:ElectricalInductor
                     </bvar>
                     <ci>v</ci>
                 </apply>
-                <ci>a</ci>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>u</ci>
                 <apply>
-                    <times/>
+                    <divide/>
+                    <ci>u</ci>
                     <ci>L</ci>
-                    <ci>a</ci>
                 </apply>
             </apply>
         </math>
