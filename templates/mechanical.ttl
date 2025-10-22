@@ -56,8 +56,8 @@ bgf:MechanicalCapacitor
     bgf:hasDomain bgf:Mechanical ;
     rdfs:label "Mechanical capacitor" ;
     bgf:hasParameter [
-        bgf:varName "E" ;
-        bgf:hasUnits "J.m-2"^^cdt:ucumunit
+        bgf:varName "C" ;
+        bgf:hasUnits "m2/J"^^cdt:ucumunit
     ] ;
     bgf:constitutiveRelation """
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -76,9 +76,9 @@ bgf:MechanicalCapacitor
                 <eq/>
                 <ci>u</ci>
                 <apply>
-                    <times/>
-                    <ci>E</ci>
+                    <divide/>
                     <ci>q</ci>
+                    <ci>C</ci>
                 </apply>
             </apply>
         </math>
