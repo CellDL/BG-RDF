@@ -200,12 +200,6 @@ bgf:hasBondElement
     rdfs:domain bgf:BondgraphModel ;
     rdfs:range bgf:BondElement .
 
-bgf:hasElementPort
-    a owl:ObjectProperty ;
-    dcterms:description "The PowerPort that is connected to a composite BondElement's implicit JunctionsStructure." ;
-    rdfs:domain bgf:JunctionStructure ;
-    rdfs:range bgf:PowerPort .
-
 bgf:hasJunctionStructure
     a owl:ObjectProperty ;
     rdfs:domain bgf:BondgraphModel ;
