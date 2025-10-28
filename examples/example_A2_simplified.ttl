@@ -6,23 +6,19 @@
 
 #===============================================================================
 #
-#    C <------ v_1 ------> R
-#               |
-#               |
-#               L
+#    C <------ R ------> L
 #
 #===============================================================================
 
 :example_A2
     a bgf:BondgraphModel ;
     bgf:usesTemplate tpl:mechanical.ttl ;
-    bgf:hasBondElement :C, :R, :L ;
-    bgf:hasJunctionStructure :v_1 .
+    bgf:hasBondElement :C, :R, :L .
 
 #===============================================================================
 
 :C
-    a bgf:MechanicalCapacitor ;
+    a bgf:MechanicalCapacitiveNode ;
     bgf:hasValue "1 m"^^cdt:ucum ;
     bgf:parameterValue [
         bgf:varName "C" ;
@@ -30,14 +26,14 @@
     ] .
 
 :R
-    a bgf:MechanicalResistor ;
+    a bgf:MechanicalResistiveNode ;
     bgf:parameterValue [
         bgf:varName "R" ;
         bgf:hasValue "0.1 J.s.m-2"^^cdt:ucum
     ] .
 
 :L
-    a bgf:MechanicalInductor ;
+    a bgf:MechanicalInductiveNode ;
     bgf:hasValue "0 m/s"^^cdt:ucum ;
     bgf:parameterValue [
         bgf:varName "L" ;
@@ -46,21 +42,12 @@
 
 #===============================================================================
 
-:v_1
-    a bgf:OneNode .
-
-#===============================================================================
-
-:v_1.C
-    bgf:hasSource :v_1 ;
+:R.C
+    bgf:hasSource :R ;
     bgf:hasTarget :C .
 
-:v_1.R
-    bgf:hasSource :v_1 ;
-    bgf:hasTarget :R .
-
-:v_1.L
-    bgf:hasSource :v_1 ;
+:R.L
+    bgf:hasSource :R ;
     bgf:hasTarget :L .
 
 #===============================================================================
