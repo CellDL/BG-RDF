@@ -6,13 +6,10 @@
 
 #===============================================================================
 #
-#                   R_e                    R_m          q_C_m
-#                    |                      |             |
-#                    |                      |             |
-#    u_in_e -----> v_1_e -----> GY -----> v_2_m ------> u_C_m
-#                    |                      |
-#                    |                      |
-#                   L_e                    L_m
+#    u_in_e -----> R_e -----> GY -----> R_m -----> q_C_m
+#                   |                    |
+#                   |                    |
+#                  L_e                  L_m
 #
 #===============================================================================
 
@@ -22,7 +19,7 @@
         tpl:electrical.ttl ,
         tpl:mechanical.ttl ;
     bgf:hasBondElement :u_in_e, :R_e, :L_e, :R_m, :L_m, :q_C_m ;
-    bgf:hasJunctionStructure :v_1_e, :GY, :v_2_m, :u_C_m .
+    bgf:hasJunctionStructure :GY .
 
 #===============================================================================
 
@@ -31,14 +28,14 @@
     bgf:hasValue "11 V"^^cdt:ucum .
 
 :R_e
-    a bgf:ElectricalResistor ;
+    a bgf:ElectricalResistiveNode ;
     bgf:parameterValue [
         bgf:varName "R" ;
         bgf:hasValue "5 Ohm"^^cdt:ucum
     ] .
 
 :L_e
-    a bgf:ElectricalInductor ;
+    a bgf:ElectricalInductiveNode ;
     bgf:hasValue "0 A"^^cdt:ucum ;
     bgf:parameterValue [
         bgf:varName "L" ;
@@ -46,14 +43,14 @@
     ] .
 
 :R_m
-    a bgf:MechanicalResistor ;
+    a bgf:MechanicalResistiveNode ;
     bgf:parameterValue [
         bgf:varName "R" ;
         bgf:hasValue "0.4 J.s.m-2"^^cdt:ucum
     ] .
 
 :L_m
-    a bgf:MechanicalInductor ;
+    a bgf:MechanicalInductiveNode ;
     bgf:hasValue "0 m/s"^^cdt:ucum ;
     bgf:parameterValue [
         bgf:varName "L" ;
@@ -61,71 +58,48 @@
     ] .
 
 :q_C_m
-    a bgf:MechanicalCapacitor ;
+    a bgf:MechanicalCapacitiveNode ;
     bgf:hasValue "0 m"^^cdt:ucum ;
     bgf:parameterValue [
         bgf:varName "C" ;
         bgf:hasValue "0.01 m2/J"^^cdt:ucum
     ] .
 
-#===============================================================================
-
-:v_1_e
-    a bgf:OneNode .
-
 :GY
     a bgf:TransformNode ;
     bgf:hasSymbol "Bl" ;
     bgf:hasValue "6 J.s.C-1.m-1"^^cdt:ucum .
 
-:v_2_m
-    a bgf:OneNode .
-
-:u_C_m
-    a bgf:ZeroNode .
-
 #===============================================================================
 
-:u_in_e.v_1_e
+:u_in_e.R_e
     bgf:hasSource :u_in_e ;
-    bgf:hasTarget :v_1_e .
-
-:v_1_e.R_e
-    bgf:hasSource :v_1_e ;
     bgf:hasTarget :R_e .
 
-:v_1_e.L_e
-    bgf:hasSource :v_1_e ;
+:R_e.L_e
+    bgf:hasSource :R_e ;
     bgf:hasTarget :L_e .
 
-:v_1_e.GY_0
-    bgf:hasSource :v_1_e ;
+:R_e.GY_0
+    bgf:hasSource :R_e ;
     bgf:hasTarget [
         bgf:element :GY ;
         bgf:port "0"
     ] .
 
-:GY_1.v_2_m
+:GY_1.R_m
     bgf:hasSource [
         bgf:element :GY ;
         bgf:port "1"
     ] ;
-    bgf:hasTarget :v_2_m .
-
-:v_2_m.R_m
-    bgf:hasSource :v_2_m ;
     bgf:hasTarget :R_m .
 
-:v_2_m.L_m
-    bgf:hasSource :v_2_m ;
+:R_m.L_m
+    bgf:hasSource :R_m ;
     bgf:hasTarget :L_m .
 
-:v_2_m.u_C_m
-    bgf:hasSource :v_2_m ;
-    bgf:hasTarget :u_C_m .
-
-:u_c.q_C_m
-    bgf:hasSource :u_C_m ;
+:R_m.q_C_m
+    bgf:hasSource :R_m ;
     bgf:hasTarget :q_C_m .
 
 #===============================================================================
