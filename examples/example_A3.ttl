@@ -28,7 +28,29 @@
 
 :u_in_e
     a bgf:VoltageSource ;
-    bgf:hasValue "11 V"^^cdt:ucum .
+#       u_in_e = 50{J_per_C}*sin(50{per_s}*2{dimensionless}*pi*t);
+    bgf:hasValue """
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>u</ci>
+                <apply>
+                    <times/>
+                    <cn>50</cn>
+                    <apply>
+                        <sin/>
+                        <apply>
+                            <times/>
+                            <cn>50</cn>
+                            <cn>2</cn>
+                            <pi/>
+                            <ci>t</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+        </math>
+    """^^bgf:mathml .
 
 :R_e
     a bgf:ElectricalResistor ;
