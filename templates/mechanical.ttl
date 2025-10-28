@@ -126,3 +126,25 @@ bgf:MechanicalInductor
     """^^bgf:mathml .
 
 #===============================================================================
+#===============================================================================
+
+bgf:MechanicalCapacitiveNode
+    a bgf:CompositeElement ;
+    rdfs:label "Mechanical storage with Zero Node" ;
+    rdfs:subClassOf bgf:MechanicalCapacitor .
+
+#===============================================================================
+
+bgf:MechanicalInductiveNode
+    a bgf:CompositeElement ;
+    rdfs:label "Mechanical kinetic storage with Zero Node" ;
+    rdfs:subClassOf bgf:MechanicalInductor .
+
+#===============================================================================
+
+bgf:MechanicalResistiveNode
+    a bgf:CompositeElement ;
+    rdfs:label "Mechanical resistance with One Node" ;
+    rdfs:subClassOf bgf:MechanicalResistor .
+
+#===============================================================================
