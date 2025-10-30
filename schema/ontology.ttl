@@ -167,6 +167,11 @@ bgf:hasBlock
 
 #################################################################
 
+bgf:bondCount
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    dcterms:description "The number of bonds represented in a connection between two Power Ports." ;
+    rdfs:range xsd:positiveInteger .
+
 bgf:constitutiveRelation
     a owl:DatatypeProperty, owl:FunctionalProperty ;
     rdfs:domain bgf:ElementTemplate ;
