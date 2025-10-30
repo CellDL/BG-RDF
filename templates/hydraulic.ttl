@@ -170,7 +170,13 @@ bgf:OsmoticTransporter
     rdfs:subClassOf bgf:Dissipator ;
     bgf:hasDomain bgf:Hydraulic ;   # this gives us flow/potential symbols (v: L/s, u: kPa)
     rdfs:label "Osmotic transport" ;
-    bgf:hasPort 'water_in', 'water_out' ;
+    bgf:hasPort [
+        bgf:portId 'water_in' ;
+        bgf:direction bgf:InwardPort
+    ], [
+        bgf:portId 'water_out' ;
+        bgf:direction bgf:OutwardPort
+    ] ;
     bgf:hasParameter [
         bgf:varName "k_membrane" ;
         rdfs:label "Membrane permeability (L/s/kPa)" ;

@@ -43,7 +43,13 @@ bgf:ChemicalReaction
     rdfs:subClassOf bgf:Dissipator ;
     bgf:hasDomain bgf:Chemical ;
     rdfs:label "Chemical reaction" ;
-    bgf:hasPort 'f', 'r' ;
+    bgf:hasPort [
+        bgf:portId 'f' ;
+        bgf:direction bgf:InwardPort
+    ], [
+        bgf:portId 'r' ;
+        bgf:direction bgf:OutwardPort
+    ] ;
     bgf:hasParameter [
         bgf:varName "kappa" ;
         bgf:hasUnits "mol/s"^^cdt:ucumunit
@@ -134,15 +140,19 @@ bgf:NKETransporter
     bgf:hasDomain bgf:Chemical ;
     bgf:hasPort [
         bgf:portId 'K_f' ;
+        bgf:direction bgf:InwardPort ;
         bgf:bondCount 2
     ], [
         bgf:portId 'K_r' ;
+        bgf:direction bgf:OutwardPort ;
         bgf:bondCount 2
     ], [
         bgf:portId 'Na_f' ;
+        bgf:direction bgf:InwardPort ;
         bgf:bondCount 3
     ], [
         bgf:portId 'Na_r' ;
+        bgf:direction bgf:OutwardPort ;
         bgf:bondCount 3
     ] ;
     bgf:hasParameter [

@@ -131,6 +131,16 @@ bgf:Variable
     a owl:Class .
 
 #################################################################
+#    Port directions
+#################################################################
+
+bgf:InwardPort
+    a owl:Class .
+
+bgf:OutwardPort
+    a owl:Class .
+
+#################################################################
 #    Datatypes
 #################################################################
 
@@ -211,6 +221,10 @@ bgf:hasPowerBond
     rdfs:range bgf:PowerBond .
 
 #################################################################
+
+bgf:direction
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    dcterms:description "The inward or outward direction of a power port of a multi-port Bond Element" .
 
 bgf:hasConstant
     a owl:ObjectProperty, owl:FunctionalProperty ;
