@@ -242,13 +242,13 @@ bgf:hasPort
 
 bgf:hasParameter
     a owl:ObjectProperty, owl:FunctionalProperty ;
-    dcterms:description "A parameter for the constitutive relation of a bond element" ;
+    dcterms:description "A parameter for the constitutive relation of a Bond Element" ;
     rdfs:domain bgf:ElementTemplate ;
     rdfs:range bgf:Variable .
 
 bgf:hasVariable
     a owl:ObjectProperty, owl:FunctionalProperty ;
-    dcterms:description "A non-parameter variable in the constitutive relation of a bond element that could be assigned a value" ;
+    dcterms:description "A non-parameter variable in the constitutive relation of a Bond Element that could be assigned a value" ;
     rdfs:domain bgf:ElementTemplate ;
     rdfs:range bgf:Variable .
 
