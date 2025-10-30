@@ -20,6 +20,8 @@
 # FAIRDO BG example 3.4 on PMR
 # https://models.physiomeproject.org/e/b53/FAIRDO%20BG%20example%203.4.cellml/view
 #
+# Simulate for 40 seconds at 0.01 second steps
+#
 #===============================================================================
 
 :Simple_reaction
