@@ -1,0 +1,102 @@
+@prefix bgf: <https://bg-rdf.org/ontologies/bondgraph-framework#> .
+@prefix cdt: <https://w3id.org/cdt/> .
+@prefix tpl: <https://bg-rdf.org/templates/> .
+
+@prefix : <#> .
+
+#===============================================================================
+#
+#       q_1          q_3
+#          \        /
+#           \      /
+#   q_2 ===== Re_c ===== q_4
+#
+#===============================================================================
+#
+# FAIRDO BG example 3.5 on PMR
+# https://models.physiomeproject.org/e/b55/FAIRDO%20BG%20example%203.5.cellml/view
+#
+# Simulate for 4 seconds at 0.001 second steps
+#
+#===============================================================================
+
+:mixed_reaction
+    a bgf:BondgraphModel ;
+    bgf:usesTemplate tpl:chemical.ttl ;
+    bgf:hasBondElement :q_1, :q_2, :Re_c, :q_3, :q_4 .
+
+#===============================================================================
+
+:q_1
+    a bgf:ChemicalStorageNode ;
+    bgf:hasValue "1 mol"^^cdt:ucum ;
+    bgf:parameterValue [
+        bgf:varName "K" ;
+        bgf:hasValue "2 mol-1"^^cdt:ucum
+    ] .
+
+:q_2
+    a bgf:ChemicalStorageNode ;
+    bgf:hasValue "1 mol"^^cdt:ucum ;
+    bgf:parameterValue [
+        bgf:varName "K" ;
+        bgf:hasValue "2 mol-1"^^cdt:ucum
+    ] .
+
+:Re_c
+    a bgf:ChemicalReactionNode ;
+    bgf:parameterValue [
+        bgf:varName "kappa" ;
+        bgf:hasSymbol "kappa_r" ;
+        bgf:hasValue "0.1 mol/s"^^cdt:ucum
+    ] .
+
+:q_3
+    a bgf:ChemicalStorageNode ;
+    bgf:hasValue "0 mol"^^cdt:ucum ;
+    bgf:parameterValue [
+        bgf:varName "K" ;
+        bgf:hasValue "2 mol-1"^^cdt:ucum
+    ] .
+
+:q_4
+    a bgf:ChemicalStorageNode ;
+    bgf:hasValue "0 mol"^^cdt:ucum ;
+    bgf:parameterValue [
+        bgf:varName "K" ;
+        bgf:hasValue "2 mol-1"^^cdt:ucum
+    ] .
+
+#===============================================================================
+
+:q_1.Re_c
+    bgf:hasSource :q_1 ;
+    bgf:hasTarget [
+        bgf:element :Re_c ;
+        bgf:port "f"
+    ] .
+
+:q_2.Re_c
+    bgf:hasSource :q_2 ;
+    bgf:hasTarget [
+        bgf:element :Re_c ;
+        bgf:port "f"
+    ] ;
+    bgf:bondCount 2 .
+
+:Re_c.q_3
+    bgf:hasSource [
+        bgf:element :Re_c ;
+        bgf:port "r"
+    ] ;
+    bgf:hasTarget :q_3 .
+
+:Re_c.q_4
+    bgf:hasSource [
+        bgf:element :Re_c ;
+        bgf:port "r"
+    ] ;
+    bgf:hasTarget :q_4 ;
+    bgf:bondCount 2 .
+
+#===============================================================================

@@ -1,0 +1,145 @@
+@prefix bgf: <https://bg-rdf.org/ontologies/bondgraph-framework#> .
+@prefix cdt: <https://w3id.org/cdt/> .
+@prefix tpl: <https://bg-rdf.org/templates/> .
+
+@prefix : <#> .
+
+#===============================================================================
+#
+#       q_1 ---- u_1                             u_3 ---- q_3
+#                    \                         /
+#                     \                       /
+#   q_2 ---- u_2 ==== v_r ----- Re_c ----- v_r ==== u_4 ---- q_4
+#
+#
+#
+#
+#===============================================================================
+#
+# FAIRDO BG example 3.5 on PMR
+# https://models.physiomeproject.org/e/b55/FAIRDO%20BG%20example%203.5.cellml/view
+#
+# Simulate for 4 seconds at 0.001 second steps
+#
+#===============================================================================
+
+:mixed_reaction
+    a bgf:BondgraphModel ;
+    bgf:usesTemplate tpl:chemical.ttl ;
+    bgf:hasBondElement :q_1, :q_2, :Re_c, :q_3, :q_4 ;
+    bgf:hasJunctionStructure :u_1, :u_2, :v_r_1, :v_r_2, :u_3, :u_4 .
+
+#===============================================================================
+
+:q_1
+    a bgf:ChemicalConcentration ;
+    bgf:hasValue "1 mol"^^cdt:ucum ;
+    bgf:parameterValue [
+        bgf:varName "K" ;
+        bgf:hasValue "2 mol-1"^^cdt:ucum
+    ] .
+
+:q_2
+    a bgf:ChemicalConcentration ;
+    bgf:hasValue "1 mol"^^cdt:ucum ;
+    bgf:parameterValue [
+        bgf:varName "K" ;
+        bgf:hasValue "2 mol-1"^^cdt:ucum
+    ] .
+
+:Re_c
+    a bgf:ChemicalReaction ;
+    bgf:parameterValue [
+        bgf:varName "kappa" ;
+        bgf:hasSymbol "kappa_r" ;
+        bgf:hasValue "0.1 mol/s"^^cdt:ucum
+    ] .
+
+:q_3
+    a bgf:ChemicalConcentration ;
+    bgf:hasValue "0 mol"^^cdt:ucum ;
+    bgf:parameterValue [
+        bgf:varName "K" ;
+        bgf:hasValue "2 mol-1"^^cdt:ucum
+    ] .
+
+:q_4
+    a bgf:ChemicalConcentration ;
+    bgf:hasValue "0 mol"^^cdt:ucum ;
+    bgf:parameterValue [
+        bgf:varName "K" ;
+        bgf:hasValue "2 mol-1"^^cdt:ucum
+    ] .
+
+
+#===============================================================================
+
+:u_1
+    a bgf:ZeroNode .
+
+:u_2
+    a bgf:ZeroNode .
+
+:v_r_1
+    a bgf:OneNode .
+
+:v_r_2
+    a bgf:OneNode .
+
+:u_3
+    a bgf:ZeroNode .
+
+:u_4
+    a bgf:ZeroNode .
+
+#===============================================================================
+
+:u_1.q_1
+    bgf:hasSource :u_1 ;
+    bgf:hasTarget :q_1 .
+
+:u_1.v_r_1
+    bgf:hasSource :u_1 ;
+    bgf:hasTarget :v_r_1 .
+
+:u_2.q_2
+    bgf:hasSource :u_2 ;
+    bgf:hasTarget :q_2 .
+
+:u_2.v_r_1
+    bgf:bondCount 2 ;
+    bgf:hasSource :u_2 ;
+    bgf:hasTarget :v_r_1 .
+
+:v_r_1.Re_c
+    bgf:hasSource :v_r_1 ;
+    bgf:hasTarget [
+        bgf:element :Re_c ;
+        bgf:port "f"
+    ] .
+
+:Re_c.v_r_2
+    bgf:hasSource [
+        bgf:element :Re_c ;
+        bgf:port "r"
+    ] ;
+    bgf:hasTarget :v_r_2 .
+
+:v_r_2.u_3
+    bgf:hasSource :v_r_2 ;
+    bgf:hasTarget :u_3 .
+
+:u_3.q_3
+    bgf:hasSource :u_3 ;
+    bgf:hasTarget :q_3 .
+
+:v_r_2.u_4
+    bgf:bondCount 2 ;
+    bgf:hasSource :v_r_2 ;
+    bgf:hasTarget :u_4 .
+
+:u_4.q_4
+    bgf:hasSource :u_4 ;
+    bgf:hasTarget :q_4 .
+
+#===============================================================================
