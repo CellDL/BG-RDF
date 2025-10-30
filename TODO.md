@@ -10,8 +10,8 @@
 
 - [ ] Implement `hasParameter` etc.
 - [ ] Implement `bgf:AlgebraicExpression`
-- [ ] Implement `bgf:bondCount`.
-- [ ] Generating CellML code for Transformers and Gyrators.
+- [X] Implement `bgf:bondCount`.
+- [X] Generating CellML code for Transformers and Gyrators.
 
 ## Errors and validation:
 
