@@ -28,6 +28,8 @@
 :u_in_e
     a bgf:VoltageSource ;
 #       u_in_e = 50{J_per_C}*sin(50{per_s}*2{dimensionless}*pi*t);
+#                    <cn bgf:units="V">50</cn>
+#                            <cn bgf:units="s-1">50</cn>
     bgf:hasValue """
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
