@@ -158,28 +158,28 @@ bgf:NKETransporter
     bgf:hasParameter [
         bgf:varName "k_NKE" ;
         bgf:hasUnits "mol/s"^^cdt:ucumunit
-    ] ;
-    bgf:hasVariable [
+    ], [
+        bgf:varName "K_K";
+        bgf:hasUnits "L/mol"^^cdt:ucumunit
+    ], [
+        bgf:varName "K_Na" ;
+        bgf:hasUnits "L/mol"^^cdt:ucumunit
+    ], [
         bgf:varName "u_e";
         bgf:hasUnits "J/C"^^cdt:ucumunit
-    ], [
+    ] ;
+    bgf:hasVariable [
         bgf:varName "q_H2O_in" ;
         bgf:hasUnits "L"^^cdt:ucumunit
     ], [
         bgf:varName "q_H2O_out" ;
         bgf:hasUnits "L"^^cdt:ucumunit
     ], [
-        bgf:varName "K_Na" ;
-        bgf:hasUnits "L/mol"^^cdt:ucumunit
-    ], [
         bgf:varName "q_Na_in" ;
         bgf:hasUnits "mol"^^cdt:ucumunit
     ], [
         bgf:varName "q_Na_out" ;
         bgf:hasUnits "mol"^^cdt:ucumunit
-    ], [
-        bgf:varName "K_K";
-        bgf:hasUnits "L/mol"^^cdt:ucumunit
     ], [
         bgf:varName "q_K_in" ;
         bgf:hasUnits "mol"^^cdt:ucumunit
