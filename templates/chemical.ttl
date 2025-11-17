@@ -40,7 +40,7 @@ bgf:ChemicalFlow
 
 bgf:ChemicalReaction
     a bgf:ElementTemplate ;
-    rdfs:subClassOf bgf:Dissipator ;
+    rdfs:subClassOf bgf:Reaction ;
     bgf:hasDomain bgf:Chemical ;
     rdfs:label "Chemical reaction" ;
     bgf:hasPort [
@@ -136,7 +136,7 @@ bgf:ChemicalConcentration
 
 bgf:NKETransporter
     a bgf:ElementTemplate ;
-    rdfs:subClassOf bgf:Dissipator ;
+    rdfs:subClassOf bgf:Reaction ;
     bgf:hasDomain bgf:Chemical ;
     bgf:hasPort [
         bgf:portId 'K_f' ;

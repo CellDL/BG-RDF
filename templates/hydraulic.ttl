@@ -167,7 +167,7 @@ bgf:ElasticVessel
 
 bgf:OsmoticTransporter
     a bgf:ElementTemplate ;
-    rdfs:subClassOf bgf:Dissipator ;
+    rdfs:subClassOf bgf:Reaction ;
     bgf:hasDomain bgf:Hydraulic ;   # this gives us flow/potential symbols (v: L/s, u: kPa)
     rdfs:label "Osmotic transport" ;
     bgf:hasPort [
@@ -244,7 +244,7 @@ bgf:OsmoticTransporter
 
 bgf:OldOsmosis
     a bgf:ElementTemplate ;
-    rdfs:subClassOf bgf:Dissipator ;
+    rdfs:subClassOf bgf:Reaction ;
     bgf:hasDomain bgf:Hydraulic ;   # this gives us flow/potential symbols (v: L/s, u: kPa)
     rdfs:label "Osmotic transport" ;
     bgf:hasParameter [
