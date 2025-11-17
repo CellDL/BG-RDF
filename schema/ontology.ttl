@@ -316,6 +316,16 @@ bgf:hasQuantity
     rdfs:range bgf:Variable .
 
 #################################################################
+#    Annotation Properties
+#################################################################
+
+bgf:hasLocation
+    dcterms:description "The location of an element or junction in the physical system described by the bond graph." .
+
+bgf:hasSpecies
+    dcterms:description "The entity which an element or junction represents in the physical system described by the bond graph." .
+
+#################################################################
 #################################################################
 
 bgf:elementTemplate
