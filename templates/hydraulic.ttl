@@ -332,3 +332,6 @@ bgf:OldOsmosisNode
     rdfs:label "Hydraulic osmotic transport with One Node" ;
     rdfs:subClassOf bgf:OldOsmosis ;
     rdfs:subClassOf bgf:OneReactionNode .
+
+#===============================================================================
+#===============================================================================
