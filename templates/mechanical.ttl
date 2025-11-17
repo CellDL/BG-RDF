@@ -131,7 +131,8 @@ bgf:MechanicalInductor
 bgf:MechanicalCapacitiveNode
     a bgf:CompositeElement ;
     rdfs:label "Mechanical storage with Zero Node" ;
-    rdfs:subClassOf bgf:MechanicalCapacitor .
+    rdfs:subClassOf bgf:MechanicalCapacitor ;
+    rdfs:subClassOf bgf:ZeroStorageNode .
 
 #===============================================================================
 
@@ -145,6 +146,7 @@ bgf:MechanicalInductiveNode
 bgf:MechanicalResistiveNode
     a bgf:CompositeElement ;
     rdfs:label "Mechanical resistance with One Node" ;
-    rdfs:subClassOf bgf:MechanicalResistor .
+    rdfs:subClassOf bgf:MechanicalResistor ;
+    rdfs:subClassOf bgf:OneResistanceNode .
 
 #===============================================================================

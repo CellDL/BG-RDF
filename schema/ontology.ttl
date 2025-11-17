@@ -123,6 +123,21 @@ bgf:ZeroNode
 #################################################################
 #################################################################
 
+bgf:OneReactionNode
+    a bgf:CompositeElement ;
+    rdfs:subClassOf bgf:BondElement .
+
+bgf:OneResistanceNode
+    a bgf:CompositeElement ;
+    rdfs:subClassOf bgf:BondElement .
+
+bgf:ZeroStorageNode
+    a bgf:CompositeElement ;
+    rdfs:subClassOf bgf:BondElement .
+
+#################################################################
+#################################################################
+
 bgf:ElementTemplate
     a owl:Class .
 
