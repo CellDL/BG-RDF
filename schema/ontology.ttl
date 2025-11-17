@@ -76,27 +76,27 @@ bgf:CompositeElement
 bgf:QuantityStore
     rdfs:subClassOf bgf:BondElement ;
     rdfs:label "Static energy store" ;
-    dcterms:description "Static energy stored as the amount of some quantity." .
+    dcterms:description "An element which stores static energy as the amount of some quantity." .
 
 bgf:FlowStore
     rdfs:subClassOf bgf:BondElement ;
     rdfs:label "Dynamic energy store" ;
-    dcterms:description "Dynamic energy stored as the flow of some quantity." .
+    dcterms:description "An element which stores dynamic energy as the flow of some quantity." .
 
 bgf:Dissipator
     rdfs:subClassOf bgf:BondElement ;
     rdfs:label "Dissipative element" ;
-    dcterms:description "Dissipate energy" .
+    dcterms:description "An element which dissipates energy." .
 
 bgf:PotentialSource
     rdfs:subClassOf bgf:BondElement ;
     rdfs:label "Potential source element" ;
-    dcterms:description "Potential energy source" .
+    dcterms:description "A source of potential energy." .
 
 bgf:FlowSource
     rdfs:subClassOf bgf:BondElement ;
     rdfs:label "Flow source element" ;
-    dcterms:description "Dynamic energy source" .
+    dcterms:description "A source of dynamic energy." .
 
 bgf:Reaction
     rdfs:subClassOf bgf:Dissipator ;
@@ -108,17 +108,17 @@ bgf:Reaction
 bgf:OneNode
     rdfs:subClassOf bgf:JunctionStructure ;
     rdfs:label "One node" ;
-    dcterms:description "Total potential at node is zero" .
+    dcterms:description "Total potential at node is zero." .
 
 bgf:TransformNode
     rdfs:subClassOf bgf:JunctionStructure ;
     rdfs:label "Transform node" ;
-    dcterms:description "Transform potential and flow" .
+    dcterms:description "Transform potential and flow." .
 
 bgf:ZeroNode
     rdfs:subClassOf bgf:JunctionStructure ;
     rdfs:label "Zero node" ;
-    dcterms:description "Total flow at node is zero" .
+    dcterms:description "Total flow at node is zero." .
 
 #################################################################
 #################################################################
@@ -249,7 +249,7 @@ bgf:hasPowerBond
 
 bgf:direction
     a owl:ObjectProperty, owl:FunctionalProperty ;
-    dcterms:description "The inward or outward direction of a power port of a multi-port Bond Element" .
+    dcterms:description "The inward or outward direction of a power port of a multi-port Bond Element." .
 
 bgf:hasConstant
     a owl:ObjectProperty, owl:FunctionalProperty ;
@@ -262,13 +262,13 @@ bgf:hasPort
 
 bgf:hasParameter
     a owl:ObjectProperty, owl:FunctionalProperty ;
-    dcterms:description "A parameter for the constitutive relation of a Bond Element" ;
+    dcterms:description "A parameter for the constitutive relation of a Bond Element." ;
     rdfs:domain bgf:ElementTemplate ;
     rdfs:range bgf:Variable .
 
 bgf:hasVariable
     a owl:ObjectProperty, owl:FunctionalProperty ;
-    dcterms:description "A non-parameter variable in the constitutive relation of a Bond Element that could be assigned a value" ;
+    dcterms:description "A non-parameter variable in the constitutive relation of a Bond Element that could be assigned a value." ;
     rdfs:domain bgf:ElementTemplate ;
     rdfs:range bgf:Variable .
 
@@ -282,7 +282,7 @@ bgf:parameterValue
 
 bgf:variableValue
     a owl:ObjectProperty, owl:FunctionalProperty ;
-    dcterms:description "A value to assign to a non-parameter variable in the constitutive relation of a bond element" ;
+    dcterms:description "A value to assign to a non-parameter variable in the constitutive relation of a bond element." ;
     rdfs:domain bgf:BondElement ;
     rdfs:range bgf:Value .
 
