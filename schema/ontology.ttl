@@ -125,15 +125,21 @@ bgf:ZeroNode
 
 bgf:OneReactionNode
     a bgf:CompositeElement ;
-    rdfs:subClassOf bgf:BondElement .
+    rdfs:subClassOf bgf:BondElement ;
+    rdfs:label "One reaction node" ;
+    dcterms:description "A reation element with two associated One Nodes" .
 
 bgf:OneResistanceNode
     a bgf:CompositeElement ;
-    rdfs:subClassOf bgf:BondElement .
+    rdfs:subClassOf bgf:BondElement ;
+    rdfs:label "One resistance node" ;
+    dcterms:description "A dissipative element with one associated One Node" .
 
 bgf:ZeroStorageNode
     a bgf:CompositeElement ;
-    rdfs:subClassOf bgf:BondElement .
+    rdfs:subClassOf bgf:BondElement ;
+    rdfs:label "Zero storage node" ;
+    dcterms:description "A storage element with one associated Zero Node" .
 
 #################################################################
 #################################################################
