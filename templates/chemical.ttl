@@ -31,6 +31,11 @@ bgf:Chemical
 
 #===============================================================================
 
+bgf:ChemicalPotential
+    a bgf:ElementTemplate ;
+    rdfs:subClassOf bgf:PotentialSource ;
+    bgf:hasDomain bgf:Chemical .
+
 bgf:ChemicalFlow
     a bgf:ElementTemplate ;
     rdfs:subClassOf bgf:FlowSource ;

@@ -32,6 +32,11 @@ bgf:Hydraulic
 
 #===============================================================================
 
+bgf:HydraulicPotential
+    a bgf:ElementTemplate ;
+    rdfs:subClassOf bgf:PotentialSource ;
+    bgf:hasDomain bgf:Hydraulic .
+
 bgf:HydraulicFlow
     a bgf:ElementTemplate ;
     rdfs:subClassOf bgf:FlowSource ;

@@ -25,6 +25,18 @@ bgf:Mechanical
 
 #===============================================================================
 
+bgf:MechanicalPotential
+    a bgf:ElementTemplate ;
+    rdfs:subClassOf bgf:PotentialSource ;
+    bgf:hasDomain bgf:Mechanical .
+
+bgf:MechanicalFlow
+    a bgf:ElementTemplate ;
+    rdfs:subClassOf bgf:FlowSource ;
+    bgf:hasDomain bgf:Mechanical .
+
+#===============================================================================
+
 bgf:MechanicalResistor
     a bgf:ElementTemplate ;
     rdfs:subClassOf bgf:Dissipator ;
