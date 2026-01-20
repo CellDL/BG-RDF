@@ -89,7 +89,7 @@ bgf:HydraulicResistor
     bgf:hasParameter [
         bgf:varName "k" ;
         rdfs:label "Conductance (L/s/kPa)" ;
-        bgf:hasUnits "L.s-1.kPa-1"^^cdt:ucumunit
+        bgf:hasUnits "L2.s-1.J-1"^^cdt:ucumunit
     ] ;
     bgf:constitutiveRelation """
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -185,7 +185,7 @@ bgf:OsmoticTransporter
     bgf:hasParameter [
         bgf:varName "k_membrane" ;
         rdfs:label "Membrane permeability (L/s/kPa)" ;
-        bgf:hasUnits "L.s-1.kPa-1"^^cdt:ucumunit
+        bgf:hasUnits "L2.s-1.J-1"^^cdt:ucumunit
     ] ;
     bgf:hasVariable [
         bgf:varName "q_solute_in" ;
@@ -255,7 +255,7 @@ bgf:OldOsmosis
     bgf:hasParameter [
         bgf:varName "k_membrane" ;
         rdfs:label "Membrane permeability (L/s/kPa)" ;
-        bgf:hasUnits "L.s-1.kPa-1"^^cdt:ucumunit
+        bgf:hasUnits "L2.s-1.J-1"^^cdt:ucumunit
     ] ;
     bgf:hasVariable [
         bgf:varName "q_solute_in" ;
