@@ -22,7 +22,7 @@ bgf:Hydraulic
     bgf:hasPotential [
         bgf:varName "u" ;
         rdfs:label "Fluid pressure (kPa)" ;
-        bgf:hasUnits "kPa"^^cdt:ucumunit
+        bgf:hasUnits "J/L"^^cdt:ucumunit
     ] ;
     bgf:hasQuantity [
         bgf:varName "q" ;
