@@ -309,31 +309,31 @@ bgf:OldOsmosis
 #===============================================================================
 
 bgf:HydraulicResistanceNode
-    a bgf:CompositeElement ;
+    a bgf:CompositeTemplate ;
     rdfs:label "Hydraulic resistance with One Node" ;
     rdfs:subClassOf bgf:HydraulicResistor ;
     rdfs:subClassOf bgf:OneResistanceNode .
 
 bgf:HydraulicStorageNode
-    a bgf:CompositeElement ;
+    a bgf:CompositeTemplate ;
     rdfs:label "Hydraulic storage with Zero Node" ;
     rdfs:subClassOf bgf:HydraulicStorage ;
     rdfs:subClassOf bgf:ZeroStorageNode .
 
 bgf:HydraulicElasticStorageNode
-    a bgf:CompositeElement ;
+    a bgf:CompositeTemplate ;
     rdfs:label "Hydraulic elastic storage with Zero Node" ;
     rdfs:subClassOf bgf:ElasticVessel ;
     rdfs:subClassOf bgf:ZeroStorageNode .
 
 bgf:OsmoticTransporterNode
-    a bgf:CompositeElement ;
+    a bgf:CompositeTemplate ;
     rdfs:label "Hydraulic osmotic transport with One Node" ;
     rdfs:subClassOf bgf:OsmoticTransporter ;
     rdfs:subClassOf bgf:OneReactionNode .
 
 bgf:OldOsmosisNode
-    a bgf:CompositeElement ;
+    a bgf:CompositeTemplate ;
     rdfs:label "Hydraulic osmotic transport with One Node" ;
     rdfs:subClassOf bgf:OldOsmosis ;
     rdfs:subClassOf bgf:OneReactionNode .

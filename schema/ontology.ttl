@@ -68,7 +68,7 @@ bgf:PowerPort
 
 bgf:CompositeElement
     a owl:Class ;
-    dcterms:description "A composite of a bgf:ElementTemplate and a bgf:JunctionStructure, for example an ElecticalStorageNode." .
+    dcterms:description "A composite of a bgf:BondElement and a bgf:JunctionStructure, for example a bgf:bgf:ZeroStorageNode." .
 
 #################################################################
 #################################################################
@@ -150,6 +150,9 @@ bgf:ZeroStorageNode
 #################################################################
 
 bgf:ElementTemplate
+    a owl:Class .
+
+bgf:CompositeTemplate
     a owl:Class .
 
 bgf:Constant
@@ -341,12 +344,12 @@ bgf:hasSpecies
 
 bgf:elementTemplate
     a owl:ObjectProperty, owl:FunctionalProperty ;
-    rdfs:domain bgf:CompositeElement ;
+    rdfs:domain bgf:CompositeTemplate ;
     rdfs:range bgf:ElementTemplate .
 
 bgf:junctionStructure
     a owl:ObjectProperty, owl:FunctionalProperty ;
-    rdfs:domain bgf:CompositeElement ;
+    rdfs:domain bgf:CompositeTemplate ;
     rdfs:range bgf:JunctionStructure .
 
 #################################################################
