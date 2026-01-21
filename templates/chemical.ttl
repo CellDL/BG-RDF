@@ -365,8 +365,8 @@ bgf:ChemicalStorageNode
 #===============================================================================
 
 bgf:ChemicalReactionNode
-    rdfs:label "Chemical reaction withe One Node" ;
     a bgf:CompositeTemplate ;
+    rdfs:label "Chemical reaction with One Node" ;
     rdfs:subClassOf bgf:ChemicalReaction ;
     rdfs:subClassOf bgf:OneReactionNode .
 

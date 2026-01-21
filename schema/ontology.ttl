@@ -132,13 +132,13 @@ bgf:OneReactionNode
     a bgf:CompositeElement ;
     rdfs:subClassOf bgf:Reaction ;
     rdfs:label "One reaction node" ;
-    dcterms:description "A reation element with two associated One Nodes" .
+    dcterms:description "A dissipator with two associated One Nodes" .
 
 bgf:OneResistanceNode
     a bgf:CompositeElement ;
     rdfs:subClassOf bgf:Resistance ;
     rdfs:label "One resistance node" ;
-    dcterms:description "A dissipative element with one associated One Node" .
+    dcterms:description "A dissipator with one associated One Node" .
 
 bgf:ZeroStorageNode
     a bgf:CompositeElement ;
