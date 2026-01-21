@@ -98,6 +98,8 @@ bgf:FlowSource
     rdfs:label "Flow source" ;
     dcterms:description "A source of dynamic energy." .
 
+#################################################################
+
 bgf:Reaction
     rdfs:subClassOf bgf:Dissipator ;
     rdfs:label "Reaction element" ;

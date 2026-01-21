@@ -33,8 +33,6 @@ bgf:VoltageSource
     rdfs:subClassOf bgf:PotentialSource ;
     bgf:hasDomain bgf:Electrical .
 
-#===============================================================================
-
 bgf:CurrentSource
     a bgf:ElementTemplate ;
     rdfs:subClassOf bgf:FlowSource ;
