@@ -15,7 +15,7 @@
     owl:versionInfo "2026-01-21" ;
     owl:versionIRI <https://bg-rdf.org/ontologies/versioned/bondgraph-framework/2026-01-21-ontology.ttl> ;
     owl:priorVersion
-        <https://bg-rdf.org/ontologies/versioned/bondgraph-framework/2025-08-13-ontology.html> ;
+        <https://bg-rdf.org/ontologies/versioned/bondgraph-framework/2025-08-13-ontology.html> ,
         <https://bg-rdf.org/ontologies/versioned/bondgraph-framework/2025-08-13-ontology.ttl> ;
     dcterms:title "A Framework for Bond-Graph Modelling" .
 
