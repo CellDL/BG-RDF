@@ -14,6 +14,9 @@
     a owl:Ontology ;
     owl:versionInfo "2025-08-13" ;
     owl:versionIRI "https://bg-rdf.org/ontologies/bondgraph-framework/2025-08-13/ontology.ttl" ;
+    owl:priorVersion
+        <https://celldl.org/ontologies/bgf/2025-06-10/ontology.html> ,
+        <https://celldl.org/ontologies/bgf/2025-06-10/ontology.ttl> ;
     dcterms:title "A Framework for Bond-Graph Modelling" .
 
 #################################################################
