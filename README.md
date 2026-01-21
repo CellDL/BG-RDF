@@ -16,3 +16,4 @@
 ## Tools:
 
 * **[bg2cellml](https://github.com/CellDL/BG-Tools)**: a Python utility to generate CellML from BG-RDF models.
+* **[CellDL Editor](https://github.com/CellDL/CellDLEditor)**: A Vue 3 component and standalone editor to create SVG diagrams containing BG-RDF models.
