@@ -147,13 +147,6 @@ bgf:ElectricalCapacitiveNode
 
 #===============================================================================
 
-bgf:ElectricalInductiveNode
-    a bgf:CompositeElement ;
-    rdfs:label "Electrical kinetic storage with Zero Node" ;
-    rdfs:subClassOf bgf:ElectricalInductor .
-
-#===============================================================================
-
 bgf:ElectricalResistiveNode
     a bgf:CompositeTemplate ;
     rdfs:label "Electrical resistance with One Node" ;

@@ -148,13 +148,6 @@ bgf:MechanicalCapacitiveNode
 
 #===============================================================================
 
-bgf:MechanicalInductiveNode
-    a bgf:CompositeElement ;
-    rdfs:label "Mechanical kinetic storage with Zero Node" ;
-    rdfs:subClassOf bgf:MechanicalInductor .
-
-#===============================================================================
-
 bgf:MechanicalResistiveNode
     a bgf:CompositeTemplate ;
     rdfs:label "Mechanical resistance with One Node" ;
