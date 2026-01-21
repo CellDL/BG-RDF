@@ -44,7 +44,7 @@ bgf:CurrentSource
 
 bgf:ElectricalResistor
     a bgf:ElementTemplate ;
-    rdfs:subClassOf bgf:Dissipator ;
+    rdfs:subClassOf bgf:Resistance ;
     bgf:hasDomain bgf:Electrical ;
     rdfs:label "Electrical resistor" ;
     bgf:hasParameter [

@@ -103,6 +103,11 @@ bgf:Reaction
     rdfs:label "Reaction element" ;
     dcterms:description "A dissipator with two power ports through which quantities are exchanged." .
 
+bgf:Resistance
+    rdfs:subClassOf bgf:Dissipator ;
+    rdfs:label "Resistive element" ;
+    dcterms:description "A dissipator with a single power port." .
+
 #################################################################
 
 bgf:OneNode
