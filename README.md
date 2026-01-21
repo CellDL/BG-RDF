@@ -5,7 +5,7 @@
 
 ## Documentation:
 
-* [Ontology](https://bg-rdf.org/ontologies/bondgraph-framework)
+* [BG-RDF Ontology](https://bg-rdf.org/ontologies/bondgraph-framework)
 
 ## BG-RDF SPARQL endpoint:
 
