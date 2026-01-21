@@ -7,6 +7,12 @@
 
 * [Ontology](https://bg-rdf.org/ontologies/bondgraph-framework)
 
+## BG-RDF SPARQL endpoint:
+
+1. Install the [Oxigraph CLI](https://crates.io/crates/oxigraph-cli) tool.
+2. Clone this repository.
+3. Run `./server.sh`.
+
 ## Tools:
 
 * **[bg2cellml](https://github.com/CellDL/BG-Tools)**: a Python utility to generate CellML from BG-RDF models.
