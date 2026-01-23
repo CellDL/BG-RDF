@@ -71,31 +71,19 @@
 
 :q_1.Re_c
     bgf:hasSource :q_1 ;
-    bgf:hasTarget [
-        bgf:element :Re_c ;
-        bgf:port "f"
-    ] .
+    bgf:hasTarget :Re_c .
 
 :q_2.Re_c
     bgf:hasSource :q_2 ;
-    bgf:hasTarget [
-        bgf:element :Re_c ;
-        bgf:port "f"
-    ] ;
+    bgf:hasTarget :Re_c ;
     bgf:bondCount 2 .
 
 :Re_c.q_3
-    bgf:hasSource [
-        bgf:element :Re_c ;
-        bgf:port "r"
-    ] ;
+    bgf:hasSource :Re_c ;
     bgf:hasTarget :q_3 .
 
 :Re_c.q_4
-    bgf:hasSource [
-        bgf:element :Re_c ;
-        bgf:port "r"
-    ] ;
+    bgf:hasSource :Re_c ;
     bgf:hasTarget :q_4 ;
     bgf:bondCount 2 .
 

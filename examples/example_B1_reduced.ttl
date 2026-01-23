@@ -59,16 +59,10 @@
 
 :q_1.Re_f
     bgf:hasSource :q_1 ;
-    bgf:hasTarget [
-        bgf:element :Re ;
-        bgf:port "f"
-    ] .
+    bgf:hasTarget :Re .
 
 :Re_r.q_2
-    bgf:hasSource [
-        bgf:element :Re ;
-        bgf:port "r"
-    ] ;
+    bgf:hasSource :Re ;
     bgf:hasTarget :q_2 .
 
 #===============================================================================

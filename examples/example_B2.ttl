@@ -113,16 +113,10 @@
 
 :v_r_1.Re_c
     bgf:hasSource :v_r_1 ;
-    bgf:hasTarget [
-        bgf:element :Re_c ;
-        bgf:port "f"
-    ] .
+    bgf:hasTarget :Re_c .
 
 :Re_c.v_r_2
-    bgf:hasSource [
-        bgf:element :Re_c ;
-        bgf:port "r"
-    ] ;
+    bgf:hasSource :Re_c ;
     bgf:hasTarget :v_r_2 .
 
 :v_r_2.u_3

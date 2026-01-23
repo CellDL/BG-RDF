@@ -124,16 +124,10 @@
 
 :v_1_e.GY_0
     bgf:hasSource :v_1_e ;
-    bgf:hasTarget [
-        bgf:element :GY ;
-        bgf:port "0"
-    ] .
+    bgf:hasTarget :GY .
 
 :GY_1.v_2_m
-    bgf:hasSource [
-        bgf:element :GY ;
-        bgf:port "1"
-    ] ;
+    bgf:hasSource :GY ;
     bgf:hasTarget :v_2_m .
 
 :v_2_m.R_m
