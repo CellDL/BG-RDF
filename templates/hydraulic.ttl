@@ -177,6 +177,7 @@ bgf:OsmoticTransporter
     rdfs:subClassOf bgf:Reaction ;
     bgf:hasDomain bgf:Hydraulic ;   # this gives us flow/potential symbols (v: L/s, u: kPa)
     rdfs:label "Osmotic transport" ;
+    bgf:hasSymbol "R" ;
     bgf:hasPort [
         bgf:portId 'water_in' ;
         bgf:direction bgf:InwardPort
@@ -254,6 +255,7 @@ bgf:OldOsmosis
     rdfs:subClassOf bgf:Reaction ;
     bgf:hasDomain bgf:Hydraulic ;   # this gives us flow/potential symbols (v: L/s, u: kPa)
     rdfs:label "Osmotic transport (original)" ;
+    bgf:hasSymbol "R" ;
     bgf:hasParameter [
         bgf:varName "k_membrane" ;
         rdfs:label "Membrane permeability (L/s/kPa)" ;
