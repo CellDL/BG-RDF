@@ -145,6 +145,14 @@ bgf:ElectricalCapacitiveNode
 
 #===============================================================================
 
+bgf:ElectricalInductiveNode
+    a bgf:CompositeTemplate ;
+    rdfs:label "Electrical inductor with One Node" ;
+    rdfs:subClassOf bgf:ElectricalInductor ;
+    rdfs:subClassOf bgf:OneStorageNode .
+
+#===============================================================================
+
 bgf:ElectricalResistiveNode
     a bgf:CompositeTemplate ;
     rdfs:label "Electrical resistance with One Node" ;

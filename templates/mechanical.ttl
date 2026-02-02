@@ -148,6 +148,14 @@ bgf:MechanicalCapacitiveNode
 
 #===============================================================================
 
+bgf:MechanicalInductiveNode
+    a bgf:CompositeTemplate ;
+    rdfs:label "Mechanical inductor with One Node" ;
+    rdfs:subClassOf bgf:MechanicalInductor ;
+    rdfs:subClassOf bgf:OneStorageNode .
+
+#===============================================================================
+
 bgf:MechanicalResistiveNode
     a bgf:CompositeTemplate ;
     rdfs:label "Mechanical resistance with One Node" ;

@@ -130,6 +130,12 @@ bgf:ZeroNode
 #################################################################
 #################################################################
 
+bgf:OneStorageNode
+    a bgf:CompositeElement ;
+    rdfs:subClassOf bgf:FlowStore ;
+    rdfs:label "One flow store node" ;
+    dcterms:description "A flow store element with one associated One Nodes" .
+
 bgf:OneReactionNode
     a bgf:CompositeElement ;
     rdfs:subClassOf bgf:Reaction ;
