@@ -1,20 +1,21 @@
-@prefix bg: <https://bg-rdf.org/ontologies/bondgraph#> .
 @prefix bgf: <https://bg-rdf.org/ontologies/bondgraph-framework#> .
-@prefix bpc: <https://bg-rdf.org/ontologies/block-port-connector#> .
 @prefix cdt: <https://w3id.org/cdt/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix bg:  <https://w3id.org/bondgraph/core#> .
 
 @base <https://bg-rdf.org/ontologies/bondgraph-framework> .
 
 <https://bg-rdf.org/ontologies/bondgraph-framework>
     a owl:Ontology ;
-    owl:versionInfo "2026-04-12" ;
-    owl:versionIRI <https://bg-rdf.org/ontologies/versioned/bondgraph-framework/2026-04-12-ontology.ttl> ;
+    owl:versionInfo "2026-11-03" ;
+    owl:versionIRI <https://bg-rdf.org/ontologies/versioned/bondgraph-framework/2026-11-03-ontology.ttl> ;
+    owl:imports <https://w3id.org/bondgraph/core> ;
     owl:priorVersion
+        <https://bg-rdf.org/ontologies/versioned/bondgraph-framework/2026-04-12-ontology.ttl> ,
         <https://bg-rdf.org/ontologies/versioned/bondgraph-framework/2026-01-21-ontology.html> ,
         <https://bg-rdf.org/ontologies/versioned/bondgraph-framework/2026-01-21-ontology.ttl> ;
     dcterms:title "A Framework for Bond-Graph Modelling" .
@@ -25,6 +26,7 @@
 
 bgf:PhysicalDomain
     a owl:Class ;
+    rdfs:subClassOf bg:EnergyDomain ;
     dcterms:description "A physical domain in which energy is carried by some quantity." .
 
 bgf:Flow
@@ -53,34 +55,39 @@ bgf:Quantity
 
 bgf:BondgraphModel
     a owl:Class ;
-    rdfs:subClassOf bg:BondGraph .
+    rdfs:subClassOf bg:BondGraph ;
+    dcterms:description "An anergy based model of a physical system, defined by the flow of power between system components" .
 
 bgf:BondElement
     a owl:Class ;
-    rdfs:subClassOf bg:BondElement .
+    rdfs:subClassOf bg:BondGraphElement ;
+    dcterms:description "A system component that either stores energy, dissipates energy, or is a source of energy." .
 
 bgf:JunctionStructure
     a owl:Class ;
-    rdfs:subClassOf bg:JunctionStructure .
+    rdfs:subClassOf bg:Junction ;
+    dcterms:description "A system component where energy is exchanged between components." .
 
 bgf:PowerBond
     a owl:Class ;
-    dcterms:description "A connection between two PowerPorts over which power is transfered." ;
-    rdfs:subClassOf bg:PowerBond .
+    rdfs:subClassOf bg:PowerBond ;
+    dcterms:description "A connection between two PowerPorts over which power is transfered." .
 
 bgf:PowerPort
     a owl:Class ;
-    dcterms:description "A port of a BondElement or JunctionStructure through which power is transfered." ;
-    rdfs:subClassOf bg:PowerPort .
+    rdfs:subClassOf bg:PowerPort ;
+    dcterms:description "A port of a BondElement or JunctionStructure through which power is transfered." .
 
 bgf:SignalBond
     a owl:Class ;
+    rdfs:subClassOf bg:SignalBond ;
     dcterms:description "A connection in which no power flows, used to convey state information." .
 
 #################################################################
 
 bgf:CompositeElement
     a owl:Class ;
+    rdfs:subClassOf bg:CompositeElement ;
     dcterms:description "A composite of a bgf:BondElement and a bgf:JunctionStructure, for example a bgf:bgf:ZeroStorageNode." .
 
 #################################################################
@@ -88,30 +95,35 @@ bgf:CompositeElement
 
 bgf:QuantityStore
     a owl:Class ;
+    rdfs:subClassOf bg:CapacitiveStorage ;
     rdfs:subClassOf bgf:BondElement ;
     rdfs:label "Static energy store" ;
     dcterms:description "An element which stores static energy as the amount of some quantity." .
 
 bgf:FlowStore
     a owl:Class ;
+    rdfs:subClassOf bg:InertialStorage ;
     rdfs:subClassOf bgf:BondElement ;
     rdfs:label "Dynamic energy store" ;
     dcterms:description "An element which stores dynamic energy as the amount of some momentum." .
 
 bgf:Dissipator
     a owl:Class ;
+    rdfs:subClassOf bg:DissipativeElement ;
     rdfs:subClassOf bgf:BondElement ;
     rdfs:label "Dissipative element" ;
     dcterms:description "An element which dissipates energy." .
 
 bgf:PotentialSource
     a owl:Class ;
+    rdfs:subClassOf bg:EffortSource ;
     rdfs:subClassOf bgf:BondElement ;
     rdfs:label "Potential source" ;
     dcterms:description "A source of potential energy." .
 
 bgf:FlowSource
     a owl:Class ;
+    rdfs:subClassOf bg:FlowSource ;
     rdfs:subClassOf bgf:BondElement ;
     rdfs:label "Flow source" ;
     dcterms:description "A source of dynamic energy." .
@@ -120,12 +132,14 @@ bgf:FlowSource
 
 bgf:Reaction
     a owl:Class ;
+    rdfs:subClassOf bg:DissipativeElement ;
     rdfs:subClassOf bgf:Dissipator ;
     rdfs:label "Reaction element" ;
     dcterms:description "A dissipator with two power ports through which quantities are exchanged." .
 
 bgf:Resistance
     a owl:Class ;
+    rdfs:subClassOf bg:Resistor ;
     rdfs:subClassOf bgf:Dissipator ;
     rdfs:label "Resistive element" ;
     dcterms:description "A dissipator with a single power port." .
@@ -134,18 +148,21 @@ bgf:Resistance
 
 bgf:OneNode
     a owl:Class ;
+    rdfs:subClassOf bg:OneJunction ;
     rdfs:subClassOf bgf:JunctionStructure ;
     rdfs:label "One node" ;
     dcterms:description "Total potential at node is zero." .
 
 bgf:TransformNode
     a owl:Class ;
+    rdfs:subClassOf bg:Transducer ;
     rdfs:subClassOf bgf:JunctionStructure ;
     rdfs:label "Transform node" ;
     dcterms:description "Transform potential and flow." .
 
 bgf:ZeroNode
     a owl:Class ;
+    rdfs:subClassOf bg:ZeroJunction ;
     rdfs:subClassOf bgf:JunctionStructure ;
     rdfs:label "Zero node" ;
     dcterms:description "Total flow at node is zero." .
@@ -281,16 +298,19 @@ bgf:varName
 
 bgf:hasBondElement
     a owl:ObjectProperty ;
+    rdfs:subPropertyOf bg:hasElement ;
     rdfs:domain bgf:BondgraphModel ;
     rdfs:range bgf:BondElement .
 
 bgf:hasJunctionStructure
     a owl:ObjectProperty ;
+    rdfs:subPropertyOf bg:hasElement ;
     rdfs:domain bgf:BondgraphModel ;
     rdfs:range bgf:JunctionStructure .
 
 bgf:hasPowerBond
     a owl:ObjectProperty ;
+    rdfs:subPropertyOf bg:hasBond ;
     rdfs:domain bgf:BondgraphModel ;
     rdfs:range bgf:PowerBond .
 
@@ -344,11 +364,13 @@ bgf:variableValue
 
 bgf:hasSource
     a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:subPropertyOf bg:hasPowerSource ;
     rdfs:domain bgf:PowerBond ;
     rdfs:range bgf:PowerPort .
 
 bgf:hasTarget
     a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:subPropertyOf bg:hasPowerSink ;
     rdfs:domain bgf:PowerBond ;
     rdfs:range bgf:PowerPort .
 
